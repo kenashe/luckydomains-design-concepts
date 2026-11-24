@@ -24,5 +24,170 @@
   "The real contact form delivery, the www redirect, and the 404 page for missing paths exist only on the live domain and are checked after launch.",
   "The KenAshe.ai pull request could not be built locally. Its Vercel preview build is the check."
  ],
- "perfNote": ""
+ "perfNote": "Measured on the published staging copy on November 24, 2026, in Chromium through the DevTools Protocol. Each figure is the median of three cold loads. Phone figures use a 412 by 823 viewport with 150 ms latency, 1.6 Mbps down and the processor slowed four times, close to Lighthouse's mobile preset. Transfer and requests are for a first visit on desktop, with nothing cached, and include one staging-only script. No page made a third-party request. These are lab measurements, not Lighthouse scores and not field data.",
+ "perf": {
+  "base": "https://kenashe.github.io/luckydomains-design-concepts/digital-presence-production-candidate/",
+  "pages": {
+   "Home": {
+    "phone": {
+     "fcp": 820,
+     "lcp": 820,
+     "cls": 0,
+     "tbt": 67,
+     "kb": 208.0,
+     "requests": 8,
+     "third": 0
+    },
+    "desktop": {
+     "fcp": 144,
+     "lcp": 144,
+     "cls": 0,
+     "tbt": 0,
+     "kb": 208.0,
+     "requests": 8,
+     "third": 0
+    }
+   },
+   "Services": {
+    "phone": {
+     "fcp": 768,
+     "lcp": 768,
+     "cls": 0,
+     "tbt": 55,
+     "kb": 194.0,
+     "requests": 9,
+     "third": 0
+    },
+    "desktop": {
+     "fcp": 80,
+     "lcp": 80,
+     "cls": 0,
+     "tbt": 0,
+     "kb": 194.0,
+     "requests": 9,
+     "third": 0
+    }
+   },
+   "SEO service page": {
+    "phone": {
+     "fcp": 780,
+     "lcp": 780,
+     "cls": 0,
+     "tbt": 69,
+     "kb": 194.0,
+     "requests": 9,
+     "third": 0
+    },
+    "desktop": {
+     "fcp": 100,
+     "lcp": 100,
+     "cls": 0,
+     "tbt": 0,
+     "kb": 194.0,
+     "requests": 9,
+     "third": 0
+    }
+   },
+   "Digital Presence Check": {
+    "phone": {
+     "fcp": 764,
+     "lcp": 764,
+     "cls": 0,
+     "tbt": 35,
+     "kb": 194.0,
+     "requests": 7,
+     "third": 0
+    },
+    "desktop": {
+     "fcp": 92,
+     "lcp": 92,
+     "cls": 0,
+     "tbt": 0,
+     "kb": 240.0,
+     "requests": 8,
+     "third": 0
+    }
+   },
+   "Insights": {
+    "phone": {
+     "fcp": 752,
+     "lcp": 940,
+     "cls": 0,
+     "tbt": 30,
+     "kb": 193.0,
+     "requests": 7,
+     "third": 0
+    },
+    "desktop": {
+     "fcp": 84,
+     "lcp": 84,
+     "cls": 0,
+     "tbt": 0,
+     "kb": 239.0,
+     "requests": 8,
+     "third": 0
+    }
+   },
+   "Article": {
+    "phone": {
+     "fcp": 764,
+     "lcp": 764,
+     "cls": 0,
+     "tbt": 50,
+     "kb": 198.0,
+     "requests": 8,
+     "third": 0
+    },
+    "desktop": {
+     "fcp": 92,
+     "lcp": 92,
+     "cls": 0,
+     "tbt": 0,
+     "kb": 198.0,
+     "requests": 8,
+     "third": 0
+    }
+   },
+   "Founder": {
+    "phone": {
+     "fcp": 792,
+     "lcp": 792,
+     "cls": 0,
+     "tbt": 23,
+     "kb": 243.0,
+     "requests": 8,
+     "third": 0
+    },
+    "desktop": {
+     "fcp": 88,
+     "lcp": 732,
+     "cls": 0,
+     "tbt": 0,
+     "kb": 243.0,
+     "requests": 8,
+     "third": 0
+    }
+   },
+   "Contact": {
+    "phone": {
+     "fcp": 728,
+     "lcp": 728,
+     "cls": 0,
+     "tbt": 10,
+     "kb": 193.0,
+     "requests": 7,
+     "third": 0
+    },
+    "desktop": {
+     "fcp": 76,
+     "lcp": 76,
+     "cls": 0,
+     "tbt": 0,
+     "kb": 239.0,
+     "requests": 8,
+     "third": 0
+    }
+   }
+  }
+ }
 }
