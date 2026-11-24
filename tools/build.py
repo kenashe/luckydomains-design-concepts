@@ -10,7 +10,7 @@ import sys, importlib
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-for mod in ("concept_a", "concept_a_v2", "concept_b", "concept_c", "review"):
+for mod in ("concept_a", "concept_a_v2", "concept_b", "concept_c", "review", "p2_a", "p2_b", "p2_c", "p2_review"):
     try:
         m = importlib.import_module(mod)
     except ModuleNotFoundError as e:

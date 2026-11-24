@@ -1,0 +1,1145 @@
+{
+  "_readme": "Phase 2 shared content. One factual and copy source for all three Phase 2 concepts. Sources: luckydomains.io and the kenashe/luckydomains repository (main branch, commit efed1de), and public build records on kenashe.ai, read November 24, 2026. Items with concept=true are layout or planning copy, not published facts. Phase 1 content lives in shared/content.json and is not read by Phase 2.",
+  "asOf": "November 24, 2026",
+  "company": {
+    "name": "Lucky Domains",
+    "email": "info@luckydomains.io",
+    "description": "Lucky Domains helps businesses build a digital presence that people, search engines, and AI systems can find, understand, and trust.",
+    "long": "Lucky Domains designs and builds websites, improves search and AI visibility, strengthens entity and brand signals, and secures the domains that anchor a business’s digital identity.",
+    "studio": "Lucky Domains is a digital presence studio for the AI era, combining website design, SEO, brand authority, AI visibility, and domain strategy.",
+    "founderLine": "Founded and operated by Ken Ashe, CPA, PMP.",
+    "storyHeadline": "Domains were the beginning. Not the boundary.",
+    "story": "Lucky Domains began with the most fundamental piece of digital identity: the domain. From there, the work expanded naturally into the website built on that name, the search visibility that brings people to it, and the entity and authority signals that help search engines and AI systems understand the brand.",
+    "storyCoda": "The name still matters. It is now the first layer of something larger.",
+    "accountability": "You talk to Ken. Ken does the work. The person on your first call is the person who scopes it, does it, and reports on it.",
+    "consult": "The first consultation is free, with no obligation."
+  },
+  "hero": {
+    "eyebrow": "Websites · Search · Digital identity · AI visibility",
+    "headline": "Build a digital presence people, search engines, and AI recognize.",
+    "support": "Lucky Domains designs and builds high-performing websites, improves visibility across search and AI, strengthens the signals that establish brand authority, and secures the domains that anchor your identity.",
+    "cta1": "Build your digital presence",
+    "cta2": "Explore our services",
+    "headlineB": "Be the business people, search engines, and AI can explain.",
+    "headlineC": "Make your business easy to find, understand, and trust."
+  },
+  "nav": [
+    {
+      "label": "Services",
+      "href": "services/",
+      "menu": true
+    },
+    {
+      "label": "Work",
+      "href": "work/"
+    },
+    {
+      "label": "About",
+      "href": "#story"
+    },
+    {
+      "label": "Insights",
+      "href": "#insights"
+    },
+    {
+      "label": "Founder",
+      "href": "#founder"
+    },
+    {
+      "label": "Contact",
+      "href": "#contact"
+    }
+  ],
+  "navCta": "Start a project",
+  "deferredNote": "About, Insights, Founder, and Contact are shown as homepage sections in this concept. Full pages are deferred until a direction is chosen.",
+  "stack": [
+    {
+      "id": "domain",
+      "name": "Domain",
+      "line": "Own the name and anchor the identity.",
+      "detail": "The domain is the one piece of your presence you fully own. Your site, your email, your profiles, and the references other people make all point back to it.",
+      "service": "domains"
+    },
+    {
+      "id": "website",
+      "name": "Website",
+      "line": "Build the destination the business controls.",
+      "detail": "Profiles and marketplaces change their rules. A fast, well-structured site on your own domain is where people land, what search engines index, and where AI systems find your own account of who you are.",
+      "service": "websites"
+    },
+    {
+      "id": "search",
+      "name": "Search",
+      "line": "Become technically sound, relevant, and discoverable.",
+      "detail": "Crawlable, fast pages organized around what people actually search for, plus the local and technical signals that help the right page appear.",
+      "service": "seo"
+    },
+    {
+      "id": "entity",
+      "name": "Entity",
+      "line": "Establish who you are and how everything relates.",
+      "detail": "Your website, founders, services, locations, profiles, reviews, and references, described consistently and connected in structured data, so systems can tell you apart from everyone with a similar name.",
+      "service": "entity"
+    },
+    {
+      "id": "ai",
+      "name": "AI",
+      "line": "Become easier for AI systems to understand, verify, cite, and surface.",
+      "detail": "AI-powered search and assistants draw on the same evidence: your pages, your entity signals, and what credible sources say about you. Stronger evidence leaves them less to guess.",
+      "service": "ai"
+    }
+  ],
+  "stackReinforce": "The layers reinforce each other. A strong site on a confusing name is harder to trust. Search work on a site with no structure has little to stand on. AI systems lean on all of it at once.",
+  "outcomes": [
+    {
+      "id": "own",
+      "title": "Own your identity",
+      "line": "Secure the right name and describe the business the same way everywhere, so people and systems never have to guess who you are.",
+      "layers": [
+        "domain",
+        "entity"
+      ],
+      "services": [
+        "domains",
+        "entity"
+      ]
+    },
+    {
+      "id": "build",
+      "title": "Build the destination",
+      "line": "A website on your own domain that is fast, clear, accessible, and built around what your customers are looking for.",
+      "layers": [
+        "website"
+      ],
+      "services": [
+        "websites"
+      ]
+    },
+    {
+      "id": "earn",
+      "title": "Earn recognition",
+      "line": "Durable visibility in search, and stronger evidence for the AI systems that increasingly answer before anyone clicks.",
+      "layers": [
+        "search",
+        "ai"
+      ],
+      "services": [
+        "seo",
+        "ai"
+      ]
+    }
+  ],
+  "services": [
+    {
+      "id": "websites",
+      "n": "01",
+      "name": "Website Design & Development",
+      "short": "New builds and redesigns on a foundation people, search engines, and AI systems can read.",
+      "page": "website-design/",
+      "anchor": "",
+      "lead": "The website is the one place you fully control. It should be clear to a visitor in seconds and readable by every system that indexes it.",
+      "includes": [
+        "New website builds",
+        "Website redesigns",
+        "Information architecture",
+        "Content structure",
+        "Search-ready technical foundations",
+        "Accessibility",
+        "Performance",
+        "Structured data",
+        "Analytics foundations",
+        "Conversion and trust",
+        "Clean, maintainable implementation"
+      ]
+    },
+    {
+      "id": "seo",
+      "n": "02",
+      "name": "SEO & Search Visibility",
+      "short": "Technical, on-page, content, and local SEO that earns visibility and keeps it.",
+      "page": "search-ai-visibility/",
+      "anchor": "seo",
+      "lead": "SEO is evolving, not disappearing. The fundamentals still decide which pages get found, and they now feed AI-powered search too.",
+      "includes": [
+        "Technical SEO",
+        "On-page optimization",
+        "Internal linking",
+        "Search intent",
+        "Content strategy",
+        "Local SEO",
+        "Google Business Profile",
+        "Search monitoring",
+        "Search Console",
+        "Durable, white-hat visibility"
+      ]
+    },
+    {
+      "id": "ai",
+      "n": "03",
+      "name": "AI Visibility & Brand Authority",
+      "short": "Improve the evidence that search engines and AI systems use to understand your brand.",
+      "page": "search-ai-visibility/",
+      "anchor": "ai-visibility",
+      "lead": "AI systems form a view of your brand from what they can read and verify. We work on that evidence, and we measure what changes.",
+      "includes": [
+        "AI visibility baselines",
+        "Brand and entity consistency audits",
+        "Source and citation analysis",
+        "Important-query testing",
+        "First-party content review",
+        "Authority-content planning",
+        "Profile alignment",
+        "Structured-data validation",
+        "Monitoring over time"
+      ]
+    },
+    {
+      "id": "entity",
+      "n": "04",
+      "name": "Entity SEO & Digital Identity",
+      "short": "One clear, consistent identity for a person or a company, in plain words and in structured data.",
+      "page": "domain-identity/",
+      "anchor": "entity",
+      "lead": "Search engines organize the web around entities, not just keywords. Your identity should be unambiguous wherever it appears.",
+      "includes": [
+        "Canonical entity-home audit",
+        "Person and Organization structured data with stable identifiers",
+        "Official profile mapping and consistency",
+        "Founder, company, author, and service relationships",
+        "Locations and reviews, described consistently",
+        "Knowledge Graph readiness assessment"
+      ]
+    },
+    {
+      "id": "domains",
+      "n": "05",
+      "name": "Domain Acquisition & Brokerage",
+      "short": "The name that is already taken, valued, negotiated, and transferred through escrow. Or a quiet sale of one you own.",
+      "page": "domain-identity/",
+      "anchor": "domains",
+      "lead": "The domain you want is rarely for sale until someone who knows how to ask comes along.",
+      "includes": [
+        "Domain strategy",
+        "Fair-market valuation",
+        "Discreet buyer representation",
+        "Anonymous owner outreach",
+        "Negotiation against an agreed range",
+        "Seller representation",
+        "Escrow-backed transfer",
+        "Expiring-domain support",
+        "Backorders where appropriate"
+      ]
+    }
+  ],
+  "notPromised": "We do not guarantee rankings, AI citations, mentions in any particular AI system, or a Knowledge Panel. No one honestly can. We improve the evidence those systems work from, and we show you what changed.",
+  "noSecret": "There is no secret AI markup. Structured data helps systems read facts you can already show. It does not invent authority you have not earned.",
+  "aiShift": {
+    "title": "Where your business needs to be recognized",
+    "intro": "People still type a name into a browser and click search results. More of them now ask an assistant, or read an AI summary above the results. Those systems do not replace the web. They read it.",
+    "audiences": [
+      {
+        "name": "People",
+        "line": "A visitor decides in seconds whether you look credible and whether you do what they need."
+      },
+      {
+        "name": "Search engines",
+        "line": "Crawl, index, and rank the pages that answer a query best."
+      },
+      {
+        "name": "AI search features",
+        "line": "Summaries at the top of results, drawn from pages the engine already trusts."
+      },
+      {
+        "name": "Answer engines and assistants",
+        "line": "Tools that answer a question directly and sometimes cite the sources they used."
+      },
+      {
+        "name": "Recommendation systems",
+        "line": "Maps, directories, and marketplaces that decide which business to show."
+      }
+    ]
+  },
+  "aiWork": {
+    "title": "How AI changes the work",
+    "principle": "AI-powered execution with human accountability.",
+    "intro": "Lucky Domains uses AI and internal automation for the slow, repetitive parts of the job, so more of the time goes into judgment. Ken reviews and signs off on every recommendation.",
+    "uses": [
+      {
+        "name": "Research",
+        "line": "Domain candidates, competitors, and the questions customers actually ask."
+      },
+      {
+        "name": "Technical audits",
+        "line": "Crawls, indexing checks, and canonical and duplicate-URL reviews."
+      },
+      {
+        "name": "Website QA",
+        "line": "Links, metadata, accessibility, and performance checks on every change."
+      },
+      {
+        "name": "Structured-data review",
+        "line": "Validation of Person, Organization, and service data against the facts."
+      },
+      {
+        "name": "Content architecture",
+        "line": "Page maps built from real search demand."
+      },
+      {
+        "name": "Profile and citation research",
+        "line": "Finding the profiles and sources that describe a brand, and where they disagree."
+      },
+      {
+        "name": "Implementation",
+        "line": "Repetitive markup, redirects, and page updates, checked by tests."
+      },
+      {
+        "name": "Monitoring and reporting",
+        "line": "Tracking changes over time and preparing plain-English reports."
+      }
+    ],
+    "evidence": "Lucky Domains runs an internal agent that researches listing sites, creates profiles, and confirms its own verification emails. It is an internal system, not a client product."
+  },
+  "diagnostic": {
+    "title": "Where are you stuck?",
+    "intro": "Pick the one that sounds most like you. You will see where we would start.",
+    "options": [
+      {
+        "id": "domain",
+        "label": "I need the right domain",
+        "service": "domains",
+        "start": "Domain Acquisition & Brokerage",
+        "why": "The name comes first. We find out who owns it, set a fair-market range, and decide with you whether and how to approach the owner.",
+        "first": [
+          "Confirm the target name and alternatives",
+          "Set a fair-market range before anyone is contacted",
+          "Anonymous outreach, negotiation, and escrow"
+        ]
+      },
+      {
+        "id": "website",
+        "label": "My website needs work",
+        "service": "websites",
+        "start": "Website Design & Development",
+        "why": "We review the site you have and write down what is holding it back, then recommend fixing it or rebuilding it, and what either would take.",
+        "first": [
+          "Written review of structure, speed, indexing, and content",
+          "Recommendation: fix or rebuild",
+          "A scoped plan in writing"
+        ]
+      },
+      {
+        "id": "search",
+        "label": "I am not showing up in search",
+        "service": "seo",
+        "start": "SEO & Search Visibility",
+        "why": "Most invisibility has a technical cause or a targeting cause. We find which, fix the foundation, then build pages around real search demand.",
+        "first": [
+          "Technical audit and Search Console review",
+          "Page targeting against real queries",
+          "Local profile and internal linking"
+        ]
+      },
+      {
+        "id": "identity",
+        "label": "My brand identity is inconsistent",
+        "service": "entity",
+        "start": "Entity SEO & Digital Identity",
+        "why": "When your name, description, founders, and profiles disagree, systems hesitate. We make one canonical home and bring the rest into line.",
+        "first": [
+          "Entity-home audit",
+          "Profile and reference map",
+          "Structured data with stable identifiers"
+        ]
+      },
+      {
+        "id": "ai",
+        "label": "AI systems do not seem to recognize my company",
+        "service": "ai",
+        "start": "AI Visibility & Brand Authority",
+        "why": "We start with a baseline: what AI systems say today for the questions that matter, which sources they lean on, and where the evidence about you is thin.",
+        "first": [
+          "Important-query testing and a written baseline",
+          "Source and citation analysis",
+          "A plan to strengthen first-party and third-party evidence"
+        ]
+      }
+    ]
+  },
+  "pages": {
+    "services": {
+      "eyebrow": "Services",
+      "title": "Five services, one digital presence.",
+      "lead": "Each service stands on its own. Together they follow the order a presence is built: the name, the destination, the visibility, the identity, and the recognition that depends on all of it.",
+      "engagements": [
+        {
+          "name": "Project",
+          "line": "A defined piece of work, such as a website build, an entity audit, or a domain acquisition, scoped in writing before work starts."
+        },
+        {
+          "name": "Ongoing",
+          "line": "Monthly search and visibility work, with a written scope and plain-English reporting. No ranking guarantees."
+        },
+        {
+          "name": "Full launch",
+          "line": "Name, site, search foundation, and identity together, for a new business or a rebrand."
+        }
+      ],
+      "pricing": "Pricing is set after the consultation, from a written scope, not from a menu. Domain brokerage is success-based: if there is no purchase, there is no success fee.",
+      "notList": [
+        "Not a full-service marketing agency",
+        "No paid ads or social media management",
+        "No open-ended retainers",
+        "No visual-only redesigns with no search job behind them"
+      ]
+    },
+    "websites": {
+      "eyebrow": "Website Design & Development",
+      "title": "A website built to be found, understood, and trusted.",
+      "lead": "Lucky Domains designs and builds websites on your own domain, with the structure, performance, and technical foundation that search engines and AI systems rely on. Launch is the start of the site's job, not the end of ours.",
+      "intro": [
+        "A good-looking site can still be invisible. Most of the problems we see are structural: pages that do not match what people search for, slow templates, duplicate URLs, missing structured data, and content no one can find from the home page.",
+        "We fix that at the foundation. Information architecture comes before visual design, and the technical work is built in from the first template, not added after launch."
+      ],
+      "paths": [
+        {
+          "name": "Consult on the site you have",
+          "line": "Ken inspects the existing site and writes down what is blocking search and conversion: structure, speed, indexing, page targeting, content gaps. You get a plain-English recommendation to fix or to rebuild, and what either would take."
+        },
+        {
+          "name": "Build or rebuild",
+          "line": "Site structure, page templates, the core pages, and the technical foundation, launched on a real host and your own domain. Pages are built around what people actually search for, so the search work has something to stand on from day one."
+        }
+      ],
+      "process": [
+        {
+          "name": "Discover",
+          "line": "Goals, audience, the questions customers ask, and what the current site does and does not do."
+        },
+        {
+          "name": "Structure",
+          "line": "A page map built from real search demand and the services you actually sell."
+        },
+        {
+          "name": "Design",
+          "line": "Templates that make the business clear in seconds and work on every screen size."
+        },
+        {
+          "name": "Build",
+          "line": "Clean, maintainable implementation with performance, accessibility, and structured data built in."
+        },
+        {
+          "name": "Launch",
+          "line": "On your domain, with redirects, canonicals, Search Console, and analytics set up correctly."
+        },
+        {
+          "name": "Improve",
+          "line": "Measure what people and search engines do with the site, and adjust."
+        }
+      ],
+      "foundations": [
+        {
+          "name": "Information architecture",
+          "line": "One page per job, organized the way customers search."
+        },
+        {
+          "name": "Performance",
+          "line": "Fast templates, compressed images, and nothing loaded that the page does not need."
+        },
+        {
+          "name": "Accessibility",
+          "line": "Semantic markup, keyboard support, readable contrast, and motion that respects user settings."
+        },
+        {
+          "name": "Technical SEO",
+          "line": "Clean URLs, self-referencing canonicals, sitemaps, and internal links that match them."
+        },
+        {
+          "name": "Structured data",
+          "line": "Organization, Person, service, and breadcrumb data that describes real facts."
+        },
+        {
+          "name": "Analytics foundations",
+          "line": "Measurement set up deliberately, with only what you need to make decisions."
+        },
+        {
+          "name": "Conversion and trust",
+          "line": "Clear paths to contact, honest proof, and nothing that feels like a trap."
+        },
+        {
+          "name": "Maintainability",
+          "line": "A handoff you can edit without us, documented in plain English."
+        }
+      ],
+      "architecture": {
+        "title": "Organize the site the way people search",
+        "caption": "Illustration of the approach. Not a client site.",
+        "before": {
+          "label": "Before: organized around the company",
+          "items": [
+            "Home",
+            "About us",
+            "What we do",
+            "Our philosophy",
+            "News",
+            "Contact"
+          ]
+        },
+        "after": {
+          "label": "After: organized around what people need",
+          "items": [
+            "Home",
+            "Service A",
+            "Service B",
+            "Service C",
+            "Work",
+            "About",
+            "Founder",
+            "Contact"
+          ]
+        }
+      },
+      "not": "What this is not: a general web shop, e-commerce platform maintenance, open-ended feature work, or a visual-only redesign with no search job behind it.",
+      "proof": "This is how LuckyDomains.io was rebuilt. The decisions are public."
+    },
+    "search": {
+      "eyebrow": "Search & AI Visibility",
+      "title": "SEO is evolving, not disappearing.",
+      "lead": "Search still decides which businesses get found. AI-powered search and assistants now sit on top of it, reading the same pages and the same signals. Lucky Domains works on both: durable search visibility, and the evidence AI systems use to understand your brand.",
+      "seoIntro": "We build search visibility the durable way: fix the foundation, sharpen every page, and create content your customers are actually searching for. No tricks and no rented links.",
+      "seoAreas": [
+        {
+          "name": "Technical SEO",
+          "line": "Crawlability, speed, Core Web Vitals, indexing, canonicals, structured data, and mobile health."
+        },
+        {
+          "name": "On-page optimization",
+          "line": "Titles, headings, and copy matched to real search intent, so the right page wins the click."
+        },
+        {
+          "name": "Internal linking",
+          "line": "Links that tell search engines which pages matter and how they relate."
+        },
+        {
+          "name": "Content strategy",
+          "line": "A plan of pages and articles that answer the questions buyers actually ask."
+        },
+        {
+          "name": "Local SEO",
+          "line": "Google Business Profile, consistent local listings, and reviews, for businesses that serve a place."
+        },
+        {
+          "name": "Monitoring",
+          "line": "Search Console and search monitoring, reported in plain English and tied to the work done."
+        }
+      ],
+      "aiIntro": "AI systems form a view of your brand from what they can read and verify: your own pages, structured data, official profiles, and what credible third parties say. When that evidence is thin or contradictory, they guess, or they leave you out. The work is to make the evidence clear, consistent, and easy to find.",
+      "aiSteps": [
+        {
+          "name": "Baseline",
+          "line": "Test the questions that matter to your business across major AI systems and record what they say, and which sources they cite."
+        },
+        {
+          "name": "Consistency audit",
+          "line": "Compare your name, description, founders, services, and locations across your site and profiles. List every disagreement."
+        },
+        {
+          "name": "Source analysis",
+          "line": "Find the sources AI systems lean on for your category, and where your brand is missing or misdescribed."
+        },
+        {
+          "name": "First-party content",
+          "line": "Review your own pages for the facts a system needs to explain you: who you are, what you do, for whom, and where."
+        },
+        {
+          "name": "Authority plan",
+          "line": "Plan the content and references that would credibly strengthen the evidence, without manufactured mentions."
+        },
+        {
+          "name": "Validate and monitor",
+          "line": "Validate structured data and profile alignment, then re-run the baseline over time and report what changed."
+        }
+      ],
+      "connect": "The two are one system. Technical SEO makes your pages readable. Entity work makes your identity unambiguous. AI visibility is what happens when both are true and credible sources agree."
+    },
+    "domains": {
+      "eyebrow": "Domain Strategy & Digital Identity",
+      "title": "The name is the anchor. Identity is everything attached to it.",
+      "lead": "A domain is the most durable piece of digital identity a business can own. Lucky Domains helps you secure the right one, sell one you no longer need, and make the identity built on it clear to people, search engines, and AI systems.",
+      "anchors": "Domains already work as identity anchors for people, companies, products, and online properties. Email, profiles, citations, and structured data all point back to the name.",
+      "acquisition": [
+        {
+          "name": "Set the range",
+          "line": "A fair-market range from comparable sales, traffic and keyword data, and strategic value, before anyone is contacted."
+        },
+        {
+          "name": "Reach the owner",
+          "line": "The conversation opens without revealing who the buyer is, so the price stays grounded in value."
+        },
+        {
+          "name": "Negotiate",
+          "line": "Against the range you agreed, not the seller's opening ask. You approve or decline the price at every step."
+        },
+        {
+          "name": "Close through escrow",
+          "line": "Funds release only when the domain is verifiably in your control."
+        }
+      ],
+      "selling": "You should not have to run a public auction to sell a good domain. Ken sets a fair-market range first, approaches qualified buyers confidentially, and handles the negotiation and transfer through third-party escrow.",
+      "terms": "The brokerage fee is success-based and agreed in writing before outreach. If there is no purchase, there is no success fee.",
+      "notList": [
+        "Not a public auction or a bidding war in your name",
+        "Not a guaranteed close. Some owners will not sell",
+        "Not a retainer"
+      ],
+      "people": [
+        "Personal domains",
+        "Professional profiles",
+        "Founder pages",
+        "Authorship",
+        "Person structured data",
+        "Consistent identity references"
+      ],
+      "business": [
+        "Primary domain",
+        "Organization structured data",
+        "Official profiles",
+        "Locations",
+        "Reviews",
+        "Founder relationships",
+        "Services",
+        "Consistent naming and descriptions"
+      ],
+      "agents": {
+        "label": "Emerging research",
+        "question": "Can domains and naming systems also become identity infrastructure for AI agents?",
+        "intro": "Software agents are starting to find services, pay for work, and act on someone's behalf. They will need some of what people and companies already get from a domain: a name others can read, and a way to check who stands behind it.",
+        "topics": [
+          {
+            "name": "Human-readable identity",
+            "line": "A name a person can recognize, not only a key or an address."
+          },
+          {
+            "name": "Discovery",
+            "line": "A known place to look an agent up."
+          },
+          {
+            "name": "Service descriptions",
+            "line": "What an agent offers, in a form other software can read."
+          },
+          {
+            "name": "Ownership",
+            "line": "Who controls the name, and therefore the agent."
+          },
+          {
+            "name": "Wallets and payment destinations",
+            "line": "Where an agent is paid, tied to the same name."
+          },
+          {
+            "name": "Provenance",
+            "line": "Evidence that a result came from the agent it claims to come from."
+          },
+          {
+            "name": "Permissions",
+            "line": "What an agent is allowed to do, and for whom."
+          },
+          {
+            "name": "Reputation",
+            "line": "A record that travels with the name."
+          }
+        ],
+        "caution": "This is an open question, not a mature service. There is no settled standard, and Lucky Domains does not sell an agent-identity product. Ken explores it in public experiments, documented on KenAshe.ai."
+      }
+    }
+  },
+  "lab": [
+    {
+      "id": "zerohuman",
+      "name": "ZeroHuman",
+      "status": "LIVE",
+      "kind": "Agent identity experiment",
+      "line": "A small service that sells two jobs to other AI agents. Its ENS name, zerohuman.eth, is the storefront, the payment address, and the sender of every result.",
+      "limit": "As of November 20, 2026, no outside agent has bought from it.",
+      "url": "https://kenashe.ai/building/zerohuman/"
+    },
+    {
+      "id": "ai-agent-economy",
+      "name": "AI Agent Economy",
+      "status": "SHIPPED",
+      "kind": "Experiment",
+      "line": "Two AI agents with their own wallets completed one purchase on Ethereum mainnet, with an ENS record as the storefront.",
+      "limit": "Both agents were operated by Ken on one machine.",
+      "url": "https://kenashe.ai/building/ai-agent-economy/"
+    },
+    {
+      "id": "autonomous-seo-agent",
+      "name": "Autonomous SEO Agent",
+      "status": "LIVE",
+      "kind": "Internal system",
+      "line": "A daily agent that researches listing sites, creates profiles, and confirms its own verification emails.",
+      "limit": "63 sites researched and 8 profiles confirmed live. No SEO impact has been established.",
+      "url": "https://kenashe.ai/building/autonomous-seo-agent/"
+    }
+  ],
+  "labIntro": "Ken tests emerging technology in public: AI agents, digital identity, ENS, wallets, and machine-readable services. The experiments are not client offerings. They keep the studio's judgment current.",
+  "work": [
+    {
+      "id": "luckydomains-io",
+      "featured": true,
+      "title": "LuckyDomains.io: off Wix, onto a site the company owns",
+      "category": "Website strategy and build",
+      "client": "Lucky Domains (our own site)",
+      "year": "2026",
+      "status": "Live since June 2026",
+      "layers": [
+        "website",
+        "search",
+        "entity"
+      ],
+      "summary": "The company site moved from Wix to a hand-built static site on GitHub Pages, with the duplicate-URL problems fixed and every decision written down in a public repository.",
+      "problem": "The old site ran on Wix. It was small and dated, and it carried a recurring subscription for capability the business was not using. The owner wanted a site that was portable, versioned, and editable by coding agents.",
+      "approach": "Rebuild as plain static HTML with no framework and no build step, served from GitHub Pages on the company's own domain. Fix duplicate URLs with canonical tags and consistent internal links, because a static host cannot write server redirects.",
+      "done": [
+        "Moved the site from Wix to GitHub Pages on the apex domain, with HTTPS",
+        "Rewrote 93 internal links to one canonical form",
+        "Gave every page a self-referencing canonical tag that matches the sitemap",
+        "Kept old .html addresses as noindex stubs that point to the new URLs",
+        "Shared one Person identifier for the founder with kenashe.ai",
+        "Added a dependency-free test suite that runs on every push"
+      ],
+      "evidence": [
+        [
+          "Public repository",
+          "https://github.com/kenashe/luckydomains"
+        ],
+        [
+          "Decision log",
+          "https://github.com/kenashe/luckydomains/blob/main/DECISIONS.md"
+        ],
+        [
+          "Build record on KenAshe.ai",
+          "https://kenashe.ai/building/"
+        ]
+      ],
+      "lessons": [
+        "On a static host, canonical tags and consistent internal links do the job redirects cannot.",
+        "Blocking duplicate URLs in robots.txt backfires: a blocked page cannot be crawled, so its canonical tag is never read.",
+        "Writing decisions down makes the next change faster, whether a person or an agent makes it."
+      ],
+      "noMetrics": "No traffic, ranking, or lead figures are claimed for this project.",
+      "built": "Built and deployed with an AI agent, with the decisions recorded in the repository."
+    },
+    {
+      "id": "one-identity",
+      "title": "One identity across two sites",
+      "category": "Entity SEO",
+      "client": "Ken Ashe (founder)",
+      "year": "2026",
+      "status": "Live",
+      "layers": [
+        "entity",
+        "ai"
+      ],
+      "summary": "Ken Ashe's Person data uses one stable identifier on both kenashe.ai and luckydomains.io, with 19 profile references and four professional credentials described in structured data.",
+      "evidence": [
+        [
+          "Structured data on luckydomains.io (view page source)",
+          "https://luckydomains.io/"
+        ]
+      ],
+      "note": "Google creates Knowledge Panels on its own. No panel is claimed here."
+    },
+    {
+      "id": "image-pipeline",
+      "title": "Rebuilding an image pipeline",
+      "category": "Website performance",
+      "client": "KenAshe.ai (Ken's own site)",
+      "year": "2026",
+      "status": "Live",
+      "layers": [
+        "website"
+      ],
+      "summary": "2,083 PNG images migrated to WebP, with responsive inline images, cutting the current image source tree by 95 percent.",
+      "evidence": [
+        [
+          "Build record on KenAshe.ai",
+          "https://kenashe.ai/building/rebuilding-the-image-pipeline/"
+        ]
+      ]
+    },
+    {
+      "id": "seo-agent",
+      "title": "An internal agent for profile building",
+      "category": "AI-assisted operations",
+      "client": "Lucky Domains (internal)",
+      "year": "2026",
+      "status": "Live",
+      "layers": [
+        "entity",
+        "search"
+      ],
+      "summary": "A daily agent researches listing sites and creates verified profiles. 63 sites researched, 8 profiles confirmed live. No SEO impact has been established, and most of these profiles carry nofollow links.",
+      "evidence": [
+        [
+          "Build record on KenAshe.ai",
+          "https://kenashe.ai/building/autonomous-seo-agent/"
+        ]
+      ]
+    },
+    {
+      "id": "acquisition-demo",
+      "concept": true,
+      "title": "Layout demonstration: a confidential domain acquisition",
+      "category": "Domain acquisition",
+      "client": "Client name withheld",
+      "year": "",
+      "status": "Concept content",
+      "layers": [
+        "domain"
+      ],
+      "summary": "Shows how a confidential acquisition would be written up, with the client's permission, using the same headings: problem, approach, work completed, evidence available, current status, and lessons. No client, price, or outcome is implied.",
+      "evidence": []
+    }
+  ],
+  "founder": {
+    "name": "Ken Ashe",
+    "image": "ken-ashe-2026-square.jpg",
+    "line": "Founded and operated by Ken Ashe, CPA, PMP.",
+    "bio": "Ken spent roughly two decades in accounting, financial reporting, and project, product, and program leadership, at S&P Global, EY, Noom, and Prudential Financial. He runs Lucky Domains himself and builds and documents AI systems in public at KenAshe.ai.",
+    "discipline": "A CPA's instinct for controls and a project manager's delivery discipline show up in the work: a written scope, a valuation before outreach, tests before launch, and limits stated plainly.",
+    "credentials": [
+      "CPA",
+      "CGMA",
+      "PMP",
+      "PMI-ACP"
+    ],
+    "membership": "Member of Forbes Business Council.",
+    "kenashe": "https://kenashe.ai/"
+  },
+  "insights": {
+    "label": "Planned articles. Concept content, not yet published.",
+    "items": [
+      {
+        "title": "What AI search reads when it reads your website",
+        "kind": "Guide",
+        "layer": "ai"
+      },
+      {
+        "title": "When to fix a website and when to rebuild it",
+        "kind": "Guide",
+        "layer": "website"
+      },
+      {
+        "title": "Entity SEO for founders: one name, many profiles",
+        "kind": "Explainer",
+        "layer": "entity"
+      },
+      {
+        "title": "How a private domain purchase actually works",
+        "kind": "Explainer",
+        "layer": "domain"
+      },
+      {
+        "title": "Can a domain name identify a piece of software?",
+        "kind": "Research note",
+        "layer": "domain"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Start with a conversation.",
+    "intro": "Tell Ken what you are working on. Replies come within one business day.",
+    "paths": [
+      "Start a website project",
+      "Improve search and AI visibility",
+      "Entity and digital identity",
+      "Domain acquisition or brokerage",
+      "Something else"
+    ],
+    "notice": "Design concept only. This form does not send or store anything."
+  },
+  "footer": "Websites, search, digital identity, AI visibility, and domains. Founded and operated by Ken Ashe, CPA, PMP.",
+  "eras": [
+    {
+      "layer": "domain",
+      "n": "I",
+      "era": "The address",
+      "line": "Discovery began with a name typed into a browser. Owning it still matters most."
+    },
+    {
+      "layer": "website",
+      "n": "II",
+      "era": "The destination",
+      "line": "Then the homepage: the one place a business tells its own story, on its own terms."
+    },
+    {
+      "layer": "search",
+      "n": "III",
+      "era": "The result",
+      "line": "Search turned the web into ranked answers. Structure and relevance decided who appeared."
+    },
+    {
+      "layer": "entity",
+      "n": "IV",
+      "era": "The record",
+      "line": "Search engines began organizing facts about people and companies, not just pages."
+    },
+    {
+      "layer": "ai",
+      "n": "V",
+      "era": "The answer",
+      "line": "Now AI systems summarize and recommend. They lean on every layer that came before."
+    }
+  ],
+  "annotations": [
+    {
+      "n": "1",
+      "target": "Wix",
+      "note": "Decision D1: retire Wix and serve a hand-built static site from GitHub Pages, on the company's own domain."
+    },
+    {
+      "n": "2",
+      "target": "93 internal links",
+      "note": "Decision D4: every page linked to index.html three times, which told Google the duplicate was real. All 93 links now use one canonical form."
+    },
+    {
+      "n": "3",
+      "target": "noindex stubs",
+      "note": "Decision D11: old .html addresses stay as small noindex pages that point to the new URL, because a static host cannot redirect."
+    },
+    {
+      "n": "4",
+      "target": "tests",
+      "note": "Decision D8: a dependency-free test suite runs on every push, checking links, canonicals, the sitemap, and metadata."
+    }
+  ],
+  "map": {
+    "caption": "Illustration: how recognition is built. Each signal points back to one clear identity.",
+    "nodes": [
+      {
+        "id": "domain",
+        "label": "Domain",
+        "layer": "domain",
+        "service": "domains",
+        "line": "The name everything else points back to."
+      },
+      {
+        "id": "website",
+        "label": "Website",
+        "layer": "website",
+        "service": "websites",
+        "line": "Your own account of who you are, on your own domain."
+      },
+      {
+        "id": "content",
+        "label": "Content",
+        "layer": "website",
+        "service": "websites",
+        "line": "Pages that answer what customers actually ask."
+      },
+      {
+        "id": "search",
+        "label": "Search",
+        "layer": "search",
+        "service": "seo",
+        "line": "Crawlable, relevant pages that search engines can rank."
+      },
+      {
+        "id": "schema",
+        "label": "Structured data",
+        "layer": "entity",
+        "service": "entity",
+        "line": "Machine-readable facts with stable identifiers."
+      },
+      {
+        "id": "profiles",
+        "label": "Profiles",
+        "layer": "entity",
+        "service": "entity",
+        "line": "Official profiles that agree with each other."
+      },
+      {
+        "id": "reviews",
+        "label": "Reviews",
+        "layer": "entity",
+        "service": "seo",
+        "line": "What customers say, on the platforms people check."
+      },
+      {
+        "id": "founders",
+        "label": "Founders",
+        "layer": "entity",
+        "service": "entity",
+        "line": "The people behind the business, connected to it."
+      },
+      {
+        "id": "citations",
+        "label": "Citations",
+        "layer": "ai",
+        "service": "ai",
+        "line": "Credible third-party sources that describe you."
+      },
+      {
+        "id": "ai",
+        "label": "AI systems",
+        "layer": "ai",
+        "service": "ai",
+        "line": "Assistants and AI search that read all of the above."
+      }
+    ],
+    "problems": {
+      "domain": [
+        "domain"
+      ],
+      "website": [
+        "website",
+        "content"
+      ],
+      "search": [
+        "search",
+        "content",
+        "reviews"
+      ],
+      "identity": [
+        "schema",
+        "profiles",
+        "founders",
+        "reviews"
+      ],
+      "ai": [
+        "ai",
+        "citations",
+        "schema",
+        "profiles"
+      ]
+    }
+  },
+  "siteGraph": {
+    "caption": "Illustration of a typical service-business site. Not a client site.",
+    "pages": [
+      [
+        "home",
+        "Home",
+        0
+      ],
+      [
+        "services",
+        "Services",
+        1
+      ],
+      [
+        "work",
+        "Work",
+        1
+      ],
+      [
+        "about",
+        "About",
+        1
+      ],
+      [
+        "contact",
+        "Contact",
+        1
+      ],
+      [
+        "svc-a",
+        "Service A",
+        2
+      ],
+      [
+        "svc-b",
+        "Service B",
+        2
+      ],
+      [
+        "svc-c",
+        "Service C",
+        2
+      ],
+      [
+        "case",
+        "Case study",
+        2
+      ],
+      [
+        "founder",
+        "Founder",
+        2
+      ]
+    ],
+    "links": [
+      [
+        "home",
+        "services"
+      ],
+      [
+        "home",
+        "work"
+      ],
+      [
+        "home",
+        "about"
+      ],
+      [
+        "home",
+        "contact"
+      ],
+      [
+        "services",
+        "svc-a"
+      ],
+      [
+        "services",
+        "svc-b"
+      ],
+      [
+        "services",
+        "svc-c"
+      ],
+      [
+        "svc-a",
+        "svc-b"
+      ],
+      [
+        "svc-b",
+        "svc-c"
+      ],
+      [
+        "svc-a",
+        "case"
+      ],
+      [
+        "svc-c",
+        "case"
+      ],
+      [
+        "work",
+        "case"
+      ],
+      [
+        "about",
+        "founder"
+      ],
+      [
+        "case",
+        "contact"
+      ],
+      [
+        "svc-a",
+        "contact"
+      ],
+      [
+        "svc-b",
+        "contact"
+      ],
+      [
+        "svc-c",
+        "contact"
+      ],
+      [
+        "founder",
+        "contact"
+      ]
+    ]
+  }
+}

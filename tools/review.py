@@ -108,8 +108,14 @@ def landing(r):
   </div>
 </article>"""
     return f"""
+<section class="refine p2-banner" aria-labelledby="p2-h">
+  <p class="k">Current round</p>
+  <h2 id="p2-h">Phase 2: three light concepts for a digital presence studio</h2>
+  <p class="lead">Phase 2 corrects the business direction: websites, search, digital identity, AI visibility, and domains. Everything below on this page is Phase 1, kept as an archive and not a finalist.</p>
+  <p class="go"><a class="btn" href="{r}phase-2/">Open the Phase 2 concepts</a><a class="btn btn-l" href="{r}phase-2/comparison/">Phase 2 comparison</a></p>
+</section>
 <section class="intro">
-  <p class="k">Review, {E(C['asOf'])}</p>
+  <p class="k">Phase 1 archive · Review, {E(C['asOf'])}</p>
   <h1>Proposed redesign concepts</h1>
   <p class="lead">Three complete directions for a future LuckyDomains.io, built on one shared set of facts so the differences are design, not content. These are review concepts, not the live site.</p>
   <p class="state">{STATEMENT}</p>

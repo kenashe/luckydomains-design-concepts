@@ -1,5 +1,7 @@
 # Lucky Domains: proposed redesign concepts
 
+**Current round: [Phase 2](#phase-2-current-round).** Phase 1 (Venture Lab, The Register, Namespace, Venture Lab v2, and the production candidate staging copy) is archived below.
+
 Three complete design directions for a possible future LuckyDomains.io, for review and comparison.
 
 **These are proposed design directions only. They do not modify LuckyDomains.io, KenAshe.ai, production repositories, DNS, forms, or integrations.**
@@ -20,6 +22,52 @@ Review site: https://kenashe.github.io/luckydomains-design-concepts/
 Comparison page (including "Venture Lab: original vs v2"): https://kenashe.github.io/luckydomains-design-concepts/comparison/
 
 Design reasoning, motion systems, asset origins, and open content questions are in [CONCEPTS.md](CONCEPTS.md).
+
+## Phase 2 (current round)
+
+Phase 2 corrects the business direction. Lucky Domains is presented as a digital
+presence studio for the AI era: websites, SEO, entity and digital identity, AI
+visibility, and domain acquisition and brokerage. All three concepts share one
+positioning and one content file; they differ in design, structure, and interaction.
+
+- Phase 2 review landing: https://kenashe.github.io/luckydomains-design-concepts/phase-2/
+- Phase 2 comparison: https://kenashe.github.io/luckydomains-design-concepts/phase-2/comparison/
+- Concept A, Original Evolved: `phase-2/original-evolved/`
+- Concept B, Editorial Authority: `phase-2/editorial-authority/`
+- Concept C, Intelligent Presence: `phase-2/intelligent-presence/`
+
+Each concept has six pages: home, services, `services/website-design/`,
+`services/search-ai-visibility/`, `services/domain-identity/`, and `work/` (a case
+study template). About, Insights, Founder, and Contact appear as homepage sections
+for now; full pages are deferred until a direction is chosen.
+
+Design notes, motion systems, factual limits, and the recommendation are in
+[PHASE_2_CONCEPTS.md](PHASE_2_CONCEPTS.md).
+
+```
+phase-2/
+├── index.html                  Phase 2 review landing
+├── comparison/                 Phase 2 comparison
+├── shared/content.json         the one Phase 2 content file (positioning, services, facts, CTAs)
+├── shared/p2.js                shared menu and inert-form behavior
+├── shared/review-p2.css        additions to the neutral review styling
+├── original-evolved/           Concept A: templates in tools/p2_a.py, own css/ and js/
+├── editorial-authority/        Concept B: tools/p2_b.py
+├── intelligent-presence/       Concept C: tools/p2_c.py
+└── screenshots/                {a,b,c}-*.jpg and current-home-*.jpg (live site, read only)
+```
+
+Build and check:
+
+```bash
+python3 tools/build.py                       # regenerates Phase 1 and Phase 2 pages
+python3 tools/verify.py --links              # noindex, notices, logo, forms, dashes, links
+python3 -m http.server 8765 --directory ..   # serve the folder that holds this repo
+python3 tools/p2_shots.py http://localhost:8765/luckydomains-design-concepts/
+python3 tools/p2_audit.py http://localhost:8765/luckydomains-design-concepts /path/to/axe.min.js
+```
+
+Phase 1 below is kept unchanged as an archive. It is not part of the Phase 2 comparison.
 
 ## Production candidate staging
 
@@ -67,7 +115,8 @@ index.html                    review landing page
 comparison/                   side-by-side comparison
 shared/content.json           the one factual content layer used by all three concepts
 shared/assets/                logo files, favicon, founder portrait, one real site screenshot
-shared/fonts/                 self-hosted webfonts (SIL Open Font License)
+shared/fonts/                 self-hosted webfonts (SIL Open Font License); Phase 2 added Newsreader, Public Sans, Manrope
+phase-2/                      Phase 2 concepts, review landing, comparison, screenshots
 shared/review.css             neutral styling for the review pages
 concept-a-venture-lab/        10 pages, css/style.css, js/main.js
 concept-b-the-register/       10 pages, css/style.css, js/main.js
