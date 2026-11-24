@@ -12,7 +12,12 @@ Review site: https://kenashe.github.io/luckydomains-design-concepts/
 | B | The Register | `concept-b-the-register/` | Warm paper, editorial, a company's journal of record |
 | C | Namespace | `concept-c-namespace/` | Brand navy and mint, an interactive map, everything has an address |
 
-Comparison page: https://kenashe.github.io/luckydomains-design-concepts/comparison/
+**Selected direction refinement:** Venture Lab v2, at `concept-a-venture-lab-v2/`, refines Concept A after review. It is not a fourth direction. The original Concept A is preserved unchanged at `concept-a-venture-lab/`.
+
+- Venture Lab v2: https://kenashe.github.io/luckydomains-design-concepts/concept-a-venture-lab-v2/
+- Original Concept A: https://kenashe.github.io/luckydomains-design-concepts/concept-a-venture-lab/
+
+Comparison page (including "Venture Lab: original vs v2"): https://kenashe.github.io/luckydomains-design-concepts/comparison/
 
 Design reasoning, motion systems, asset origins, and open content questions are in [CONCEPTS.md](CONCEPTS.md).
 
@@ -37,12 +42,13 @@ shared/review.css             neutral styling for the review pages
 concept-a-venture-lab/        10 pages, css/style.css, js/main.js
 concept-b-the-register/       10 pages, css/style.css, js/main.js
 concept-c-namespace/          10 pages, css/style.css, js/main.js
+concept-a-venture-lab-v2/     10 pages, css/style.css, js/main.js (refinement of Concept A)
 screenshots/                  generated review screenshots
 tools/                        generator and checks (not needed to view the site)
 robots.txt, .nojekyll
 ```
 
-Each concept contains: home, ventures, three venture detail pages (ZeroHuman, AI Agent Economy, Autonomous SEO Agent), services, about, founder, news, and contact.
+Each concept, and v2, contains: home, ventures, three venture detail pages (ZeroHuman, AI Agent Economy, Autonomous SEO Agent), services, about, founder, news, and contact.
 
 ## How it is built
 
@@ -56,7 +62,9 @@ python3 tools/build.py                                       # regenerate every 
 python3 tools/verify.py --links                              # safety, integrity and link checks
 ```
 
-Each concept owns its templates (`tools/concept_a.py`, `concept_b.py`, `concept_c.py`), its stylesheet, and its script. They share content and nothing visual.
+Each concept owns its templates (`tools/concept_a.py`, `concept_b.py`, `concept_c.py`, and `concept_a_v2.py` for the refinement), its stylesheet, and its script. They share content and nothing visual.
+
+v2 reads extra, additive fields from `shared/content.json` (`portfolioCategory`, `displayType`, `displayStatus`, `featured`, `homepageSummary`, `homepageEvidence`, `evidenceVisual`, `resultNote` on ventures, and top-level `portfolioCategories` and `operatingModel`). The other concepts ignore them; adding them left every Concept A, B, and C page byte-for-byte unchanged.
 
 To change a fact, edit `shared/content.json` and run `tools/build.py`. To change a design, edit that concept's CSS, JS, or template.
 
@@ -82,10 +90,24 @@ python3 tools/verify.py --links        # robots meta, notice, logo, forms, dashe
 pip install playwright && python3 -m playwright install chromium
 python3 -m http.server 8765 --directory ..     # serve the parent folder so this repo is at /<folder>/
 python3 tools/audit.py http://localhost:8765/<folder>/ /path/to/axe.min.js
-python3 tools/screenshots.py http://localhost:8765/<folder>/
+python3 tools/screenshots.py http://localhost:8765/<folder>/              # v2 images only
+python3 tools/screenshots.py http://localhost:8765/<folder>/ --originals  # also re-shoot A, B and C
 ```
 
-`tools/audit.py` loads all 32 pages at 375, 768, and 1440 pixels and checks for horizontal overflow, console errors, small touch targets, axe-core WCAG 2 A and AA rules, and a reduced-motion pass.
+`tools/audit.py` loads all 42 pages at 375, 768, and 1440 pixels and checks for horizontal overflow, console errors, small touch targets, axe-core WCAG 2 A and AA rules, and a reduced-motion pass.
+
+## Screenshots
+
+`screenshots/` holds the review images. Original concepts: `a-*.jpg`, `b-*.jpg`, `c-*.jpg` (home desktop and mobile, ventures, one extra view). Venture Lab v2 uses distinct names so the originals are never overwritten:
+
+| File | View |
+|---|---|
+| `v2-home-desktop.jpg` | Homepage, 1440 x 900 |
+| `v2-home-mobile.jpg` | Homepage, 375 x 760 at 2x |
+| `v2-ventures-desktop.jpg` | Ventures page, grouped by type |
+| `v2-zerohuman-desktop.jpg` | ZeroHuman file, order diagram in view |
+| `v2-domain-desk-desktop.jpg` | The warm Domain Desk section |
+| `v2-founder-desktop.jpg` | Founder page |
 
 ## Production repositories inspected, not modified
 

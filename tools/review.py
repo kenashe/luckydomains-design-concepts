@@ -22,6 +22,29 @@ CONCEPTS = [
      "best": "Showing how the parts relate, and growing with the portfolio. Each new venture is a new node rather than a new page design.",
      "risk": "The most to build and maintain. The map needs care as nodes are added, and the interface metaphor could feel like a product rather than a company if pushed further."},
 ]
+V2 = {"dir": "concept-a-venture-lab-v2", "orig": "concept-a-venture-lab",
+      "summary": "A refinement of Concept A based on review feedback, not a fourth direction. Same dark foundation, logo treatment, headline, operating status, and evidence-led tone, recomposed so a nontechnical visitor or a domain client can follow it.",
+      "changes": ["A brighter, underlined \u201cNot the boundary.\u201d and larger, less tracked labels throughout",
+                  "A Build, Operate, Acquire strip right after the hero",
+                  "ZeroHuman as the single featured venture, with a five-step order diagram and its current limit stated",
+                  "\u201cFounded by Ken Ashe. Read the full build record on KenAshe.ai.\u201d next to the featured venture",
+                  "Clear type and status labels, and a Ventures page grouped into four kinds of record",
+                  "The Domain Desk as a warm light section carrying the original full-color logo",
+                  "Calmer motion after the hero, and a homepage about 22 to 24 percent shorter"]}
+V2_ROWS = [
+    ("Hero clarity", "Strong headline. \u201cNot the boundary.\u201d is dim gray and can read as disabled.", "Second line in warm gray at about 85 percent brightness with a thin green underline. Support copy names brokerage."),
+    ("Founder visibility", "Ken appears in a portrait strip near the end of the homepage.", "One line beside the featured venture links to the Founder page and the build record. The portrait stays on the Founder page."),
+    ("Company-model clarity", "The four-stage story explains the evolution, but not what the company does today.", "A Build, Operate, Acquire strip answers that within the first scroll."),
+    ("Text readability", "11 to 12 pixel monospace labels with wide tracking. Some secondary text sits near the contrast floor.", "Labels at 12 to 13.5 pixels, tracking reduced, monospace kept for metadata only, secondary text brightened."),
+    ("Domain-business treatment", "A dark full-width band, partway down the page.", "A warm light section with the original logo, the four-step process, the fee terms, and two calls to action. Mirrored on Services."),
+    ("Portfolio taxonomy", "Status chips carry the meaning. \u201cExperiment\u201d is shown beside status.", "Every record shows type and status separately. Ventures are grouped: operating ventures, experiments, internal systems, active services."),
+    ("Evidence presentation", "Raw payloads and ENS records are the first visual on each card.", "A plain process diagram first, then the selected result, then the raw evidence (collapsed on the homepage, open on detail pages)."),
+    ("Motion intensity", "Dot field, cycling stack, sticky rail, proximity glow on every card, and artifact parallax.", "Dot field and cycling stack in the hero, a spotlight inside the featured venture only, a one-time flow draw, and a scroll-linked progression line. No global pointer tracking, no parallax."),
+    ("Mobile behavior", "Status panel starts well below the first screen. Long stacked cards.", "Smaller headline, tighter hero, first status row inside the first screen at 375 pixels, compact flow and footer."),
+    ("Homepage length", "7,487 px at 1440 wide. 10,878 px at 375 wide.", "5,697 px at 1440 wide (24 percent shorter). 8,537 px at 375 wide (22 percent shorter)."),
+    ("Production readiness", "A convincing direction study. The footer is a logo gallery.", "Closer to buildable: a production-style footer, clearer content model, fewer bespoke effects to maintain."),
+    ("Risks and tradeoffs", "Most mysterious and most distinctive.", "Slightly less mysterious. The light section is a deliberate break that must stay disciplined, and the taxonomy needs upkeep as builds change status."),
+]
 ROWS = [
     ("Overall brand impression", "Experimental lab with a serious operator behind it.", "Established, literate, founder-owned company of record.", "Clear, friendly, systems-minded company with a product feel."),
     ("Light versus dark", "Dark throughout.", "Light throughout (warm paper).", "Light page with navy feature surfaces."),
@@ -93,6 +116,21 @@ def landing(r):
   <p class="pos">Positioning used in all three: <q>{E(C['company']['description'])}</q></p>
 </section>
 <section class="cards" aria-label="Concepts">{cards}</section>
+<section class="refine" aria-labelledby="rf-h">
+  <p class="k">Selected direction refinement</p>
+  <h2 id="rf-h">Venture Lab v2</h2>
+  <article class="card">
+    <a class="shot" href="{r}{V2['dir']}/" tabindex="-1" aria-hidden="true"><img src="{r}screenshots/v2-home-desktop.jpg" alt="" width="1440" height="900" loading="lazy"><img class="shot-m" src="{r}screenshots/v2-home-mobile.jpg" alt="" width="375" height="760" loading="lazy"></a>
+    <div class="card-b">
+      <p class="thesis">{E(V2['summary'])}</p>
+      <h3>What changed</h3>
+      <ul class="chg">{"".join(f"<li>{E(x)}</li>" for x in V2['changes'])}</ul>
+      <p class="state state-s">Neither the original Concept A nor v2 is production. No direction has been implemented.</p>
+      <p class="go"><a class="btn" href="{r}{V2['dir']}/">Explore Venture Lab v2</a><a class="btn btn-l" href="{r}{V2['orig']}/">Original Concept A</a>
+      <span class="more"><a href="{r}comparison/#v2">Original vs v2</a><a href="{r}{V2['dir']}/ventures/">Ventures</a><a href="{r}{V2['dir']}/services/">Services</a><a href="{r}{V2['dir']}/founder/">Founder</a></span></p>
+    </div>
+  </article>
+</section>
 <section class="next">
   <h2>How to review</h2>
   <ol><li>Open each concept at desktop width, then on a phone.</li><li>Follow one venture from the home page to its detail page and out to KenAshe.ai.</li><li>Find domain brokerage from the home page in each one.</li><li>Read the <a href="{r}comparison/">side-by-side comparison</a>.</li></ol>
@@ -116,6 +154,19 @@ def comparison(r):
 </section>
 <section class="tbl" aria-label="Comparison table"><table><thead><tr><th scope="col"><span class="sr">Criterion</span></th>{head}</tr></thead><tbody>{rows}</tbody></table></section>
 <section class="gal" aria-label="Screenshots"><h2>Ventures page and a second view, each concept</h2><div class="gal-g">{shots}</div></section>
+<section class="tbl v2c" id="v2" aria-labelledby="v2-h"><p class="k">Selected direction refinement</p><h2 id="v2-h">Venture Lab: original vs v2</h2>
+<p class="lead">v2 refines Concept A after review. It is not a fourth direction, and the table above still compares the three original concepts as they were.</p>
+<table><thead><tr><th scope="col"><span class="sr">Criterion</span></th><th scope="col"><span>Concept A</span>Original</th><th scope="col"><span>Concept A</span>v2 refinement</th></tr></thead>
+<tbody>{"".join(f'<tr><th scope="row">{E(a)}</th><td data-c="Original">{E(b)}</td><td data-c="v2">{E(c)}</td></tr>' for a, b, c in V2_ROWS)}</tbody></table>
+<div class="gal-g gal-2"><figure><a href="{r}concept-a-venture-lab/"><img src="{r}screenshots/a-home-desktop.jpg" alt="Original Concept A homepage" width="1440" height="900" loading="lazy"></a><figcaption>Original Concept A</figcaption></figure><figure><a href="{r}concept-a-venture-lab-v2/"><img src="{r}screenshots/v2-home-desktop.jpg" alt="Venture Lab v2 homepage" width="1440" height="900" loading="lazy"></a><figcaption>Venture Lab v2</figcaption></figure>
+<figure><a href="{r}concept-a-venture-lab-v2/#featured"><img src="{r}screenshots/v2-zerohuman-desktop.jpg" alt="Venture Lab v2 ZeroHuman page with the order diagram" width="1440" height="900" loading="lazy"></a><figcaption>v2: ZeroHuman file with the order diagram</figcaption></figure><figure><a href="{r}concept-a-venture-lab-v2/#domain-desk"><img src="{r}screenshots/v2-domain-desk-desktop.jpg" alt="Venture Lab v2 warm Domain Desk section" width="1440" height="900" loading="lazy"></a><figcaption>v2: the warm Domain Desk</figcaption></figure></div>
+<h3>Logo treatments used in Venture Lab</h3>
+<p>Moved here from the original concept's footer. Only color changes. Geometry is untouched.</p>
+<div class="logos"><figure><span class="chip chip-l"><img src="{r}shared/assets/logo-wordmark.png" alt="Original Lucky Domains logo" width="161" height="40" loading="lazy"></span><figcaption>Original, full color. Used on the light Domain Desk.</figcaption></figure>
+<figure><span class="chip chip-d"><img src="{r}shared/assets/logo-wordmark-reversed.png" alt="Reversed Lucky Domains logo" width="161" height="40" loading="lazy"></span><figcaption>Reversed, concept treatment. Header and footer on dark.</figcaption></figure>
+<figure><span class="chip chip-d"><img src="{r}shared/assets/logo-icon-reversed-128.png" alt="Lucky Domains icon, reversed" width="40" height="40" loading="lazy"></span><figcaption>Icon, for compact use.</figcaption></figure>
+<figure><span class="chip chip-l"><img src="{r}shared/assets/favicon-32.png" alt="Lucky Domains favicon" width="32" height="32" loading="lazy"></span><figcaption>Favicon, unchanged from production.</figcaption></figure></div>
+</section>
 <section class="next"><h2>Shared by all three</h2>
 <ul><li>The same content file, so facts cannot drift between concepts.</li><li>The original Lucky Domains logo, with any recolored treatment labeled as a concept treatment.</li><li>Domain acquisition and brokerage visible from the home page, the services page, and contact.</li><li>Venture summaries that link out to the full build record on KenAshe.ai.</li><li>Keyboard access, visible focus, skip links, and a complete experience with motion reduced.</li><li>The notice: {NOTICE}</li></ul>
 <p><a class="btn" href="{r}">Back to the concepts</a></p></section>"""

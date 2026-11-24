@@ -35,6 +35,67 @@ Motion (all in `concept-a-venture-lab/js/main.js`):
 | Artifact depth | Evidence panels shift a few pixels with scroll (transform only). | Off below 1080px and under reduced motion. |
 | Reveals | Sections fade up once. | Shown immediately under reduced motion. |
 
+## Concept A v2: Venture Lab refinement
+
+Path: `concept-a-venture-lab-v2/`. Template: `tools/concept_a_v2.py`. Own `css/style.css` and `js/main.js`. Screenshots: `screenshots/v2-*.jpg`. Created November 23, 2026.
+
+**Why.** Concept A was the favored direction, and review found six problems worth fixing before it could become a production foundation: visitors had to scroll through the company's history before seeing what it does; the domain practice sat seven phone screens down; status chips mixed different kinds of thing; raw payloads were the first visual a visitor had to interpret; small, widely tracked monospace labels were hard to read; and almost every surface reacted to the pointer. v2 fixes those without becoming a fourth direction. The original is preserved unchanged.
+
+**Preserved.** Near-black graphite, warm off-white text, the logo green as the only primary accent, the reversed logo on dark, the headline "Domains were the beginning. Not the boundary.", the operating-status stack, evidence as imagery, "The domain desk is still open.", the Domains, Identity, Agents, Ventures progression, the domain-acquisition call to action in the navigation, the hero dot field, section-aware motion, and the restrained, founder-led voice.
+
+**Homepage, recomposed.** Hero and operating status. Then a Build, Operate, Acquire strip. Then ZeroHuman as the single featured venture. Then two compact "More from the lab" records. Then a condensed progression. Then the light Domain Desk. Then a short "How it fits together" statement and the footer. The homepage is 24 percent shorter at 1440 pixels (7,487 to 5,697) and 22 percent shorter at 375 pixels (10,878 to 8,537). Depth moved to the Ventures page, the venture files, and KenAshe.ai rather than being cut.
+
+**Founder introduction.** One line beside the featured venture: "Founded by Ken Ashe. Read the full build record on KenAshe.ai." Ken Ashe links to the Founder page; the build record links to the ZeroHuman log. The homepage portrait strip was removed. The Founder page keeps the portrait, CPA, CGMA, PMP and PMI-ACP credentials, career, speaking, and narrative, and now states the split plainly: KenAshe.ai is the personal creator and build-in-public site, Lucky Domains is the operating company and the home of the ventures.
+
+**Warm Domain Desk.** The brokerage section is now warm paper (`#F3EFE6`) with navy text and the original full-color logo, joined to the dark page by a green hairline and a small "The original practice" tab that straddles the edge. A faint navy dot grid echoes the hero field so it reads as part of the same system. It keeps the ACTIVE label, the four-step process, the success-based fee terms, and both calls to action. The primary section on the Services page uses the same treatment, and the domain path on Contact turns paper-colored when selected. The contrast is intentional: experimental work on dark, the established client practice on light.
+
+**Typography and contrast.** Navigation moved from 12.5 pixel uppercase monospace to 15 pixel Inter. Metadata, eyebrows, chips, captions and footer labels are 12 to 14.5 pixels with tracking cut roughly in half. Monospace is kept for metadata, dates, networks and payloads; explanatory text uses Inter. Secondary text brightened (`#A3A59C` to `#B5B6AE`, 9.6:1) and the dim tier moved to `#9A9D94` (7.1:1). The hero's second line is `#C9C3B8`: 84 percent of the primary line's brightness, 11.2:1 contrast, with a thin green underline under "boundary" that draws once. No visible text in v2 is smaller than 12 pixels at 320 to 1440 pixels wide.
+
+**Portfolio taxonomy.** Every record shows two labels: what it is (type) and the status from its public build record. Additive fields in `shared/content.json` carry this so facts are not duplicated in templates.
+
+| Record | Type | Status | Group |
+|---|---|---|---|
+| ZeroHuman | Autonomous service | LIVE | Operating ventures |
+| AI Agent Economy | Experiment | SHIPPED | Experiments and research |
+| Sir Pitches-a-Lot | Competition agent | SHIPPED | Experiments and research |
+| Autonomous SEO Agent | Internal operating system | LIVE | Internal systems and studio builds |
+| LuckyDomains.io, agent-built | Studio build | LIVE | Internal systems and studio builds |
+| Domain Acquisition & Brokerage | Commercial service | ACTIVE | Active services |
+
+ACTIVE is the only status not taken from KenAshe.ai: it marks a service open to clients. The Ventures page shows the four groups by default with jump links; the status filter from the original was removed in favor of grouping. The hero status stack follows the order ZeroHuman, Domain Acquisition & Brokerage, AI Agent Economy, Autonomous SEO Agent.
+
+**Evidence hierarchy.** Understandable process first, selected result second, raw evidence third. ZeroHuman gets a five-step diagram (Discover, Pay, Work, Deliver, Verify) built from the documented order steps, with verified labels such as `zerohuman.eth` and `0.0001 ETH`. The homepage then gives the selected result (the first mainnet Decision, recomputed and matched) beside the current limit (no outside agent purchase as of November 20, 2026), with the raw request and reply in a collapsed panel. Detail pages show the raw evidence open. AI Agent Economy gets a two-wallet transfer diagram (blocks 26385257 to 26385260). The Autonomous SEO Agent gets a 63-segment bar with 8 lit, matching its published counts. The real LuckyDomains.io screenshot stays on its record. No dashboards or product interfaces were invented.
+
+**Motion, reduced.** Kept: the hero dot field (only while the hero is on screen), the status stack (now every 5 seconds, paused on hover, focus, a hidden tab, or the Pause button), a one-time draw of the order flow, a progression line that follows scroll position, and short reveals (12 pixels instead of 22). Removed: the global proximity spotlight on every card (now only inside the featured venture, only while the pointer is inside it), artifact parallax, the sticky progression rail, and the canvas grids on interior page headers (replaced with a static dot pattern). Under reduced motion nothing cycles or animates, the hero holds the same layout, and exactly one status row is open, so the call-to-action buttons stay inside the first screen (they were pushed below it in the original).
+
+**Mobile.** At 375 pixels the headline is 40 pixels (from 44), "Not the boundary." fits on one line (two at 320), the hero is tighter, and the first status row starts at about 720 pixels, inside a 760-pixel screen. The Build, Operate, Acquire strip becomes compact rows, the order flow collapses to labeled steps, the "More from the lab" cards drop their diagrams but keep the evidence line, and the footer uses two columns. Status details have a fixed height so cycling never shifts content below.
+
+**About page.** A five-step chain, Name, Presence, Identity, Agents, Ventures, explains why moving from domains into AI applications is an evolution, followed by one sentence: "Each step depends on the one before it." The three-part story, dated record, and structure follow.
+
+**Footer.** One reversed wordmark, the company description, Ventures, Company (with Domain acquisition first), and Build record columns, then the review notice and the facts-as-of date. The logo-treatment gallery moved to the comparison page.
+
+**Copy changes.** "Now the systems are operated, not just demonstrated." became "Some experiments became systems that run." The hero support line now adds "Domain acquisition and brokerage remain an active part of the business." The main hero CTA reads "Domain acquisition & brokerage". "Internet-native ventures" is used in the high-level descriptions. No new factual claims were added. Facts were rechecked against KenAshe.ai on November 23, 2026 and were unchanged.
+
+**Remaining tradeoffs.**
+- v2 is a little less mysterious than the original. That is the cost of being understood by domain clients.
+- The light Domain Desk only works if it stays the one light moment. A second light section would make the site feel split.
+- The taxonomy needs upkeep: when a build changes status on KenAshe.ai, the record here must change too.
+- The homepage order flow is ZeroHuman-specific. A future featured venture needs its own verified diagram.
+- The stylesheet grew from 27 KB to 40 KB (uncompressed) for the new components. The script shrank from 9.3 KB to 8.4 KB. Total homepage transfer is 278 KB against 270 KB.
+
+**Recommendation.** v2 is recommended over the original as the foundation for any production build. It keeps what made Venture Lab distinctive and fixes the issues that would have hurt the brokerage business and nontechnical visitors. No production selection has been made and nothing has been implemented on LuckyDomains.io.
+
+### Logo treatments in Venture Lab
+
+| Treatment | File | Where v2 uses it |
+|---|---|---|
+| Original, full color | `shared/assets/logo-wordmark.png` | The light Domain Desk on the homepage and Services page |
+| Reversed (concept treatment) | `shared/assets/logo-wordmark-reversed.png` | Header and footer on dark |
+| Icon, reversed | `shared/assets/logo-icon-reversed-128.png` | Not used in v2 pages. Shown on the comparison page |
+| Favicon | `shared/assets/favicon.ico`, `favicon-32.png` | Browser tab, unchanged from production |
+
+The comparison page shows these side by side, replacing the gallery that sat in the original Concept A footer.
+
 ## Concept B: The Register
 
 **Thesis.** A founder-owned company's journal of record. A "register" is both a publication and a list of holdings, which is what a venture studio that started in domain names keeps.
@@ -129,19 +190,19 @@ The production logo files were not edited. Venture "artifacts" (order payloads, 
 9. **Contact.** Four routes: domains, venture or product partnerships, media or speaking, general. No AI consulting route was created.
 10. **Email.** `info@luckydomains.io` appears as a plain `mailto:` link because it is the published address. No form posts anywhere.
 
-## Verification snapshot (local, November 23, 2026)
+## Verification snapshot (local, November 23, 2026, updated for v2)
 
-- 32 pages. All carry the noindex meta tag. All 30 concept pages carry the review notice, the original logo, and domain acquisition.
+- 42 pages. All carry the noindex meta tag. All 40 concept pages carry the review notice, a Lucky Domains logo treatment, and domain acquisition. Every concept home page, including v2, shows the original full-color logo.
 - No em dashes or en dashes in any HTML, CSS, JS, JSON, or Markdown file.
 - All internal links resolve. All external links returned 200.
-- 375, 768, and 1440 pixels: no horizontal overflow and no console errors on any page.
+- 375, 768, and 1440 pixels: no horizontal overflow and no console errors on any page. v2 was also checked at 320 and 390 pixels, in Chromium and Firefox.
 - axe-core 4.10 (WCAG 2 A, AA, and best-practice rules) at 1440 pixels: no violations on any page.
 - Reduced motion: no running animations and no hidden content on any concept home page.
 - Home page weight, uncached: A 269 KB, B 324 KB, C 141 KB. Layout shift at or near zero.
 
 ## Known rendering differences and limits
 
-- Tested in Chromium only (Playwright, headless). Safari and Firefox were not run.
+- Tested in Chromium (all pages) and Firefox (v2 pages), with Playwright, headless. WebKit could not run in the build sandbox, so Safari rendering is untested.
 - Concept A's card border glow uses CSS masks and `color-mix()`. Older browsers show a plain border.
 - Concept B's kinetic headlines need variable-font support. Without it the heading keeps one weight.
 - Concept B's selected-route styling uses `:has()`. Without it the radio button alone shows the selection.

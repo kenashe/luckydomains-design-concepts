@@ -69,3 +69,18 @@ figcaption{font-size:14px;color:var(--soft);padding-top:8px}
   td{padding-left:18px}
   td::before{content:attr(data-c);display:block;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);margin-bottom:2px}
 }
+.refine{max-width:1240px;margin:0 auto;padding:clamp(8px,2vw,24px) clamp(18px,4vw,48px) clamp(40px,6vw,72px);border-top:1px solid var(--line)}
+.refine h2{font-size:clamp(28px,3.4vw,44px);margin:0 0 20px}
+.refine h3,.v2c h3{font-size:18px;margin:8px 0 10px}
+.chg{margin:0 0 18px;padding-left:20px}.chg li{margin-bottom:5px;font-size:15.5px}
+.state-s{font-size:15px;margin:0 0 20px}
+.btn-l{background:transparent;color:var(--acc);border:1.5px solid var(--acc)}.btn-l:hover{background:#e9ecef}
+.v2c{padding-top:clamp(32px,5vw,56px);border-top:1px solid var(--line)}
+.v2c .lead{margin-bottom:20px}
+.v2c table thead th{width:40%}.v2c table thead th:first-child{width:20%}
+.gal-2{margin:28px 0 36px}
+.logos{display:flex;flex-wrap:wrap;gap:20px 28px}
+.logos figure{display:grid;gap:8px;max-width:240px}
+.chip{display:flex;align-items:center;height:72px;padding:0 20px;border:1px solid var(--line);border-radius:8px}
+.chip-l{background:#f6f3ec}.chip-d{background:#0a0c0b}
+.refine .shot{align-self:start;align-items:flex-start;padding-bottom:clamp(40px,5vw,64px)}

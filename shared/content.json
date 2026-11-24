@@ -225,7 +225,23 @@
       "related": [
         "ai-agent-economy"
       ],
-      "detail": true
+      "detail": true,
+      "portfolioCategory": "operating",
+      "displayType": "Autonomous service",
+      "featured": true,
+      "homepageSummary": "An always-on service that sells two small jobs to other AI agents. There is no website checkout and no API: agents find it by its ENS name, pay that name, and get the result back from the same name.",
+      "homepageEvidence": "First paid orders delivered on Ethereum mainnet, November 16, 2026. Opened to any agent the same day.",
+      "resultNote": "The first mainnet Decision picked “run the allowlist trial longer.” The choice was recomputed from the chain and matched.",
+      "evidenceVisual": {
+        "kind": "flow",
+        "labels": [
+          "zerohuman.eth",
+          "0.0001 ETH",
+          "Railway worker",
+          "From zerohuman.eth",
+          "Buyer's own node"
+        ]
+      }
     },
     {
       "id": "ai-agent-economy",
@@ -325,7 +341,19 @@
       "related": [
         "zerohuman"
       ],
-      "detail": true
+      "detail": true,
+      "portfolioCategory": "experiments",
+      "displayType": "Experiment",
+      "homepageSummary": "Two AI agents with their own wallets completed one purchase on Ethereum mainnet, with an ENS record as the storefront.",
+      "homepageEvidence": "Paid 0.0003 ETH in block 26385257. The work came back in block 26385260, 36 seconds later.",
+      "evidenceVisual": {
+        "kind": "transfer",
+        "a": "Buyer agent",
+        "b": "Seller agent",
+        "out": "0.0003 ETH + order",
+        "back": "0 ETH + result",
+        "note": "Blocks 26385257 to 26385260"
+      }
     },
     {
       "id": "autonomous-seo-agent",
@@ -428,7 +456,18 @@
       "related": [
         "luckydomains-site"
       ],
-      "detail": true
+      "detail": true,
+      "portfolioCategory": "internal",
+      "displayType": "Internal operating system",
+      "homepageSummary": "A daily agent that researches listing sites, creates profiles, and confirms its own verification emails without review.",
+      "homepageEvidence": "63 sites researched. 8 profiles confirmed live, created and verified end to end.",
+      "evidenceVisual": {
+        "kind": "ratio",
+        "total": 63,
+        "part": 8,
+        "totalLabel": "sites researched",
+        "partLabel": "profiles confirmed live"
+      }
     },
     {
       "id": "domain-brokerage",
@@ -495,7 +534,11 @@
       "internal": "services",
       "links": [],
       "related": [],
-      "detail": false
+      "detail": false,
+      "portfolioCategory": "services",
+      "displayType": "Commercial service",
+      "displayStatus": "ACTIVE",
+      "homepageSummary": "Valuation, anonymous outreach, negotiation, and escrow-backed transfer for a name someone else owns."
     },
     {
       "id": "luckydomains-site",
@@ -545,7 +588,9 @@
         "file": "artifact-luckydomains-io.jpg",
         "alt": "Screenshot of the current LuckyDomains.io home page",
         "caption": "The live site as it stands today, captured November 23, 2026. This is the site these concepts propose to replace."
-      }
+      },
+      "portfolioCategory": "internal",
+      "displayType": "Studio build"
     },
     {
       "id": "sir-pitches-a-lot",
@@ -582,7 +627,9 @@
       "buildRecord": "https://kenashe.ai/building/sir-pitches-a-lot/",
       "links": [],
       "related": [],
-      "detail": false
+      "detail": false,
+      "portfolioCategory": "experiments",
+      "displayType": "Competition agent"
     }
   ],
   "services": [
@@ -815,5 +862,46 @@
       }
     ],
     "notice": "Concept form. Nothing is collected, stored, or sent."
-  }
+  },
+  "_v2": "Fields named portfolioCategory, displayType, displayStatus, featured, homepageSummary, homepageEvidence, evidenceVisual and resultNote on ventures, plus the top-level portfolioCategories and operatingModel, are additive. They are read only by Venture Lab v2 (tools/concept_a_v2.py). Concepts A, B and C ignore them.",
+  "portfolioCategories": [
+    {
+      "id": "operating",
+      "label": "Operating ventures",
+      "line": "Systems that run continuously and are open to outside use."
+    },
+    {
+      "id": "experiments",
+      "label": "Experiments and research",
+      "line": "Bounded tests with a written result. Shipped, documented, and not run as services."
+    },
+    {
+      "id": "internal",
+      "label": "Internal systems and studio builds",
+      "line": "Tools and builds the studio runs for itself."
+    },
+    {
+      "id": "services",
+      "label": "Active services",
+      "line": "Commercial work for clients."
+    }
+  ],
+  "operatingModel": [
+    {
+      "verb": "Build",
+      "line": "AI applications and internet-native products.",
+      "href": "ventures/"
+    },
+    {
+      "verb": "Operate",
+      "line": "Ventures, autonomous systems, and digital identities.",
+      "href": "ventures/#operating"
+    },
+    {
+      "verb": "Acquire",
+      "line": "Private domain acquisition and brokerage for clients.",
+      "href": "services/#domains",
+      "client": true
+    }
+  ]
 }
