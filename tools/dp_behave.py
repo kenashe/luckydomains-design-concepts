@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Interaction tests for the digital presence production candidate.
 
-    python3 tools/dp_behave.py [staging-base] [candidate-base]
+    python3 tools/dp_behave.py [staging-base] [candidate-base] [--engines chromium,firefox]
 
 staging-base   the exported staging copy, default http://localhost:8765/luckydomains-design-concepts/digital-presence-production-candidate/
 candidate-base the production-candidate checkout served at a site root, default http://localhost:8770/
@@ -15,6 +15,8 @@ Runs in Chromium and Firefox, and in WebKit when it can start.
 import sys
 from playwright.sync_api import sync_playwright
 
+ENGINES = sys.argv[sys.argv.index("--engines") + 1].split(",") if "--engines" in sys.argv else ["chromium", "firefox", "webkit"]
+sys.argv = [x for i, x in enumerate(sys.argv) if x != "--engines" and (i == 0 or sys.argv[i - 1] != "--engines")]
 B = (sys.argv[1] if len(sys.argv) > 1 else "http://localhost:8765/luckydomains-design-concepts/digital-presence-production-candidate/").rstrip("/") + "/"
 P = (sys.argv[2] if len(sys.argv) > 2 else "http://localhost:8770/").rstrip("/") + "/"
 ART = "insights/what-ai-search-reads-on-your-website/"
@@ -30,7 +32,7 @@ def ok(n, c):
 
 with sync_playwright() as p:
     engines = {}
-    for eng in ("chromium", "firefox", "webkit"):
+    for eng in ENGINES:
         try:
             b = getattr(p, eng).launch()
         except Exception:

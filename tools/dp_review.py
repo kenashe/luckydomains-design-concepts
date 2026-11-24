@@ -155,7 +155,7 @@ page = f"""<!DOCTYPE html>
 <link rel="stylesheet" href="/luckydomains-design-concepts/phase-2/shared/review-p2.css">
 <link rel="stylesheet" href="/luckydomains-design-concepts/phase-3/shared/review-p3.css">
 <style>.rv-s{{font-weight:400;font-size:13.5px;color:var(--soft)}}.rv-cols{{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px 32px}}.rv-cols ul{{margin:0 0 14px;padding-left:20px}}.rv-cols li{{font-size:15.5px;margin-bottom:4px}}
-.t4 thead th{{width:26%}}.t4 thead th:first-child{{width:22%}}.refine code{{font-size:.92em;background:#eef0f2;padding:1px 5px;border-radius:4px}}@media (max-width:1000px){{.rv-cols{{grid-template-columns:1fr}}}}</style>
+.t4{{table-layout:fixed}}.t4 thead th{{width:27%}}.t4 thead th:first-child{{width:19%}}.refine code{{font-size:.92em;background:#eef0f2;padding:1px 5px;border-radius:4px}}@media (max-width:1000px){{.rv-cols{{grid-template-columns:1fr}}}}</style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>

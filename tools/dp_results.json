@@ -16,7 +16,9 @@
   "Contact form: on staging it is disabled and sends nothing. On the candidate source, the form's own validation, the ?need= prefill, the honeypot, the mailto fallback and the Web3Forms request were verified with the request intercepted, so nothing was sent.",
   "Legacy URLs: all five .html stubs redirect to their directory URLs on the candidate source, and services.html#seo lands on the SEO card.",
   "Third parties: a page view on the candidate makes no third-party request.",
-  "Links: every internal link resolves. External links were checked from the review repository's verifier."
+  "Links: every internal link resolves. External links were checked from the review repository's verifier.",
+  "Published staging copy: all 81 files match the export byte for byte, every page is noindex, and the 72 Chromium interaction checks pass against the published URL. Firefox cannot reach the published URL from the build environment, so its checks ran on the identical local export.",
+  "Continuous integration on the Lucky Domains draft pull request is green. The Vercel preview build on the KenAshe.ai draft pull request succeeded."
  ],
  "limits": [
   "Safari is not verified. WebKit could not start in the build environment (missing system libraries).",
