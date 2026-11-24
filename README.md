@@ -35,6 +35,11 @@ concept's own layer. All three share one message, five services, and sixteen pag
 - Concept B, Original Editorial: `phase-3/editorial/`
 - Concept C, Original Interactive: `phase-3/interactive/`
 
+- **Selected and refined:** Original Interactive, refined: `phase-3/interactive-refined/`
+  (https://kenashe.github.io/luckydomains-design-concepts/phase-3/interactive-refined/). Fifteen pages: no Work
+  or case-study pages, plus `tools/digital-presence-check/`. Built by `tools/p3_r.py` and `tools/p3_r_content.py`.
+  Concept C itself is unchanged.
+
 Pages in each concept: home, services, five service pages (`services/website-design/`,
 `services/seo/`, `services/ai-visibility/`, `services/entity-seo/`, `services/domains/`),
 `how-we-buy-domains/`, `work/`, `work/luckydomains-io/`, `about/`, `founder/`, `insights/`,
@@ -42,7 +47,8 @@ Pages in each concept: home, services, five service pages (`services/website-des
 
 Notes: [PHASE_3_CONCEPTS.md](PHASE_3_CONCEPTS.md). Build: `python3 tools/p3_build.py` (or
 `tools/build.py` for everything). Screenshots: `python3 tools/p3_shots.py <base>` writes
-`phase-3/screenshots/`. Audit: `python3 tools/p3_audit.py <base> /path/to/axe.min.js`.
+`phase-3/screenshots/` (`--only r` refreshes the refined set). Audit: `python3 tools/p3_audit.py <base> /path/to/axe.min.js`
+(`--only interactive-refined` limits it to the refinement).
 
 ## Phase 2 (archived)
 

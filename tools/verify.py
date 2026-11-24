@@ -37,7 +37,7 @@ for p in pages:
         continue
     if '<meta name="robots" content="noindex,nofollow,noarchive">' not in s: fails.append(f"{rel}: robots meta missing")
     p2c = (rel.parts[0] == "phase-2" and len(rel.parts) > 2 and rel.parts[1] in ("original-evolved", "editorial-authority", "intelligent-presence")) or \
-          (rel.parts[0] == "phase-3" and len(rel.parts) > 2 and rel.parts[1] in ("original-evolved", "editorial", "interactive"))
+          (rel.parts[0] == "phase-3" and len(rel.parts) > 2 and rel.parts[1] in ("original-evolved", "editorial", "interactive", "interactive-refined"))
     if (str(rel).startswith("concept-") or p2c) and NOTICE not in s: fails.append(f"{rel}: review notice missing")
     if p2c and "logo-wordmark.png" not in s: fails.append(f"{rel}: original logo missing")
     if p2c and not re.search(r"Domain Acquisition", s): fails.append(f"{rel}: domain acquisition not linked")
@@ -49,10 +49,14 @@ for p in pages:
     if str(rel).startswith("concept-") and "logo-wordmark" not in s: fails.append(f"{rel}: Lucky Domains logo missing")
     if str(rel).startswith("concept-") and rel.parent.parent == Path(".") and "logo-wordmark.png" not in s: fails.append(f"{rel}: original full-color logo missing from concept home page")
     if str(rel).startswith("concept-") and not re.search(r"[Dd]omain acquisition", s): fails.append(f"{rel}: domain acquisition not mentioned")
+    if rel.parts[:2] == ("phase-3", "interactive-refined"):          # the refinement has no portfolio
+        if re.search(r'href="[^"]*work/', s): fails.append(f"{rel}: refined concept links to a Work page")
+        if re.search(r"case stud|portfolio|testimonial|Selected work", re.sub(r'href="[^"]*"', "", s), re.I): fails.append(f"{rel}: refined concept mentions a portfolio or case study")
+        if "<form" in s and "data-inert" not in s: fails.append(f"{rel}: form is not inert")
     if re.search(r"<form[^>]*\saction=", s): fails.append(f"{rel}: form has an action")
     if re.search(r'type="submit"', s): fails.append(f"{rel}: submit button present")
     for m in re.finditer(r"<(?:input|textarea|select)[^>]*\sname=\"([^\"]+)\"", s):
-        if m.group(1) not in ("regarding", "stuck"): fails.append(f"{rel}: named form control {m.group(1)}")
+        if m.group(1) not in ("regarding", "stuck") and not re.fullmatch(r"dpc-\d+", m.group(1)): fails.append(f"{rel}: named form control {m.group(1)}")
     if re.search(r"googletagmanager|google-analytics|gtag\(|plausible|web3forms|formspree|api[_-]?key", s, re.I): fails.append(f"{rel}: analytics, form endpoint or key reference")
     if s.count("<h1") != 1: fails.append(f"{rel}: expected exactly one h1, found {s.count('<h1')}")
     for m in re.finditer(r'(?:href|src)="([^"]+)"', s):

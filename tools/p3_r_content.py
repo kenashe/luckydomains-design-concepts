@@ -1,0 +1,184 @@
+"""Version 3, Original Interactive, refined: the copy that differs from the shared version 3 content.
+
+Shared facts (services, founder, sources, service-page copy) still come from
+phase-3/shared/content.json. This module holds only what the refinement changes or adds, and
+writes it to phase-3/interactive-refined/content.json so the copy can be reviewed in one place.
+"""
+import json
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+KA = "https://kenashe.ai/"
+
+R = {
+  "_readme": "Refinement copy for /phase-3/interactive-refined/. Built by tools/p3_r_content.py on November 24, 2026. Shared facts live in phase-3/shared/content.json. First-party examples describe the company's or the founder's own work, never client work.",
+  "name": "Original, Interactive, refined",
+  "location": "Berkeley Heights, New Jersey",
+  "nav": [["Services", "services/"], ["About", "about/"], ["Insights", "insights/"], ["Founder", "founder/"], ["Contact", "contact/"]],
+  "hero": {"lead": "Lucky Domains builds high-performing websites, improves visibility across search and AI, strengthens brand authority, and secures the domains that anchor your identity."},
+  "map": {
+    "title": "Presence map",
+    "caption": "Illustration of how recognition is built. Not an audit of any business.",
+    "idle": "Six signals point back to one identity. Select any signal to see what it includes.",
+    "fragmented": "Fragmented: the signals exist, but they do not agree or connect to each other.",
+    "nodes": [
+      {"id": "domain", "label": "Domain", "service": "domains", "line": "The name everything else points back to.",
+       "details": ["Ownership and control", "A name that fits the brand", "Email on the same name"]},
+      {"id": "website", "label": "Website", "service": "websites", "line": "Your own account of who you are, on your own domain.",
+       "details": ["Clear structure", "Useful content", "Speed and accessibility"]},
+      {"id": "search", "label": "Search", "service": "seo", "line": "Crawlable, relevant pages that search engines can index and rank.",
+       "details": ["Indexing", "Search intent", "Local listings and reviews"]},
+      {"id": "profiles", "label": "Profiles", "service": "entity", "line": "Official profiles and structured data that agree with each other.",
+       "details": ["Official profiles", "Founders", "Structured data"]},
+      {"id": "authority", "label": "Authority", "service": "ai", "line": "Credible sources, beyond your own site, that describe you accurately.",
+       "details": ["Citations", "Third-party references", "First-party expertise"]},
+      {"id": "ai", "label": "AI systems", "service": "ai", "line": "Assistants and AI search that read all of the above before they answer.",
+       "details": ["AI-generated descriptions", "The sources they cite", "Questions they cannot yet answer"]}],
+    "problems": {"domain": ["domain"], "website": ["website"], "search": ["search", "website"], "identity": ["profiles", "domain"], "ai": ["ai", "authority", "profiles"]}},
+  "diagnostic": {"title": "What is holding you back?", "intro": "Pick the one that sounds most like you. You will see where we would start.",
+                 "empty": "Choose an option to see a sensible starting point.",
+                 "note": "A starting point, not a diagnosis. Every engagement begins with a proper review."},
+  "progression": {"eyebrow": "How recognition is built", "title": "Five layers. Each one supports the next.",
+                  "lead": "A strong site on a confusing name is harder to trust. Search work on a site with no structure has little to stand on. AI systems lean on all of it at once."},
+  "services": {"eyebrow": "What we do", "title": "Five services. One digital presence.", "lead": "Each service stands on its own. Most clients start with one.",
+               "promo": {"title": "Not sure where to start?", "line": "Take the Digital Presence Check. Ten questions, about two minutes, and nothing is stored or sent.", "cta": "Open the check"},
+               "distinction": {"title": "Entity SEO and AI visibility are related. They are not the same.",
+                               "entity": ["Entity SEO & Digital Identity", "Establishes a clear, consistent, verifiable identity: who you are, stated the same way everywhere."],
+                               "ai": ["AI Visibility & Brand Authority", "Improves the content and evidence that search engines and AI systems use when they answer questions about that identity."],
+                               "seo": "Neither replaces SEO. Technical health, useful content, and credible authority are still the foundation both depend on."}},
+  "differs": {"ai": ["How this differs from Entity SEO.", "Entity SEO establishes a clear, consistent, verifiable identity. AI visibility improves the content and evidence that search engines and AI systems use when they answer questions about that identity. Neither replaces SEO.", "entity"],
+              "entity": ["How this differs from AI visibility.", "Entity SEO establishes who you are, stated the same way everywhere. AI visibility builds on that identity and improves the content and evidence systems use when they answer questions about it. Neither replaces SEO.", "ai"]},
+  "story": {"headline": "Domains were the beginning. Not the boundary.",
+            "home": ["Lucky Domains began with domain acquisition, because names and ownership matter. The work grew from there: the website built on the name, the search visibility that brings people to it, and the entity and authority signals that help search engines and AI systems understand the brand.",
+                     "Domains are still part of the business. They are now one part of a broader digital presence."],
+            "about": ["Lucky Domains started as a domain practice: finding the right name, valuing it honestly, reaching an owner who never listed it for sale, and closing through escrow. Names and ownership matter, and that work continues.",
+                      "A name needs a site worth putting on it. A site needs to be found. And being found increasingly means being understood, first by search engines that organize the web around entities, and now by AI systems that answer questions directly.",
+                      "So the work expanded in the order a presence is built: domain, website, search, entity, AI. Today Lucky Domains is a digital presence studio for the AI era, based in Berkeley Heights, New Jersey, and still run by its founder."]},
+  "aiWork": {"eyebrow": "How we work", "title": "AI-powered execution. Human accountability.",
+             "intro": "AI and internal automation handle the slow, repetitive parts of the job, which adds speed and depth. Ken stays responsible for the work, the decisions, and the quality, and reviews every recommendation before it reaches you.",
+             "uses": [["Research", "The questions customers ask, and who answers them now."],
+                      ["Website development", "Page drafts and repetitive markup move faster. Every change is tested before it ships."],
+                      ["Technical audits", "Indexing, speed, and crawlability checked across every page."],
+                      ["Content architecture", "Page maps built from real search demand."],
+                      ["Structured-data validation", "Markup checked against the visible facts."],
+                      ["Profile discovery", "Every profile and listing that describes a brand, and where they disagree."],
+                      ["Search monitoring", "Indexing, queries, and cited sources tracked over time."],
+                      ["Quality assurance", "Links, metadata, accessibility, and performance checked on every change."]],
+             "example": "An example from our own operations: the Autonomous SEO Agent is an internal system that researches listing sites and creates profiles each day. It is not a client product, and no SEO impact has been established.",
+             "exampleUrl": KA + "building/autonomous-seo-agent/",
+             "limit": "Client work is never left to run on its own. AI is how the work gets done, not a service we sell."},
+  "founder": {"experience": [
+      ["Finance, product, and program leadership", "Roughly two decades across accounting, financial reporting, and project, product, and program leadership at S&P Global, EY, Noom, and Prudential Financial, where he served as Director of Project and Product Management."],
+      ["Websites and technology", "Ken built and runs LuckyDomains.io and KenAshe.ai himself, including the static-site rebuild, the structured data, and the automated tests behind them."],
+      ["Building with AI", "He builds AI applications and agents in public and documents what worked and what failed on KenAshe.ai, including the internal agent that maintains Lucky Domains profiles."]],
+    "research": "Ken also tests emerging technology in public, including how domains and naming systems might identify AI agents. Those experiments are research, not client offerings. The full build records live on KenAshe.ai."},
+  "pages": {
+    "services": {"lead": "Each service stands on its own. Together they cover the name, the destination, the visibility, the identity, and the recognition that depends on all of it."},
+    "websites": {"lead": "Lucky Domains designs and builds the owned foundation that search visibility, brand authority, and AI recognition depend on, on your own domain."},
+    "seo": {"lead": "Search still decides which businesses get found, and AI-powered search is built on top of it. We fix the foundation, sharpen every page, and build content people are searching for."},
+    "ai": {"lead": "AI assistants and AI-powered search form a view of your business from what they can read and verify. We make that evidence clear, consistent, and easy to find, and measure what changes."},
+    "entity": {"lead": "One clear, consistent identity for a person or a company, across your website, structured data, profiles, and credible third-party sources."},
+    "domains": {"lead": "Lucky Domains helps you secure the right domain, even when it is taken, and represents sellers who want a discreet, well-negotiated exit."},
+    "buy": {"lead": "Most good .coms are registered and not for sale. That does not mean they cannot be bought. Here is exactly what Ken does when a client wants a name someone else owns."},
+    "check": {"title": "Digital Presence Check", "eyebrow": "Free self-check", "h1": "Digital Presence Check",
+              "lead": "Ten questions about your domain, website, search visibility, identity, and AI visibility. It takes about two minutes and points to areas worth a closer look."}},
+  "look": {
+    "websites": {"title": "What we look at", "lead": "The same checks apply whether we review the site you have or build a new one.", "items": [
+      ["Information architecture", "One page per job, organized the way customers search."],
+      ["Navigation", "Every important page reachable from the homepage in two clicks."],
+      ["Responsive design", "Templates that work on every screen size, starting with phones."],
+      ["Accessibility", "Semantic markup, keyboard support, readable contrast, and motion that respects user settings."],
+      ["Page performance", "Fast templates, compressed images, and nothing loaded that the page does not need."],
+      ["Canonical URLs", "One address per page, with internal links and the sitemap in agreement."],
+      ["Structured data", "Organization, Person, and service data that matches the visible text."],
+      ["Forms", "Clear paths to contact that work with a keyboard alone."],
+      ["Maintainability", "A site you can edit without us, documented in plain English."]]},
+    "seo": {"title": "What we look at", "lead": "An audit reads the site the way a search engine does, then the way a customer does.", "items": [
+      ["Crawlability", "Whether search engines can reach every important page, with nothing important blocked."],
+      ["Indexing", "Which pages are indexed, which are not, and why."],
+      ["Internal linking", "Links that point to canonical URLs and show which pages matter."],
+      ["Search intent", "Whether each page targets one clear thing a searcher is trying to do."],
+      ["Technical errors", "Broken links, redirect chains, duplicate URLs, and slow templates."],
+      ["Content structure", "Titles, headings, and copy that answer the question the page is for."],
+      ["Local search signals", "Google Business Profile, consistent listings, and reviews, for businesses that serve a place."],
+      ["Search Console data", "Queries, coverage, and changes over time, read before anything is changed."]]},
+    "ai": {"title": "What we look at", "lead": "The work starts with what AI systems say today, and what they base it on.", "items": [
+      ["Brand-related queries", "The questions people ask about your business and your category."],
+      ["AI-generated descriptions", "How major AI assistants describe the business today, and whether it is accurate."],
+      ["Source and citation patterns", "Which sources those answers lean on, and where your brand is missing or misdescribed."],
+      ["First-party content quality", "Whether your own pages say who you are, what you do, where, and for whom."],
+      ["Important unanswered questions", "Questions a customer would ask that nothing on your site answers."],
+      ["External authority signals", "Credible third-party references that corroborate what you say about yourself."]]},
+    "entity": {"title": "What we look at", "lead": "Identity work compares what you say about yourself, in words and in data, everywhere you say it.", "items": [
+      ["Organization and Person structured data", "Markup with stable identifiers that describes real, visible facts."],
+      ["Identity consistency", "The same name, logo, and description everywhere."],
+      ["Official profiles", "Links to official profiles only, and profiles that link back."],
+      ["Founder relationships", "Founder, company, and author relationships stated in plain words and in data."],
+      ["Canonical entity home", "One page that says, authoritatively, who you are."],
+      ["Entity disambiguation", "What separates you from people and companies with similar names."]]},
+    "domains": {"title": "What the work involves", "lead": "Every acquisition follows the same order, and nothing is contacted before the range is set.", "items": [
+      ["Ownership research", "Who owns the name, for how long, and any obvious trademark conflict."],
+      ["Valuation", "A fair-market range from comparable sales, traffic, and strategic value."],
+      ["Acquisition strategy", "Whether to approach the owner, wait, backorder, or choose an alternative."],
+      ["Outreach", "Anonymous contact, so the price reflects the name and not the buyer."],
+      ["Negotiation", "Against the range you agreed, not the seller's opening ask."],
+      ["Transfer and escrow", "Escrow terms agreed before any money moves, and a verified transfer."]]}},
+  "firstParty": {
+    "websites": {"title": "How our own sites are built",
+                 "body": "LuckyDomains.io moved from Wix to plain static HTML on the company's own domain: one canonical URL per page, 93 internal links rewritten to match, and a test suite that runs on every change. The decisions are public. On KenAshe.ai, Ken's own site, 2,083 PNG images were migrated to WebP with responsive images.",
+                 "note": "Our own sites, not client work. No traffic, ranking, or lead figures are claimed.",
+                 "links": [["Decision log for LuckyDomains.io", "https://github.com/kenashe/luckydomains/blob/main/DECISIONS.md"], ["Image pipeline build record on KenAshe.ai", KA + "building/rebuilding-the-image-pipeline/"]]},
+    "seo": {"title": "An internal system: the Autonomous SEO Agent",
+            "body": "Lucky Domains runs an internal agent that researches listing sites, creates profiles, and confirms its own verification emails each day. So far it has researched 63 sites and confirmed 8 profiles live. Most of those profiles carry nofollow links, and no SEO impact has been established.",
+            "note": "An internal system, shown to illustrate how automation supports research and monitoring. Not a client product and not a client result.",
+            "links": [["Build record on KenAshe.ai", KA + "building/autonomous-seo-agent/"]]},
+    "entity": {"title": "The founder's own identity",
+               "body": "Ken Ashe's Person data uses one stable identifier on both KenAshe.ai and LuckyDomains.io, with 19 profile references and four professional credentials described in structured data.",
+               "note": "The founder's own sites, not client work. Google creates Knowledge Panels on its own, and no panel is claimed here.",
+               "links": [["See the structured data in the page source of LuckyDomains.io", "https://luckydomains.io/"]]}},
+  "article": {"status": "Research note. An emerging topic, not a Lucky Domains service.",
+              "carry": {"title": "What an identity for an agent would need to carry", "intro": "Whatever the naming system, the same handful of jobs keep coming up.", "items": [
+                  ["A human-readable name", "Something a person can read, say, and remember."],
+                  ["Ownership", "A clear record of who controls the name."],
+                  ["Discovery", "A known place to look the agent up."],
+                  ["Machine-readable service information", "What the agent does and how to call it, in a form other software can read."],
+                  ["A wallet and a payment destination", "Somewhere to be paid that is tied to the same name."],
+                  ["Provenance", "Evidence that a result really came from that agent."],
+                  ["Reputation", "A record that travels with the name."]]}},
+  "check": {
+    "statement": "This is a preliminary self-check, not a technical audit.",
+    "privacy": "Nothing you select is stored or sent. The check runs entirely in your browser.",
+    "options": [["yes", "Yes"], ["no", "No"], ["unsure", "Not sure"]],
+    "groups": [
+      {"id": "domain", "name": "Domain", "service": "domains",
+       "advice": "Confirm who controls the registration, and whether the name still fits the brand.",
+       "questions": [["We control the domain our business runs on, in an account the business owns.", "You do not need an exact-match domain. You need a suitable one that you control."],
+                     ["The domain is easy to say and spell, and our email uses it.", "A name people can repeat, and the same name on your email, both build trust."]]},
+      {"id": "website", "name": "Website", "service": "websites",
+       "advice": "A written review of structure, clarity, speed, and the mobile experience is the usual first step.",
+       "questions": [["Within a few seconds, a new visitor can tell what we do, who we serve, and how to reach us.", "Clarity comes before design."],
+                     ["The site loads quickly and works well on a phone.", "Many first visits happen on a phone."]]},
+      {"id": "search", "name": "Search", "service": "seo",
+       "advice": "Check indexing and Search Console before changing any content.",
+       "questions": [["We appear in search results when someone searches for our business name.", "If your own name does not find you, something basic is in the way."],
+                     ["We appear for the main services we offer, in the places we serve.", "This is how people who do not know your name yet find you."]]},
+      {"id": "entity", "name": "Identity", "service": "entity",
+       "advice": "Put your name, description, and profiles side by side, then look at the structured data on your site.",
+       "questions": [["Our name, description, and contact details match across our website and official profiles.", "When sources disagree, search engines and AI systems hesitate."],
+                     ["Our website includes Organization or Person structured data that matches what the page says.", "If you are not sure, that is common. It is quick to check."]]},
+      {"id": "ai", "name": "AI visibility", "service": "ai",
+       "advice": "Ask the AI assistants your customers use how they describe you, and note which sources they cite.",
+       "questions": [["We have checked how AI assistants describe our business.", "A few minutes with the assistants your customers use is enough to start."],
+                     ["When AI assistants describe us, the description is accurate.", "Choose Not sure if you have not checked yet."]]}],
+    "status": {"none": "Not answered yet", "no": "Worth a closer look", "unsure": "Worth checking", "yes": "Nothing flagged", "partial": "Nothing flagged so far"},
+    "allYes": "Nothing was flagged by these ten questions. That does not mean there are no problems. A self-check cannot see what a technical review would.",
+    "nojs": "With JavaScript off, the check cannot total your answers. Each area below still links to the service that covers it."},
+}
+
+out = ROOT / "phase-3" / "interactive-refined" / "content.json"
+out.parent.mkdir(parents=True, exist_ok=True)
+out.write_text(json.dumps(R, indent=2, ensure_ascii=False) + "\n")
+
+
+def build():
+    pass  # the content file is written when this module is imported

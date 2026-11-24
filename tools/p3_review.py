@@ -46,6 +46,57 @@ ROWS = [
 ]
 
 
+# ---------------------------------------------------------------- the refinement of concept C
+RNAMES = dict(NAMES, check="Digital Presence Check")
+RPAGES = [("", "home"), ("services/", "services"), ("services/website-design/", "websites"), ("services/seo/", "seo"), ("services/ai-visibility/", "ai"), ("services/entity-seo/", "entity"),
+          ("services/domains/", "domains"), ("how-we-buy-domains/", "buy"), ("tools/digital-presence-check/", "check"), ("about/", "about"), ("founder/", "founder"), ("insights/", "insights"),
+          ("insights/domains-identity-for-ai-agents/", "article"), ("news/", "news"), ("contact/", "contact")]
+R_KEPT = ["Navy homepage hero, white navigation, original logo, green accent", "The presence map, with Fragmented and Recognized states and selectable signals", "The problem diagnostic", "Domain, Website, Search, Entity, AI", "Five services, each with its own page", "The production stylesheet, loaded unchanged"]
+R_REMOVED = ["Work in the navigation and footer", "The Work page and the case-study page", "Selected work on the homepage", "Every case-study link and call to action", "The second presence map", "The auto-advancing example checks", "The six-question check on the homepage"]
+R_ADDED = ["Six high-level signals on the map, with detail on selection", "The diagnostic in its own light section under the hero", "A simple connected five-layer progression", "A Digital Presence Check page", "Static What we look at lists on each service page", "Short, light heroes on interior pages", "First-party examples, labeled as our own work"]
+R_SHOTS = [("home-desktop", "Home, desktop"), ("map", "Hero presence map"), ("diagnostic", "Problem diagnostic"), ("progression", "Five-layer progression"), ("services", "Services overview"),
+           ("websites", "Website Design"), ("seo", "SEO"), ("ai", "AI Visibility"), ("entity", "Entity SEO"), ("domains", "Domains"), ("check", "Digital Presence Check"), ("about", "About"), ("founder", "Founder"),
+           ("home-mobile", "Home, mobile"), ("service-mobile", "Service page, mobile"), ("check-mobile", "Check, mobile")]
+R_SIZE = {"r-map": (592, 600), "r-diagnostic": (1440, 520), "r-progression": (1440, 620)}
+R_ROWS = [
+    ("Homepage length", "10,623 pixels on desktop and 18,204 on a phone.", "6,635 pixels on desktop and 11,359 on a phone. About 38 percent shorter on both."),
+    ("Homepage sections", "Hero with map and diagnostic, layers with a second map, services, presence check, example checks, selected work, story, AI work, founder, contact.", "Hero with map, diagnostic, five layers, five services, story, AI work, founder, contact."),
+    ("Presence maps", "Two: one in the hero and a sticky one that follows the layers.", "One, in the hero."),
+    ("Signals on the map", "Ten, all visible at once.", "Six. Selecting one shows what it includes and the related service."),
+    ("Problem diagnostic", "Five buttons and a recommendation panel inside the navy hero.", "Its own light section under the hero. The recommendation stands alone and also lights the map."),
+    ("Presence check", "Six yes or no questions on the homepage.", "Ten questions with a Not sure option, on its own page. It names areas to look at, not a score."),
+    ("What each service checks", "Tabs on the homepage and a panel on each service page that advance on their own.", "A static What we look at list on each service page."),
+    ("Portfolio", "Work in the navigation, a Work page, a case study, and selected work on the homepage.", "None. First-party examples appear on three service pages, labeled as our own work."),
+    ("Navigation", "Services, Work, About, Insights, Founder, Contact.", "Services, About, Insights, Founder, Contact."),
+    ("Interior page heroes", "Tall navy hero on every page.", "Short, light hero with compact breadcrumbs and a small diagram of where the service fits."),
+    ("Automatic motion", "Map tour, sticky map, example checks, and service tabs.", "One soft pulse on the map, with a Pause button, and a line that draws once on the five layers."),
+    ("Pages", "Sixteen.", "Fifteen: the two Work pages removed, the Digital Presence Check added."),
+]
+
+
+def refined_gallery(r):
+    figs = ""
+    for f, t in R_SHOTS:
+        w, h = R_SIZE.get("r-" + f, (375, 760) if "mobile" in f else (1440, 900))
+        figs += f'<figure><a href="{r}phase-3/screenshots/r-{f}.jpg"><img src="{r}phase-3/screenshots/r-{f}.jpg" alt="Original Interactive, refined: {E(t)}" width="{w}" height="{h}" loading="lazy"></a><figcaption>{E(t)}</figcaption></figure>'
+    return (f'<div class="p2-gal rf-gal">{figs}</div><p class="rf-full">Full-length homepage captures: <a href="{r}phase-3/screenshots/r-home-desktop-full.jpg">desktop</a> and '
+            f'<a href="{r}phase-3/screenshots/r-home-mobile-full.jpg">mobile</a>.</p>')
+
+
+def refined_block(r):
+    base = f"{r}phase-3/interactive-refined/"
+    more = "".join(f'<a href="{base}{p}">{RNAMES[k]}</a>' for p, k in RPAGES[1:])
+    col = lambda h, items: f'<div><h3>{h}</h3><ul class="chg">{"".join(f"<li>{E(x)}</li>" for x in items)}</ul></div>'
+    return f"""<section class="refine" aria-labelledby="rf-h"><p class="k">Selected direction · Refined {E(C['asOf'])}</p><h2 id="rf-h">Original, Interactive, refined</h2>
+<article class="card rf-card"><a class="shot" href="{base}" tabindex="-1" aria-hidden="true"><img src="{r}phase-3/screenshots/r-home-desktop.jpg" alt="" width="1440" height="900"><img class="shot-m" src="{r}phase-3/screenshots/r-home-mobile.jpg" alt="" width="375" height="760"></a>
+<div class="card-b"><p class="thesis">Ken chose concept C. This is one refined version for approval, not another exploration. It keeps the presence map, the service architecture, and the look of Original Interactive, and adds restraint: one map, a shorter homepage, lighter interior pages, and no portfolio.</p>
+<p class="go-row"><a class="btn" href="{base}">Open the refined site</a><a class="btn btn-l" href="{base}tools/digital-presence-check/">Digital Presence Check</a><a class="btn btn-l" href="{r}phase-3/interactive/">Original Interactive, unchanged</a></p>
+<p class="more more-16"><span class="sr">All fifteen pages:</span>{more}</p></div></article>
+<div class="rf-cols">{col("Kept", R_KEPT)}{col("Removed", R_REMOVED)}{col("Added or moved", R_ADDED)}</div>
+<h3>Screenshots</h3>{refined_gallery(r)}
+<p class="state-s">{STATEMENT} Details are in <a href="https://github.com/kenashe/luckydomains-design-concepts/blob/main/PHASE_3_CONCEPTS.md">PHASE_3_CONCEPTS.md</a>, and a side-by-side with the original concept is on the <a href="{r}phase-3/comparison/#refined">comparison page</a>.</p></section>"""
+
+
 def page(path, title, body):
     r = "../" * (path.count("/") + 1)
     cur = lambda p: ' aria-current="page"' if p == path else ""
@@ -60,6 +111,7 @@ def page(path, title, body):
 <link rel="icon" href="{r}shared/assets/favicon.ico" sizes="any">
 <link rel="stylesheet" href="{r}shared/review.css">
 <link rel="stylesheet" href="{r}phase-2/shared/review-p2.css">
+<link rel="stylesheet" href="{r}phase-3/shared/review-p3.css">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -77,7 +129,7 @@ def landing(r):
     for c in CONCEPTS:
         base = f"{r}phase-3/{c['dir']}/"; k = c["k"].lower()
         more = "".join(f'<a href="{base}{p}">{NAMES[key]}</a>' for p, key in PAGES[1:])
-        choice = " · Preferred for refinement" if c["k"] == C["preferredConcept"] else ""
+        choice = " · Selected. The refinement is at the top of this page" if c["k"] == C["preferredConcept"] else ""
         cards += f"""<article class="card">
   <a class="shot" href="{base}" tabindex="-1" aria-hidden="true"><img src="{r}phase-3/screenshots/{k}-home-desktop.jpg" alt="" width="1440" height="900" loading="lazy"><img class="shot-m" src="{r}phase-3/screenshots/{k}-home-mobile.jpg" alt="" width="375" height="760" loading="lazy"></a>
   <div class="card-b"><p class="k">Concept {c['k']}{choice}</p><h2>{E(c['name'])}</h2><p class="thesis">{E(c['thesis'])}</p>
@@ -91,9 +143,11 @@ def landing(r):
     pages = ", ".join(NAMES[k] for _, k in PAGES)
     return f"""
 <section class="intro"><p class="k">Version 3 · {E(C['asOf'])}</p><h1>Version 3: built from the original site</h1>
-<p class="lead">Three new directions that start from the live Lucky Domains design, not from a new one. Each loads the production stylesheet itself and adds a layer on top. All three tell the same story, offer the same services, and have the same sixteen pages, so the comparison is about design and interaction.</p>
+<p class="lead">Concept C, Original Interactive, was selected and has been refined. The refined version comes first on this page, and the three original directions follow, unchanged. All of them start from the live Lucky Domains design, not from a new one. Each loads the production stylesheet itself and adds a layer on top. All three tell the same story, offer the same services, and have the same sixteen pages, so the comparison is about design and interaction.</p>
 <p class="state">{STATEMENT}</p></section>
-<section class="p2-why" aria-labelledby="why-h"><h2 id="why-h">What changed from Phase 2</h2>
+{refined_block(r)}
+<section class="p2-why" aria-labelledby="why-h"><h2 id="why-h">The three version 3 concepts</h2>
+<p>The original three directions are kept below, unchanged, for comparison.</p><h3>What changed from Phase 2</h3>
 <p>Phase 2 drifted away from the original look and built only six pages per concept. Version 3 keeps the original design (navy hero, white and soft-grey sections, icon cards, green checks, numbered steps, the green call-to-action band, and the navy footer), builds a fuller site, and adds motion that explains the business instead of showcasing experiments.</p>
 <div class="p2-cols">
 <div><h3>Shared positioning</h3><p class="pos"><q>{E(C['company']['description'])}</q></p><p>{E(C['company']['originalModel'])}</p></div>
@@ -102,7 +156,7 @@ def landing(r):
 <section class="cards" aria-label="Concepts">{cards}</section>
 <section class="p2-ref" aria-labelledby="ref-h"><h2 id="ref-h">The current site, for reference</h2><p>The live LuckyDomains.io homepage, captured read-only.</p>
 <div class="p2-ref-g"><figure><img src="{r}phase-3/screenshots/current-home-desktop.jpg" alt="The current live LuckyDomains.io homepage at desktop width" width="1440" height="900" loading="lazy"><figcaption>Desktop</figcaption></figure><figure><img src="{r}phase-3/screenshots/current-home-mobile.jpg" alt="The current live LuckyDomains.io homepage at mobile width" width="375" height="760" loading="lazy"><figcaption>Mobile</figcaption></figure></div></section>
-<section class="next"><h2>How to review</h2><ol><li>Start with concept C, the preferred review direction, then compare it with the current site.</li><li>Follow one service from the homepage to its page and on to Contact in each concept.</li><li>Try each concept's interactions: the recognition map, stack, and diagnostic (A), the reading rail and before-and-after (B), and the presence map and self-check (C).</li><li>Read the <a href="{r}phase-3/comparison/">comparison</a>.</li></ol>
+<section class="next"><h2>How to review</h2><ol><li>Start with the refined version at the top of this page, then compare it with the original concept C and the current site.</li><li>Follow one service from the homepage to its page and on to Contact in each concept.</li><li>Try each concept's interactions: the recognition map, stack, and diagnostic (A), the reading rail and before-and-after (B), and the presence map and self-check (C).</li><li>Read the <a href="{r}phase-3/comparison/">comparison</a>.</li></ol>
 <p>Earlier rounds stay available as archives: <a href="{r}phase-2/">Phase 2</a> and <a href="{r}">Phase 1</a> (including Venture Lab). They are not finalists here.</p></section>"""
 
 
@@ -115,11 +169,15 @@ def comparison(r):
         k = c["k"].lower()
         figs = "".join(f'<figure><a href="{r}phase-3/screenshots/{k}-{f}.jpg"><img src="{r}phase-3/screenshots/{k}-{f}.jpg" alt="Concept {c["k"]}, {E(c["name"])}: {E(t)}" width="{375 if "mobile" in f else 1440}" height="{760 if "mobile" in f else 900}" loading="lazy"></a><figcaption>{E(t)}</figcaption></figure>' for f, t in shots)
         gal += f'<h3>Concept {c["k"]}: {E(c["name"])}</h3><div class="p2-gal">{figs}</div>'
+    rrows = "".join(f'<tr><th scope="row">{E(a)}</th><td data-c="Original, Interactive">{E(b)}</td><td data-c="Refined">{E(c)}</td></tr>' for a, b, c in R_ROWS)
     return f"""
 <section class="intro"><p class="k">Version 3 · Side by side</p><h1>Comparison</h1>
-<p class="lead">The current site against the three version 3 concepts. All three concepts share one message, five services, and sixteen pages. Concept C is the preferred direction for further refinement; no production launch is approved.</p><p class="state">{STATEMENT}</p></section>
+<p class="lead">The current site against the three version 3 concepts. All three concepts share one message, five services, and sixteen pages. Concept C was selected and has been refined; the table below the three-way comparison shows what changed. No production launch is approved.</p><p class="state">{STATEMENT}</p></section>
 <section class="tbl" aria-label="Comparison table"><table class="t4"><thead><tr><th scope="col"><span class="sr">Criterion</span></th>{head}</tr></thead><tbody>{rows}</tbody></table></section>
-<section class="gal p2-gals" aria-labelledby="g-h"><h2 id="g-h">Screenshots</h2>{gal}</section>
+<section class="tbl v2c" id="refined" aria-labelledby="rf-t"><h2 id="rf-t">Original Interactive and its refinement</h2>
+<p class="lead">What changed between the selected concept and the refined version. <a href="{r}phase-3/interactive-refined/">Open the refined site</a>.</p>
+<table class="t2"><thead><tr><th scope="col"><span class="sr">Criterion</span></th><th scope="col"><span>Concept C</span>Original, Interactive</th><th scope="col"><span>Refinement</span>Original, Interactive, refined</th></tr></thead><tbody>{rrows}</tbody></table></section>
+<section class="gal p2-gals" aria-labelledby="g-h"><h2 id="g-h">Screenshots</h2><h3>Original, Interactive, refined</h3>{refined_gallery(r)}{gal}</section>
 <section class="next"><h2>Shared by all three</h2><ul><li>The production stylesheet, loaded unchanged, under each concept's own layer.</li><li>One message: {E(C['company']['description'])}</li><li>Domain, Website, Search, Entity, AI, presented as one system.</li><li>Five services, each with its own page, plus How we buy domains.</li><li>No guarantees of rankings, AI citations, or Knowledge Panels, with Google's and Bing's own documentation cited.</li><li>ZeroHuman and other experiments only in a small From the lab section and a labeled research note.</li><li>Noindex, forms that send nothing, keyboard access, and complete content without JavaScript or motion.</li></ul>
 <p><a class="btn" href="{r}phase-3/">Back to version 3</a></p></section>"""
 

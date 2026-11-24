@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Browser audit for the version 3 concepts and review pages (derived from tools/p2_audit.py).
 
-    python3 tools/p3_audit.py http://localhost:8765/luckydomains-design-concepts /path/to/axe.min.js [--json out.json]
+    python3 tools/p3_audit.py http://localhost:8765/luckydomains-design-concepts /path/to/axe.min.js [--json out.json] [--only interactive-refined]
 
 Loads every page in Chromium and Firefox (and WebKit when it can start) at
 320, 375, 390, 768, 1024 and 1440 pixels and checks: horizontal overflow, console
@@ -15,6 +15,10 @@ from playwright.sync_api import sync_playwright
 BASE = sys.argv[1].rstrip("/"); AXE = Path(sys.argv[2]).read_text()
 OUT = sys.argv[sys.argv.index("--json") + 1] if "--json" in sys.argv else None
 PAGES = ['/phase-3/original-evolved/', '/phase-3/original-evolved/services/', '/phase-3/original-evolved/services/website-design/', '/phase-3/original-evolved/services/seo/', '/phase-3/original-evolved/services/ai-visibility/', '/phase-3/original-evolved/services/entity-seo/', '/phase-3/original-evolved/services/domains/', '/phase-3/original-evolved/how-we-buy-domains/', '/phase-3/original-evolved/work/', '/phase-3/original-evolved/work/luckydomains-io/', '/phase-3/original-evolved/about/', '/phase-3/original-evolved/founder/', '/phase-3/original-evolved/insights/', '/phase-3/original-evolved/insights/domains-identity-for-ai-agents/', '/phase-3/original-evolved/news/', '/phase-3/original-evolved/contact/', '/phase-3/editorial/', '/phase-3/editorial/services/', '/phase-3/editorial/services/website-design/', '/phase-3/editorial/services/seo/', '/phase-3/editorial/services/ai-visibility/', '/phase-3/editorial/services/entity-seo/', '/phase-3/editorial/services/domains/', '/phase-3/editorial/how-we-buy-domains/', '/phase-3/editorial/work/', '/phase-3/editorial/work/luckydomains-io/', '/phase-3/editorial/about/', '/phase-3/editorial/founder/', '/phase-3/editorial/insights/', '/phase-3/editorial/insights/domains-identity-for-ai-agents/', '/phase-3/editorial/news/', '/phase-3/editorial/contact/', '/phase-3/interactive/', '/phase-3/interactive/services/', '/phase-3/interactive/services/website-design/', '/phase-3/interactive/services/seo/', '/phase-3/interactive/services/ai-visibility/', '/phase-3/interactive/services/entity-seo/', '/phase-3/interactive/services/domains/', '/phase-3/interactive/how-we-buy-domains/', '/phase-3/interactive/work/', '/phase-3/interactive/work/luckydomains-io/', '/phase-3/interactive/about/', '/phase-3/interactive/founder/', '/phase-3/interactive/insights/', '/phase-3/interactive/insights/domains-identity-for-ai-agents/', '/phase-3/interactive/news/', '/phase-3/interactive/contact/', '/phase-3/', '/phase-3/comparison/']
+PAGES += ['/phase-3/interactive-refined/' + p for p in ('', 'services/', 'services/website-design/', 'services/seo/', 'services/ai-visibility/', 'services/entity-seo/', 'services/domains/',
+          'how-we-buy-domains/', 'tools/digital-presence-check/', 'about/', 'founder/', 'insights/', 'insights/domains-identity-for-ai-agents/', 'news/', 'contact/')]
+if "--only" in sys.argv:                       # for example: --only interactive-refined
+    PAGES = [p for p in PAGES if sys.argv[sys.argv.index("--only") + 1] in p]
 WIDTHS = [320, 375, 390, 768, 1024, 1440]
 res = {"base": BASE, "pages": len(PAGES), "widths": WIDTHS, "engines": {}, "problems": [], "axe": {}, "cls": {}, "reduced": {}, "nojs": {}}
 P = res["problems"]
@@ -85,7 +89,7 @@ with sync_playwright() as pw:
         r = {"h1": pg.locator("h1").first.is_visible(), "nav": pg.locator("#nav a:visible").count(),
              "hidden": pg.locator("main *").evaluate_all("els => els.filter(e => e.offsetParent && e.textContent.trim() && getComputedStyle(e).opacity === '0').length")}
         res["nojs"][path] = r
-        if not r["h1"] or (path.count("/") > 3 or path.rstrip("/").count("/") >= 2 and "comparison" not in path and path != "/phase-3/") and r["nav"] < 7 or r["hidden"]: P.append(f"no JavaScript {path}: {r}")
+        if not r["h1"] or (path.count("/") > 3 or path.rstrip("/").count("/") >= 2 and "comparison" not in path and path != "/phase-3/") and r["nav"] < 6 or r["hidden"]: P.append(f"no JavaScript {path}: {r}")
         pg.close()
     ctx.close(); b.close()
 for k, v in res["engines"].items(): print("engine", k, v)

@@ -1,0 +1,10 @@
+/* Version 3 review pages: additions for the refined concept. Loaded after shared/review.css and review-p2.css. */
+.go-row{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 14px}
+.rf-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px 28px;margin:0 0 20px}
+.rf-cols h3{font-size:16px;margin:0 0 8px}
+.rf-cols .chg{margin:0}.rf-cols .chg li{font-size:15px}
+.rf-card{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}
+.rf-gal{margin-top:8px}
+.rf-full{font-size:15px;margin:14px 0 0}
+.t2 thead th{width:40%}.t2 thead th:first-child{width:20%}
+@media (max-width:1000px){.rf-cols{grid-template-columns:1fr}.rf-card{grid-template-columns:1fr}}
