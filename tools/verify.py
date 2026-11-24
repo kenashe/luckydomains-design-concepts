@@ -11,11 +11,11 @@ ROOT = Path(__file__).resolve().parent.parent
 NOTICE = "Design concept only. Not the live Lucky Domains website."
 fails, ext = [], set()
 pages = sorted(p for p in ROOT.rglob("*.html") if ".git" not in p.parts)
-STAGE = "production-candidate"
+STAGES = ("production-candidate", "digital-presence-production-candidate")   # exported staging copies, see tools/export_staging.py and tools/dp_export.py
 SITE_PREFIX = "/luckydomains-design-concepts/"
 for p in pages:
     s = p.read_text(); rel = p.relative_to(ROOT)
-    staged = rel.parts[0] == STAGE                    # exported production candidate, see tools/export_staging.py
+    staged = rel.parts[0] in STAGES
     stub = 'http-equiv="refresh"' in s
     if staged:
         if '<meta name="robots" content="noindex,nofollow,noarchive">' not in s: fails.append(f"{rel}: staging page is not noindex")
@@ -72,10 +72,11 @@ for p in ROOT.rglob("*"):
         for ch, nm in (("\u2014", "em dash"), ("\u2013", "en dash")):
             if ch in t: fails.append(f"{p.relative_to(ROOT)}: contains an {nm}")
 if list(ROOT.rglob("CNAME")): fails.append("CNAME file present: this repo must not claim a custom domain")
-if (ROOT / STAGE).exists():
-    if "api.web3forms.com" in (ROOT / STAGE / "js" / "main.js").read_text(): fails.append("staging script still names the form endpoint")
+for STAGE in STAGES:
+    if not (ROOT / STAGE).exists(): continue
+    if "api.web3forms.com" in (ROOT / STAGE / "js" / "main.js").read_text(): fails.append(f"{STAGE}: staging script still names the form endpoint")
     for f in ("sitemap.xml", "robots.txt"):
-        if (ROOT / STAGE / f).exists(): fails.append(f"staging must not carry {f}")
+        if (ROOT / STAGE / f).exists(): fails.append(f"{STAGE}: staging must not carry {f}")
 if "Disallow: /" not in (ROOT / "robots.txt").read_text(): fails.append("robots.txt does not disallow crawling")
 print(f"{len(pages)} pages checked, {len(ext)} distinct external URLs")
 if "--links" in sys.argv:

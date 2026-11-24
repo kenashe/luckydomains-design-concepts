@@ -1,0 +1,21 @@
+{
+  "name": "Lucky Domains (staging)",
+  "short_name": "Lucky Domains",
+  "description": "Websites, SEO, AI visibility, digital identity, and domains for growing businesses.",
+  "start_url": "/luckydomains-design-concepts/digital-presence-production-candidate/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0C2340",
+  "icons": [
+    {
+      "src": "assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

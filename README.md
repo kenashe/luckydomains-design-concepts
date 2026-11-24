@@ -1,6 +1,37 @@
 # Lucky Domains: proposed redesign concepts
 
-**Current round: [Version 3](#version-3-current-round).** Phase 2 and Phase 1 (Venture Lab, The Register, Namespace, Venture Lab v2, and the production candidate staging copy) are archived below.
+**Current: [the production candidate staging review](#production-candidate-staging-current).** Ken approved the version 3 design Original Interactive, refined. Version 3, Phase 2 and Phase 1 (Venture Lab, The Register, Namespace, Venture Lab v2, and the earlier Venture Lab staging copy) are archived below.
+
+## Production candidate staging (current)
+
+`digital-presence-production-candidate/` is a noindex staging copy of the real production candidate. Its source is the
+branch `digital-presence-production-candidate` of `kenashe/luckydomains`
+([draft pull request #5](https://github.com/kenashe/luckydomains/pull/5)). Nothing is live on LuckyDomains.io.
+
+- Staged site: https://kenashe.github.io/luckydomains-design-concepts/digital-presence-production-candidate/
+- Review notes: https://kenashe.github.io/luckydomains-design-concepts/digital-presence-production-candidate/review/
+- Approved design reference, unchanged: `phase-3/interactive-refined/`
+
+```bash
+git clone -b digital-presence-production-candidate https://github.com/kenashe/luckydomains.git ../luckydomains
+python3 tools/dp_export.py ../luckydomains      # regenerate digital-presence-production-candidate/ from a committed branch
+python3 tools/dp_review.py                      # rewrite the review page (results live in tools/dp_results.json)
+python3 tools/dp_shots.py                       # screenshots into .../review/screenshots/
+python3 tools/dp_audit.py  http://localhost:8765/luckydomains-design-concepts /path/to/axe.min.js
+python3 tools/dp_behave.py                      # interaction tests on staging and on the candidate source
+python3 tools/dp_perf.py                        # lab load measurements on the published staging copy
+python3 tools/verify.py --links
+```
+
+The export makes only these changes: a path prefix on root-absolute links (including the presence map's links),
+`noindex,nofollow,noarchive` on every page, staging canonical and social URLs, a notice bar, and a disabled contact form
+(access key removed, endpoint replaced, submit blocked). It leaves out `CNAME`, `robots.txt`, `sitemap.xml`, documentation,
+tests and scripts, and records the source commit in `STAGING.json`. Never edit the exported folder by hand.
+
+`tools/dp_site.py` is the porting aid that wrote the candidate's pages from the approved design and the final content
+decisions (`tools/dp_data.json`, `tools/dp_articles/`, `tools/dp_extra.css`, `tools/dp_main_*.js`). It writes into a
+checkout of the production repository and is never part of `tools/build.py`. Once the candidate is approved, the HTML in
+the production repository is the source of truth and this tool is history.
 
 Three complete design directions for a possible future LuckyDomains.io, for review and comparison.
 
@@ -23,7 +54,7 @@ Comparison page (including "Venture Lab: original vs v2"): https://kenashe.githu
 
 Design reasoning, motion systems, asset origins, and open content questions are in [CONCEPTS.md](CONCEPTS.md).
 
-## Version 3 (current round)
+## Version 3 (design round, approved)
 
 Three concepts built from the original production site. Each page loads the production
 stylesheet unchanged (`phase-3/shared/original.css`), then `phase-3/shared/v3.css`, then the
@@ -96,7 +127,7 @@ python3 tools/p2_audit.py http://localhost:8765/luckydomains-design-concepts /pa
 
 Phase 2 and Phase 1 are kept as archives. They are not part of the version 3 comparison.
 
-## Production candidate staging
+## Earlier Venture Lab staging (archived)
 
 `production-candidate/` is an archived, noindex staging copy of the superseded Venture Lab candidate. Both superseded draft pull requests were closed without merging and their source branches were deleted. The staging copy is preserved as a historical snapshot and should not be regenerated.
 

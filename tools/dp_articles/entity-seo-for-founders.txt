@@ -1,0 +1,111 @@
+<!--meta
+{
+ "title": "Entity SEO for Founders: One Name, Many Profiles",
+ "description": "Why a founder's online identity fragments across sites and profiles, what you can do to make it consistent and verifiable, and what stays outside your control.",
+ "summary": "Your name appears on your company site, old profiles, press pages, and directories. Here is how to make those pieces read as one person, and what no one can promise.",
+ "category": "Explainer",
+ "topic": "Digital identity",
+ "author": "Ken Ashe",
+ "status": "draft",
+ "drafted": "2026-11-24",
+ "published": "",
+ "updated": "",
+ "order": 3,
+ "services": ["entity", "ai", "founder", "check"],
+ "related": ["what-ai-search-reads-on-your-website", "domains-identity-for-ai-agents"],
+ "sources": [
+  {"title": "Introducing the Knowledge Graph: things, not strings", "publisher": "Google (2012)", "url": "https://blog.google/products-and-platforms/products/search/introducing-knowledge-graph-things-not/"},
+  {"title": "How Google's Knowledge Graph works", "publisher": "Google Knowledge Panel Help", "url": "https://support.google.com/knowledgepanel/answer/9787176?hl=en"},
+  {"title": "About knowledge panels", "publisher": "Google Knowledge Panel Help", "url": "https://support.google.com/knowledgepanel/answer/9163198?hl=en"},
+  {"title": "Submit feedback on content about you", "publisher": "Google Knowledge Panel Help", "url": "https://support.google.com/knowledgepanel/answer/7534842?hl=en"},
+  {"title": "Get verified on Google", "publisher": "Google Knowledge Panel Help", "url": "https://support.google.com/knowledgepanel/answer/7534902?hl=en"},
+  {"title": "Profile page (ProfilePage) structured data", "publisher": "Google Search Central", "url": "https://developers.google.com/search/docs/appearance/structured-data/profile-page"},
+  {"title": "Organization structured data", "publisher": "Google Search Central", "url": "https://developers.google.com/search/docs/appearance/structured-data/organization"},
+  {"title": "Article structured data: author markup best practices", "publisher": "Google Search Central", "url": "https://developers.google.com/search/docs/appearance/structured-data/article#author-bp"},
+  {"title": "General structured data guidelines", "publisher": "Google Search Central", "url": "https://developers.google.com/search/docs/appearance/structured-data/sd-policies"},
+  {"title": "Creating helpful, reliable, people-first content", "publisher": "Google Search Central", "url": "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"},
+  {"title": "sameAs", "publisher": "Schema.org", "url": "https://schema.org/sameAs"}
+ ],
+ "sources_checked": "2026-11-24"
+}
+meta-->
+<p>Search for your own name. What comes back is rarely one tidy person. It is a company bio, a profile you last touched years ago, a conference page with an old job title, a podcast episode, and quite possibly someone else who shares your name.</p>
+<p>To you, the pieces that are yours obviously belong together. To a search engine or an AI system assembling an answer, they are separate documents that may or may not describe the same person. Entity SEO is the work of making them agree.</p>
+
+<h2 id="why-identity-fragments">Why a founder's identity fragments</h2>
+<p>Nobody sets out to have an inconsistent identity. It accumulates. You sign up for profiles over fifteen years, under slightly different names, with whatever title you held that month. Your company site describes the company and mentions you in a line. Event organizers and journalists write their own version of who you are. Each page is reasonable. Together they disagree about your name, your role, and sometimes your employer.</p>
+<p>No one is responsible for reconciling them except you.</p>
+
+<h2 id="things-not-strings">Things, not strings</h2>
+<p>Search engines stopped treating a name as a string of letters a long time ago. When Google introduced its Knowledge Graph in 2012, it described the goal as understanding "things, not strings," and gave the example of telling the Taj Mahal monument from the musician of the same name. An entity is a thing a system can tell apart from other things: a person, a company, a place.</p>
+<p>Google says the facts it holds about entities "come from a variety of sources that compile factual information." That is the practical point. A system's picture of you is built from many pages, most of which you did not write.</p>
+
+<h2 id="one-home">Give your identity one home</h2>
+<p>Start by choosing the single page that is the authoritative account of you. For most founders it is an About page on a personal site, or a founder page on the company site. Everything else should point to it, and it should point back to the profiles that are really yours.</p>
+<p>Google has a structured data type for this kind of page. It describes ProfilePage markup as designed for sites "where creators (either people or organizations) share first-hand perspectives," and lists an About Me page and "an employee page on a company website" among the valid uses.</p>
+<p>The page itself matters more than the markup. It should say, in plain sentences, who you are, what you do now, which company you founded, and where else you can be found.</p>
+
+<h2 id="say-the-same-thing">Say the same thing everywhere</h2>
+<p>Pick one form of your name and use it. If people also know you by another form, such as a full first name or a handle, state it once on your home page as an alternate. Then make four things match wherever you have a profile:</p>
+<ul class="check">
+<li>Your name, written the same way</li>
+<li>A one-sentence description of what you do</li>
+<li>Your current role and company</li>
+<li>The same recent photograph</li>
+</ul>
+<p>Old profiles are the usual problem. Update the ones you want to keep and close the ones you do not. A dormant profile with an old title is still a source.</p>
+
+<figure class="art-fig">
+<div class="lanes two">
+<div class="lane g"><p class="lane-t">What you control</p><p class="lane-s">Describes you</p><ul><li>Your own website and its About or founder page</li><li>Structured data on your pages</li><li>Your official profiles</li><li>Bylines and author pages</li><li>How consistent all of it is</li></ul></div>
+<div class="lane m"><p class="lane-t">What others control</p><p class="lane-s">Corroborates you, or does not</p><ul><li>Press coverage and interviews</li><li>Directories and professional bodies</li><li>Event and speaker pages</li><li>Reference sources such as Wikidata</li><li>What a search engine or an AI system concludes</li></ul></div>
+</div>
+<figcaption>Owner-controlled signals describe an identity. Independent sources are what make it credible. Entity work needs both, and only the first column is in your hands.</figcaption>
+</figure>
+
+<h2 id="connect-the-dots">Connect the dots in structured data</h2>
+<p>Structured data is a short block of code that states facts about a page in a vocabulary machines share, called Schema.org. For a person, the useful facts are your name, any alternate name, a description, an image, the organization you founded or work for, and <code>sameAs</code> links. Schema.org defines <code>sameAs</code> as the "URL of a reference Web page that unambiguously indicates the item's identity." In practice that means your official profiles.</p>
+<p>The same applies to your company. Google says organization markup on a home page can help it "better understand your organization's administrative details and disambiguate your organization in search results." Stating in both places that this person founded this organization ties the two records together.</p>
+<p>Three limits apply, and they are Google's own:</p>
+<ul>
+<li>"Don't mark up content that is not visible to readers of the page." The code must describe what the page says.</li>
+<li>"Using structured data enables a feature to be present, it does not guarantee that it will be present."</li>
+<li>Google's documentation names only some properties. Others, such as credentials or areas of expertise, are valid vocabulary, but nobody outside a given system can tell you how much weight it gives them.</li>
+</ul>
+
+<h2 id="authorship">Put your name on your work</h2>
+<p>Among the questions Google suggests asking about content is "Is it self-evident to your visitors who authored your content?" It encourages bylines where readers would expect them. If you publish articles, each one should name you and link to your home page.</p>
+<p>In markup, Google recommends that an author record include a link to "a web page that uniquely identifies the author," and notes that it "can understand both sameAs and url when disambiguating authors." A byline that leads to one consistent page is a small, repeated signal that the same person wrote all of it.</p>
+<p>The reverse is also stated plainly. Google calls fabricated creator profiles, with made-up names or false credentials, a form of deception. Entity work only helps a real person state true things clearly.</p>
+
+<h2 id="sharing-a-name">When someone shares your name</h2>
+<p>There is no published method for how Google separates two people with one name, and no way to instruct it. What exists is an acknowledgment that it goes wrong: Google's help pages list "the content of the knowledge panel is mixed with another of the same or similar name" as an issue to report.</p>
+<p>What you can do is make the difference easy to see. Use the same distinguishing details everywhere: your profession, your company, your city or state, a credential after your name if you use one. Consistency is what lets a system keep two records apart.</p>
+
+<h2 id="knowledge-panels">Knowledge Panels: what you can and cannot do</h2>
+<p>A Knowledge Panel is the box of facts Google sometimes shows beside results for a person or a company. Founders ask for one more than anything else in this field, so the facts are worth stating exactly:</p>
+<ul>
+<li>"Knowledge panels are automatically generated, and information that appears in a knowledge panel comes from various sources across the web."</li>
+<li>Google's policy "doesn't manually create or delete Knowledge Panels." Panels appear, in its words, "when there is enough information available on the open web."</li>
+<li>If a panel about you already exists, "you can claim this panel and suggest changes." Google adds that "not all knowledge panels are claimable as of now."</li>
+</ul>
+<p>No form, markup, or service creates a panel. Consistent profiles and structured data improve the evidence Google works from. Whether a panel follows is Google's decision.</p>
+
+<h2 id="independent-recognition">The part you cannot write yourself</h2>
+<p>Everything above is you describing yourself. It is necessary, and it is not sufficient. What makes an identity credible is other people describing you the same way: an interview, a profile in a trade publication, a professional body's member page, a speaker page, a byline in an outlet you do not own.</p>
+<p>You cannot manufacture that, and paying for fake versions of it is the fastest way to damage the thing you are building. What you can do is make it easy to get right. Give journalists and organizers one bio, one name, one photo, and one link, every time.</p>
+<p>How much this helps in search and in AI answers is not something anyone can quantify for you in advance. The reasonable expectation is modest: when your own pages and independent pages agree, there is less for a system to get wrong.</p>
+
+<div class="callout" role="note"><p><strong>A first-party example.</strong> Ken Ashe's identity is described once, in a single Person record with one stable identifier. The same record appears, character for character, on KenAshe.ai and on LuckyDomains.io, and a rule in both repositories keeps the copies identical. It lists 19 profile links and four professional credentials. The <a href="/founder/ken-ashe/">founder page</a> on this site is marked up as a profile page about that same person. This describes a setup, not a result. No Knowledge Panel is claimed.</p></div>
+
+<h2 id="checklist">A founder's identity checklist</h2>
+<ul class="check">
+<li>One page that is the authoritative account of you</li>
+<li>One form of your name, one description, one photo, used everywhere</li>
+<li>Old profiles updated or closed</li>
+<li>Person and organization structured data that matches the visible text</li>
+<li>Links from your home page to your official profiles, and back</li>
+<li>A byline on your work that leads to your home page</li>
+<li>A standard bio you send to anyone who writes about you</li>
+</ul>
+<p>The <a href="/tools/digital-presence-check/">Digital Presence Check</a> includes two questions on identity if you want a quick read on where you stand. Reconciling it properly is the work of <a href="/services/entity-seo/">Entity SEO &amp; Digital Identity</a>, and what search engines and AI systems then say about that identity is the subject of <a href="/services/ai-visibility/">AI Visibility &amp; Brand Authority</a>.</p>

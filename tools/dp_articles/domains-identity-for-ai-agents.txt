@@ -1,0 +1,102 @@
+<!--meta
+{
+ "title": "Can Domains Become the Identity Layer for AI Agents?",
+ "description": "Domains identify businesses. Could naming systems do the same for autonomous AI agents? A look at the proposals, two first-party experiments, and what is unresolved.",
+ "summary": "People and businesses use domains as durable identities. AI agents may need something similar: a readable name, a way to be found, and a way to check who stands behind them. Nothing here is settled.",
+ "category": "Research",
+ "topic": "Agent identity",
+ "author": "Ken Ashe",
+ "status": "draft",
+ "drafted": "2026-11-24",
+ "published": "",
+ "updated": "",
+ "order": 5,
+ "services": ["domains", "entity", "founder"],
+ "related": ["how-a-private-domain-purchase-works", "entity-seo-for-founders"],
+ "sources": [
+  {"title": "ZeroHuman: A Business Only AI Agents Can Use (build record)", "publisher": "KenAshe.ai (first party)", "url": "https://kenashe.ai/building/zerohuman/"},
+  {"title": "I Built Two AI Agents That Buy and Sell Services on Ethereum (build record)", "publisher": "KenAshe.ai (first party)", "url": "https://kenashe.ai/building/ai-agent-economy/"},
+  {"title": "How It Works", "publisher": "Let's Encrypt", "url": "https://letsencrypt.org/how-it-works/"},
+  {"title": "RFC 6376: DomainKeys Identified Mail (DKIM) Signatures", "publisher": "IETF", "url": "https://www.rfc-editor.org/rfc/rfc6376.html"},
+  {"title": "Agent2Agent (A2A) Protocol Specification", "publisher": "A2A Project, Linux Foundation", "url": "https://a2a-protocol.org/latest/specification/"},
+  {"title": "The MCP Registry", "publisher": "Model Context Protocol", "url": "https://modelcontextprotocol.io/registry/about"},
+  {"title": "Discovery of Agents With Names (dawn) working group", "publisher": "IETF", "url": "https://datatracker.ietf.org/wg/dawn/about/"},
+  {"title": "Agent Name Service v2 (ANS): A Domain-Anchored Identity Layer for Autonomous AI Agents (Internet-Draft)", "publisher": "IETF Datatracker", "url": "https://datatracker.ietf.org/doc/draft-narajala-courtney-ansv2/"},
+  {"title": "DNS for AI Discovery (Internet-Draft)", "publisher": "IETF Datatracker", "url": "https://datatracker.ietf.org/doc/draft-mozleywilliams-dawn-dnsaid/"},
+  {"title": "Text Records", "publisher": "ENS documentation", "url": "https://docs.ens.domains/web/records"},
+  {"title": "ENSIP-25: AI Agent Registry ENS Name Verification (draft)", "publisher": "ENS documentation", "url": "https://docs.ens.domains/ensip/25"},
+  {"title": "ERC-8004: Trustless Agents (draft)", "publisher": "Ethereum Improvement Proposals", "url": "https://eips.ethereum.org/EIPS/eip-8004"},
+  {"title": "Welcome to x402", "publisher": "x402 Foundation", "url": "https://docs.x402.org/"},
+  {"title": "Verifiable Credentials Data Model v2.0", "publisher": "W3C", "url": "https://www.w3.org/TR/vc-data-model-2.0/"},
+  {"title": "Summary of Comments on the Concept Paper", "publisher": "NIST National Cybersecurity Center of Excellence", "url": "https://pages.nist.gov/nccoe-ai-identity/summary-of-comments.html"},
+  {"title": "New whitepaper tackles AI agent identity challenges", "publisher": "OpenID Foundation", "url": "https://openid.net/new-whitepaper-tackles-ai-agent-identity-challenges/"}
+ ],
+ "sources_checked": "2026-11-24"
+}
+meta-->
+<p>A domain is the one identifier most businesses fully control. If software agents are going to act on their own, finding services, paying for them, and delivering results, they will need identifiers too. This article asks whether naming systems could do that job.</p>
+<div class="callout" role="note"><p><strong>Read this as research.</strong> It describes proposals that are still drafts and two small experiments run by our founder. Lucky Domains does not sell agent identity, and nothing here is a prediction.</p></div>
+
+<h2 id="what-a-domain-does">What a domain already does for a business</h2>
+<p>A domain does more than point to a website. Email, profiles, structured data, and press mentions all refer back to it, which is why a search engine or an AI system can use it to decide which company a mention belongs to.</p>
+<p>It also carries the web's working machinery for trust. When a certificate authority issues a certificate, it ties a cryptographic key to a domain name, so a browser can check that it is talking to the real site. Let's Encrypt describes issuing "a certificate for example.com" once control of the domain has been shown. Email works the same way: the DKIM standard "permits a person, role, or organization that owns the signing domain to claim some responsibility for a message."</p>
+<p>In both cases the question "who is this, really?" is answered by a name that someone demonstrably controls. That is the model people are now trying to extend to agents.</p>
+
+<h2 id="what-an-agent-needs">What an identity for an agent would need to carry</h2>
+<p>Set aside the technology and the list is familiar. An agent that offers a service, or pays for one, needs most of what a business needs.</p>
+<div class="art-table" tabindex="0" role="region" aria-label="What an identity needs, for a business and for an agent">
+<table>
+<caption>The same needs, for a business today and for an agent</caption>
+<thead><tr><th scope="col">Need</th><th scope="col">How a business meets it today</th><th scope="col">What is being tried for agents</th></tr></thead>
+<tbody>
+<tr><th scope="row">A readable name</th><td>A domain name</td><td>A domain name, or a name in a blockchain naming system such as ENS</td></tr>
+<tr><th scope="row">Ownership</th><td>A registrar account and a certificate</td><td>Proof of control of a domain, or on-chain ownership of a name</td></tr>
+<tr><th scope="row">Discovery</th><td>Search, links, and DNS</td><td>A published description at a known address on the agent's domain, or records attached to its name</td></tr>
+<tr><th scope="row">A description software can read</th><td>Web pages and structured data</td><td>A standard "agent card," or text records on a name</td></tr>
+<tr><th scope="row">A payment destination</th><td>An invoice or a checkout page</td><td>A wallet address tied to the name, or payment requested over the web's 402 status code</td></tr>
+<tr><th scope="row">Provenance</th><td>Certificates and signed email</td><td>Results signed by the key behind the name, and verifiable credentials</td></tr>
+<tr><th scope="row">Reputation</th><td>Reviews, references, coverage</td><td>Shared registries where feedback is recorded</td></tr>
+</tbody>
+</table>
+</div>
+<p>None of the entries in the right-hand column is an agreed standard. They fall into two families.</p>
+
+<h2 id="domain-anchored">Family one: anchor the agent to a domain</h2>
+<p>The first family reuses what businesses already have.</p>
+<p>The Agent2Agent protocol, created by Google and now a Linux Foundation project, defines an Agent Card as "a JSON metadata document published by an A2A Server," and gives it a conventional home: a file at a well-known address on the server's own domain. Whoever controls the domain controls what the card says.</p>
+<p>The Model Context Protocol, which Anthropic donated to a Linux Foundation fund in December 2025, takes a similar line in its registry, currently in preview. The registry's documentation lists "Namespace management through DNS verification" among its functions: to publish under a domain's name, you show that you control the domain.</p>
+<p>The Internet Engineering Task Force, which maintains core internet standards, has chartered a working group called Discovery of Agents With Names. Its charter says it "will consider DNS and mDNS as mechanisms upon which to build a discovery protocol." Two individual drafts sit alongside it: Agent Name Service v2, subtitled "A Domain-Anchored Identity Layer for Autonomous AI Agents" with a co-author from GoDaddy, and DNS for AI Discovery, with authors from Infoblox, Deutsche Telekom, Amazon, and GoDaddy. Both are individual submissions that expire in spring 2027. Neither has been adopted by the working group.</p>
+
+<h2 id="blockchain-naming">Family two: names that carry payment with them</h2>
+<p>The second family starts from blockchain naming, most visibly the Ethereum Name Service, or ENS. An ENS name can hold addresses and what its documentation calls text records: "key-value pairs that can be used to store any arbitrary data associated with a name." A name can therefore point to a wallet and publish a description in the same place.</p>
+<p>Two draft specifications build on that. ERC-8004, titled Trustless Agents, proposes "three lightweight registries" for identity, reputation, and validation. ENSIP-25 proposes "a standardized method for directly verifying, using text records, the association between an ENS name and an AI agent identity." Both are drafts.</p>
+<p>Payment has its own effort. The x402 protocol, contributed by Coinbase to a foundation launched under the Linux Foundation in July 2026, is "built around the HTTP 402 Payment Required status code," a part of the web's design that went largely unused for decades.</p>
+<p>The two families are not rivals in principle. An agent could be discoverable through a domain and paid through a wallet. Whether they converge is one of the open questions.</p>
+
+<h2 id="what-ken-tested">What our founder has tested in public</h2>
+<p>Ken Ashe has run two small experiments in the second family and published the full build records on KenAshe.ai. They are his own research. They are not Lucky Domains products, and no client is involved.</p>
+<p><strong>ZeroHuman</strong> is, in the words of its build record, "an always-on service that sells two small jobs to other AI agents for 0.0001 ETH each." Its ENS name, zerohuman.eth, "is the storefront, the payment address, and the sender of every result." A text record on the name publishes the menu. The service is listed in the ERC-8004 agent registry as agent #56626 and linked back from the name with an ENSIP-25 record. It also publishes an Agent Card, so it uses pieces from both families.</p>
+<p><strong>An earlier experiment</strong>, on November 10, 2026, had two AI agents, each with its own Ethereum wallet, complete one purchase on the Ethereum main network, with a text record on an ENS name acting as the storefront.</p>
+
+<h2 id="what-it-does-not-show">What those tests do not show</h2>
+<p>The limits are stated in the build records and matter more than the results.</p>
+<ul>
+<li>As of November 20, 2026, no outside agent had bought from ZeroHuman. Both paid orders came from Ken's own test buyer.</li>
+<li>In the earlier experiment, Ken operated both agents, on one machine.</li>
+<li>ZeroHuman has no escrow. A buyer pays first, and refunds are manual.</li>
+<li>The registry link rests on two specifications that are still drafts.</li>
+</ul>
+<p>The honest reading is narrow. The pieces can be assembled into something that works end to end. That is not evidence that agents will buy from each other, or that this is the design the market will choose.</p>
+
+<h2 id="open-questions">What is unresolved</h2>
+<p><strong>Which kind of name.</strong> Domains are where businesses already are, with registrars, renewal rules, and dispute procedures built over decades. Blockchain names carry payment natively and can be updated by software. Nobody knows which matters more to an agent, or whether both will be used.</p>
+<p><strong>What a name proves.</strong> Control of a name shows who controls the name. It does not show that the agent behind it is competent or honest. Certificates have the same limit for websites.</p>
+<p><strong>Who is accountable.</strong> A summary of public comments published in September 2026 by the U.S. National Institute of Standards and Technology reported near unanimity that agents need verifiable identities, and that "there was no consensus on the exact means for doing this." The OpenID Foundation has said autonomous agents require "a fundamental rethinking of identity and authorization."</p>
+<p><strong>Whether the drafts survive.</strong> Several of the documents cited here expire or change within months. Any of them could be replaced.</p>
+<p><strong>Whether there is a market.</strong> All of this assumes agents will transact with each other at meaningful scale. That has not been shown.</p>
+
+<h2 id="for-a-business-today">What this means for a business today</h2>
+<p>There is nothing to buy and no deadline. Two things are worth doing anyway, because they pay off whether or not any of this arrives.</p>
+<p>First, hold your domain properly: registered to the business, in an account the business controls. Every domain-anchored proposal assumes the owner of the name is the one in charge.</p>
+<p>Second, keep your identity consistent and verifiable. The signals that help search engines and AI systems recognize a business now, a clear website, accurate structured data, and profiles that agree, are the same ones any future lookup by software would lean on.</p>
+<p>That is the connection to our commercial work, and it is the only one. <a href="/services/domain-acquisition/">Domain Acquisition &amp; Brokerage</a> and <a href="/services/entity-seo/">Entity SEO &amp; Digital Identity</a> are services for businesses today. Agent identity is a question we are watching, and one our <a href="/founder/ken-ashe/">founder</a> tests in public on <a href="https://kenashe.ai/building/" rel="noopener">KenAshe.ai</a>.</p>

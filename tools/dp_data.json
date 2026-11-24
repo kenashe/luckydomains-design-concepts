@@ -1,0 +1,172 @@
+{
+ "meta": {
+  "home": {
+   "title": "Lucky Domains | Websites, SEO, AI Visibility & Domains",
+   "desc": "Lucky Domains helps businesses build a digital presence that people, search engines, and AI systems can find, understand, and trust.",
+   "og": "Build a digital presence people, search engines, and AI recognize."
+  },
+  "services": {
+   "title": "Services | Lucky Domains",
+   "desc": "Five services that stand on their own: website design and development, SEO, AI visibility and brand authority, entity SEO, and domain acquisition and brokerage.",
+   "og": "Five services. One digital presence."
+  },
+  "websites": {
+   "title": "Website Design & Development | Lucky Domains",
+   "desc": "Websites designed and built to be understood by people, search engines, and AI systems: clear structure, fast pages, and accessible markup, on your own domain.",
+   "type": "Website design and development"
+  },
+  "seo": {
+   "title": "SEO & Search Visibility | Lucky Domains",
+   "desc": "SEO audits, technical reviews, scoped implementation projects, and search and content strategy. Honest reporting, and no ranking guarantees.",
+   "type": "Search engine optimization"
+  },
+  "ai": {
+   "title": "AI Visibility & Brand Authority | Lucky Domains",
+   "desc": "Improve the content and evidence that search engines and AI systems use to understand, describe, and cite your business. No guarantees and no secret markup.",
+   "type": "AI visibility and brand authority"
+  },
+  "entity": {
+   "title": "Entity SEO & Digital Identity | Lucky Domains",
+   "desc": "One clear, consistent, verifiable identity for a person or a company, across your website, structured data, official profiles, and credible third-party sources.",
+   "type": "Entity SEO"
+  },
+  "domains": {
+   "title": "Domain Acquisition & Brokerage | Lucky Domains",
+   "desc": "Secure the right domain, even when someone else owns it: valuation, anonymous outreach, negotiation, and escrow-backed transfer. Discreet sales for domain owners.",
+   "type": "Domain acquisition and brokerage"
+  },
+  "buy": {
+   "title": "How to Buy a Domain That Is Not for Sale | Lucky Domains",
+   "desc": "Most good .com names are registered and not listed for sale. Here is exactly what Lucky Domains does when a client wants a name someone else owns.",
+   "og": "How we buy domains"
+  },
+  "check": {
+   "title": "Digital Presence Check: A Free Self-Check | Lucky Domains",
+   "desc": "Ten questions about your domain, website, search visibility, identity, and AI visibility. Free, about two minutes, and nothing you answer is stored or sent.",
+   "og": "Digital Presence Check"
+  },
+  "about": {
+   "title": "About Lucky Domains | A Digital Presence Studio",
+   "desc": "Lucky Domains began with domain acquisition and grew into websites, search, digital identity, and AI visibility. Founder-led, based in Berkeley Heights, New Jersey.",
+   "og": "Domains were the beginning. Not the boundary."
+  },
+  "founder": {
+   "title": "Ken Ashe - Founder & Operator | Lucky Domains",
+   "desc": "Ken Ashe, CPA, PMP, is the founder and operator of Lucky Domains. About 20 years working with websites, and two decades in finance, product, and program leadership.",
+   "og": "Ken Ashe, Founder & Operator of Lucky Domains"
+  },
+  "insights": {
+   "title": "Insights | Lucky Domains",
+   "desc": "Practical articles on websites, search, digital identity, AI visibility, and domains, written by the founder of Lucky Domains, with sources.",
+   "og": "Insights from Lucky Domains"
+  },
+  "news": {
+   "title": "News | Lucky Domains",
+   "desc": "Announcements and press releases from Lucky Domains, plus founder background and media resources. For media inquiries, email info@luckydomains.io.",
+   "og": "Lucky Domains news"
+  },
+  "contact": {
+   "title": "Contact Lucky Domains | Book a Free Consultation",
+   "desc": "Tell Ken what you are working on: a website, search visibility, digital identity, AI visibility, or a domain. Free, no-obligation consultation. Reply within one business day.",
+   "og": "Contact Lucky Domains"
+  },
+  "404": {
+   "title": "Page not found | Lucky Domains",
+   "desc": "The page you are looking for does not exist or has moved.",
+   "og": "Page not found"
+  }
+ },
+ "contact": {
+  "needs": [
+   "Website design or development",
+   "SEO and search visibility",
+   "AI visibility and brand authority",
+   "Entity SEO and digital identity",
+   "Buying a domain",
+   "Selling a domain",
+   "Not sure yet"
+  ],
+  "needMap": {
+   "website": "Website design or development",
+   "seo": "SEO and search visibility",
+   "ai": "AI visibility and brand authority",
+   "entity": "Entity SEO and digital identity",
+   "buying": "Buying a domain",
+   "selling": "Selling a domain"
+  }
+ },
+ "insights": {
+  "h1": "How digital discovery is changing, in plain English.",
+  "lead": "Practical articles on websites, search, digital identity, AI visibility, and domains. Written by the founder, with sources you can check.",
+  "kenashe": "Ken publishes build records, essays, and videos about the systems he builds, including what failed. The technical detail behind the research article lives there."
+ },
+ "founder": {
+  "lead": "Founder and operator of Lucky Domains. A CPA and PMP with roughly two decades in finance, product, and program leadership, and about 20 years working with websites.",
+  "bio": [
+   "Ken started his career in accounting and financial reporting before moving into project, product, and program leadership. Over roughly two decades, that career ran through S&P Global, EY, Noom, and Prudential Financial, where he served as Director of Project and Product Management.",
+   "He has also worked with HTML, CSS, websites, and WordPress for about 20 years. More recently, he has increasingly used AI-assisted development to build websites and applications, including this site and KenAshe.ai.",
+   "He built Lucky Domains alongside that career and still runs it himself. The person on your first call is the person who values the domain, scopes the site, runs the audit, and writes the report."
+  ],
+  "experience": [
+   [
+    "Finance, product, and program leadership",
+    "Roughly two decades across accounting, financial reporting, and project, product, and program leadership at S&P Global, EY, Noom, and Prudential Financial."
+   ],
+   [
+    "Websites and technology",
+    "About 20 years working with HTML, CSS, websites, and WordPress. Ken built and runs LuckyDomains.io and KenAshe.ai himself, including the structured data and the automated tests behind them."
+   ],
+   [
+    "Building with AI",
+    "More recently, Ken has used AI-assisted development to build websites and applications, and he documents what worked and what failed on KenAshe.ai. One of those systems, the Autonomous SEO Agent, researches listing sites and builds profiles every day without supervision."
+   ]
+  ],
+  "twoSites": [
+   [
+    "LuckyDomains.io",
+    "The commercial business: website design and development, SEO, AI visibility, digital identity, brand authority, and domains, for clients."
+   ],
+   [
+    "KenAshe.ai",
+    "Ken's personal creator brand: AI application builds, experiments, writing, videos, speaking, and what failed along the way."
+   ]
+  ],
+  "research": "Ken also tests emerging technology in public, including how domains and naming systems might identify AI agents. Those experiments are research, not client offerings.",
+  "publishedTitle": "Selected articles and commentary.",
+  "publishedLead": "A short selection. Commentary is opinion from the founder, not experimental evidence or client results.",
+  "published": [
+   {
+    "kind": "Expert commentary",
+    "outlet": "TechRound",
+    "date": "September 30, 2026",
+    "title": "Do Domain Names Still Matter In An Age Of AI-First Internet?",
+    "url": "https://techround.co.uk/artificial-intelligence/do-domain-names-still-matter-in-an-age-of-ai-first-internet/",
+    "line": "Ken is one of the experts quoted on why a domain still matters when AI systems answer questions: \"Answer engines have to choose whom to believe when two sources conflict.\""
+   },
+   {
+    "kind": "Interview",
+    "outlet": "TechRound",
+    "date": "November 11, 2026",
+    "title": "A Chat With Ken Ashe, Founder Of Lucky Domains And Expert Judge In The TechRound100 2026",
+    "url": "https://techround.co.uk/interviews/a-chat-with-ken-ashe-founder-of-lucky-domains-and-expert-judge-in-the-techround100-2026/",
+    "line": "On SEO, AI search, and identity: \"Consistent information and structured data can help search engines and AI systems understand exactly who you are and what you do.\""
+   },
+   {
+    "kind": "Article by Ken",
+    "outlet": "HackerNoon",
+    "date": "September 2026",
+    "title": "My Automated Blog Got Cited. Is That a Good Thing?",
+    "url": "https://hackernoon.com/my-automated-blog-got-cited-is-that-a-good-thing",
+    "line": "A first-hand account of an AI-run site citing his automated publication, and what that says about sources."
+   },
+   {
+    "kind": "Article by Ken",
+    "outlet": "ProjectManagement.com (PMI)",
+    "date": "February 2016",
+    "title": "Personal Branding: An Important Step",
+    "url": "https://www.projectmanagement.com/articles/318225/Personal-Branding--An-Important-Step",
+    "line": "An early piece on building a professional presence online."
+   }
+  ]
+ }
+}

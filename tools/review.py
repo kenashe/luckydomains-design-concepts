@@ -110,9 +110,9 @@ def landing(r):
     return f"""
 <section class="refine p2-banner" aria-labelledby="p2-h">
   <p class="k">Current round</p>
-  <h2 id="p2-h">Version 3: three concepts built from the original site</h2>
-  <p class="lead">Version 3 is the current round. Phase 2 and everything below on this page (Phase 1) are kept as archives and are not finalists.</p>
-  <p class="go"><a class="btn" href="{r}phase-3/">Open version 3</a><a class="btn btn-l" href="{r}phase-3/comparison/">Version 3 comparison</a><a class="btn btn-l" href="{r}phase-2/">Phase 2 archive</a></p>
+  <h2 id="p2-h">Approved design, now staged as a production candidate</h2>
+  <p class="lead">Ken approved the version 3 design Original Interactive, refined. It has been built into a production candidate and staged here for review. Nothing is live on LuckyDomains.io. Version 3, Phase 2 and everything below on this page (Phase 1) are kept as archives.</p>
+  <p class="go"><a class="btn" href="{r}digital-presence-production-candidate/">Open the staged site</a><a class="btn btn-l" href="{r}digital-presence-production-candidate/review/">Review notes</a><a class="btn btn-l" href="{r}phase-3/">Version 3 concepts</a><a class="btn btn-l" href="{r}phase-2/">Phase 2 archive</a></p>
 </section>
 <section class="intro">
   <p class="k">Phase 1 archive · Review, {E(C['asOf'])}</p>

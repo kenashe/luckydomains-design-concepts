@@ -1,6 +1,8 @@
 # Version 3 concepts and design notes
 
-Created November 24, 2026. Ken selected Concept C, and a refined version now lives at `/phase-3/interactive-refined/` (see [Refinement](#refinement-original-interactive-refined) below). Review only; nothing in Version 3 has been implemented on LuckyDomains.io. Phase 1 (`CONCEPTS.md`) and Phase 2 (`PHASE_2_CONCEPTS.md`) notes are unchanged.
+Created November 24, 2026. Ken selected Concept C, and a refined version now lives at `/phase-3/interactive-refined/` (see [Refinement](#refinement-original-interactive-refined) below). Review only; nothing in Version 3 has been implemented on LuckyDomains.io.
+
+**Update, later on November 24, 2026.** Ken approved the refined design. It is now the design reference and is no longer edited. The production candidate built from it lives in `kenashe/luckydomains` on the branch `digital-presence-production-candidate` ([draft pull request #5](https://github.com/kenashe/luckydomains/pull/5)) and is staged at `/digital-presence-production-candidate/`, with review notes at `/digital-presence-production-candidate/review/`. See [Approved, and what happened next](#approved-and-what-happened-next) at the end of this document. Nothing is live on LuckyDomains.io. Phase 1 (`CONCEPTS.md`) and Phase 2 (`PHASE_2_CONCEPTS.md`) notes are unchanged.
 
 ## Why version 3
 
@@ -222,3 +224,27 @@ With five navigation links instead of six, the closed mobile menu was short enou
 ### Design judgment
 
 The refinement is the stronger site. The homepage now has one idea per section and two interactions that earn their place. The map explains the business faster with six signals than it did with ten, and the diagnostic is more useful on its own than it was inside the hero. The interior pages read like a professional services site, not a product demo. The trade-off is that the site shows less evidence of delivered work, so credibility rests on the depth of the service pages, the founder, and the first-party examples. That is the right trade for a founder-led studio that does not publish client work.
+
+## Approved, and what happened next
+
+Added November 24, 2026. The design history above is unchanged.
+
+Ken approved Original, Interactive, refined, and answered the open questions:
+
+1. **Growth SEO** is removed as a named monthly package. SEO stays a core service, sold as one-time audits, technical reviews, scoped implementation projects, and search and content strategy, with ongoing work by agreement.
+2. **AI Visibility** keeps its approved explanation. No first-party AI experiment is claimed.
+3. **Founder page**: about 20 years working with HTML, CSS, websites, and WordPress, and more recently AI-assisted development. Not described as professional software engineering. A short selection of published work was added from KenAshe.ai's newsroom, with each link checked.
+4. **The research note** keeps its question title and becomes a full article.
+5. **The News placeholder** is removed.
+6. **The four planned articles** were written, so Insights launches with five complete articles.
+7. **URLs**: production keeps every live URL, including `/founder/ken-ashe/`.
+
+The production candidate differs from the refined concept in these ways:
+
+- It is plain HTML, one stylesheet and one script in the production repository, with production URLs, full metadata and structured data, and the real contact form.
+- Insights is a library of five articles with a reusable article template and an optional script that keeps the library and the sitemap in sync. Articles are drafts, with no publication date, until Ken sets one.
+- The services section explains three related services (SEO, Entity SEO, AI Visibility).
+- The sitewide footer does not link to KenAshe.ai, following the production repository's rule.
+- One factual correction: the concept said the Autonomous SEO Agent maintains Lucky Domains profiles. Its public build record does not say whose profiles it maintains. The candidate describes it as an internal system the founder built and quotes the record's figures.
+
+The refined concept in `/phase-3/interactive-refined/` was not edited for any of this. The records of the production work are in the production repository: `DECISIONS.md` D12 to D16, `docs/RUNBOOK.md` sections 8 to 10, `docs/URL_MAP.md`, and `docs/INSIGHTS.md`.

@@ -87,10 +87,11 @@ def refined_block(r):
     base = f"{r}phase-3/interactive-refined/"
     more = "".join(f'<a href="{base}{p}">{RNAMES[k]}</a>' for p, k in RPAGES[1:])
     col = lambda h, items: f'<div><h3>{h}</h3><ul class="chg">{"".join(f"<li>{E(x)}</li>" for x in items)}</ul></div>'
-    return f"""<section class="refine" aria-labelledby="rf-h"><p class="k">Selected direction · Refined {E(C['asOf'])}</p><h2 id="rf-h">Original, Interactive, refined</h2>
+    return f"""<section class="refine" aria-labelledby="rf-h"><p class="k">Approved design · {E(C['asOf'])}</p><h2 id="rf-h">Original, Interactive, refined</h2>
 <article class="card rf-card"><a class="shot" href="{base}" tabindex="-1" aria-hidden="true"><img src="{r}phase-3/screenshots/r-home-desktop.jpg" alt="" width="1440" height="900"><img class="shot-m" src="{r}phase-3/screenshots/r-home-mobile.jpg" alt="" width="375" height="760"></a>
-<div class="card-b"><p class="thesis">Ken chose concept C. This is one refined version for approval, not another exploration. It keeps the presence map, the service architecture, and the look of Original Interactive, and adds restraint: one map, a shorter homepage, lighter interior pages, and no portfolio.</p>
-<p class="go-row"><a class="btn" href="{base}">Open the refined site</a><a class="btn btn-l" href="{base}tools/digital-presence-check/">Digital Presence Check</a><a class="btn btn-l" href="{r}phase-3/interactive/">Original Interactive, unchanged</a></p>
+<div class="card-b"><p class="thesis">Ken approved this refinement of concept C. It is the design reference and is no longer edited. It keeps the presence map, the service architecture, and the look of Original Interactive, with one map, a shorter homepage, lighter interior pages, and no portfolio. The production candidate built from it is staged separately for review.</p>
+<p class="go-row"><a class="btn" href="{r}digital-presence-production-candidate/">Open the staged production candidate</a><a class="btn btn-l" href="{r}digital-presence-production-candidate/review/">Review notes</a></p>
+<p class="go-row"><a class="btn btn-l" href="{base}">Approved design concept</a><a class="btn btn-l" href="{base}tools/digital-presence-check/">Digital Presence Check</a><a class="btn btn-l" href="{r}phase-3/interactive/">Original Interactive, unchanged</a></p>
 <p class="more more-16"><span class="sr">All fifteen pages:</span>{more}</p></div></article>
 <div class="rf-cols">{col("Kept", R_KEPT)}{col("Removed", R_REMOVED)}{col("Added or moved", R_ADDED)}</div>
 <h3>Screenshots</h3>{refined_gallery(r)}
@@ -143,7 +144,7 @@ def landing(r):
     pages = ", ".join(NAMES[k] for _, k in PAGES)
     return f"""
 <section class="intro"><p class="k">Version 3 · {E(C['asOf'])}</p><h1>Version 3: built from the original site</h1>
-<p class="lead">Concept C, Original Interactive, was selected and has been refined. The refined version comes first on this page, and the three original directions follow, unchanged. All of them start from the live Lucky Domains design, not from a new one. Each loads the production stylesheet itself and adds a layer on top. All three tell the same story, offer the same services, and have the same sixteen pages, so the comparison is about design and interaction.</p>
+<p class="lead">Concept C, Original Interactive, was selected, refined, and approved. The approved design comes first on this page, with a link to the production candidate built from it. The three original directions follow, unchanged. All of them start from the live Lucky Domains design, not from a new one. Each loads the production stylesheet itself and adds a layer on top. All three tell the same story, offer the same services, and have the same sixteen pages, so the comparison is about design and interaction.</p>
 <p class="state">{STATEMENT}</p></section>
 {refined_block(r)}
 <section class="p2-why" aria-labelledby="why-h"><h2 id="why-h">The three version 3 concepts</h2>
