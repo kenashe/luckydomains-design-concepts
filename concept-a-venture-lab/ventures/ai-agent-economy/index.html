@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>AI Agent Economy | Lucky Domains, Concept A: Venture Lab</title>
+<meta name="description" content="Two autonomous AI agents, each with its own Ethereum wallet. The seller advertised services through ENS. The buyer found the catalog, picked one, paid in ETH, and received the finished work in a second mainnet transaction.">
+<link rel="icon" href="../../../shared/assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../shared/assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../../../shared/assets/apple-touch-icon.png">
+<link rel="preload" href="../../../shared/fonts/bricolage-normal-400-800.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="../../../shared/fonts/inter-normal-400-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../css/style.css">
+<script>document.documentElement.className='js'</script>
+</head>
+<body class="">
+<a class="skip" href="#main">Skip to content</a>
+<aside class="review" aria-label="Review notice"><span>Design concept only. Not the live Lucky Domains website.</span> <a href="../../../">All concepts</a></aside>
+<header class="hd">
+  <a class="hd-logo" href="../../" aria-label="Lucky Domains, concept home"><img src="../../../shared/assets/logo-wordmark-reversed.png" alt="Lucky Domains" width="145" height="36"></a>
+  <button class="hd-toggle" type="button" aria-expanded="false" aria-controls="nav"><span>Menu</span></button>
+  <nav id="nav" class="hd-nav" aria-label="Primary"><a href="../../ventures/" aria-current="page">Ventures</a><a href="../../services/">Services</a><a href="../../about/">About</a><a href="../../founder/">Founder</a><a href="../../news/">Updates</a><a href="../../contact/">Contact</a><a class="hd-cta" href="../../services/#domains">Domain acquisition</a></nav>
+</header>
+<main id="main">
+<section class="phd phd-v"><canvas class="grid grid-sm" aria-hidden="true"></canvas><div class="phd-in">
+  <p class="eyebrow"><a href="../../ventures/">VENTURES</a> / AI AGENT ECONOMY</p>
+  <h1>AI Agent Economy</h1><p class="lede">Two agents, two wallets, one purchase.</p><p class="vc-top"><span class="st st-kind">EXPERIMENT</span><span class="st st-shipped"><i aria-hidden="true"></i>SHIPPED</span><span class="vc-since">NOV 2026</span></p></div></section>
+<div class="vd">
+  <section class="vd-side" aria-label="Venture metadata"><dl class="meta"><div><dt>STATUS</dt><dd>SHIPPED</dd></div><div><dt>TYPE</dt><dd>Experiment</dd></div><div><dt>NETWORK</dt><dd>Ethereum mainnet</dd></div><div><dt>STOREFRONT</dt><dd>ENS text record</dd></div><div><dt>MODEL</dt><dd>llama3.2:3b, local</dd></div><div><dt>RUN</dt><dd>Nov 10, 2026</dd></div></dl>
+    <a class="btn btn-p ext" href="https://kenashe.ai/building/ai-agent-economy/">Read the complete build log on KenAshe.ai</a>
+    <p class="vd-links"></p>
+  </section>
+  <div class="vd-main">
+    <section class="reveal"><p class="eyebrow">SUMMARY</p><p class="big">Two autonomous AI agents, each with its own Ethereum wallet. The seller advertised services through ENS. The buyer found the catalog, picked one, paid in ETH, and received the finished work in a second mainnet transaction.</p><p>Both agents ran locally on one Mac mini M4, using Ollama for inference. ENS was the storefront: a custom text record published the seller&#x27;s payment address, the service catalog, and the price. Ethereum mainnet recorded the order, the payment, and the delivery.</p><p>The catalog held five deliberately ridiculous services at 0.0003 ETH each. The buyer chose Object Obituary by itself and asked for a eulogy for a toaster. The work came back three blocks and 36 seconds after the payment.</p><p>The conclusion is narrow: decentralized service advertising and onchain settlement are possible without a centralized marketplace, even though running the agents still requires infrastructure. That is the entire commercial history of this marketplace: one purchase, one toaster.</p></section>
+    <section class="flow reveal"><p class="eyebrow">PROCESS</p><h2>What happened, in order</h2><ol class="fl" style="--n:5"><li><span class="fl-n">01</span><h3>ENS discovery</h3><p>The buyer read the catalog, price, and payment address from a text record on zerohuman.eth.</p></li><li><span class="fl-n">02</span><h3>Selection</h3><p>The buyer picked Object Obituary and wrote its own request.</p></li><li><span class="fl-n">03</span><h3>Payment</h3><p>0.0003 ETH with the order attached. Block 26385257, 14:58:11 UTC.</p></li><li><span class="fl-n">04</span><h3>Delivery</h3><p>The result came back onchain. Block 26385260, 14:58:47 UTC.</p></li><li><span class="fl-n">05</span><h3>Verification</h3><p>The buyer read the delivery and matched it to its order.</p></li></ol></section>
+    <section class="reveal"><p class="eyebrow">EVIDENCE</p><h2>What the record shows</h2><figure class="art" data-depth>
+<div class="art-bar"><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span><b>The storefront record and the order</b></div>
+<div class="art-body"><div class="ln"><span class="tag">ens</span><code>{&quot;v&quot;:1,&quot;seller&quot;:&quot;0xc651c31A5D08b2f6e536D39343ae6415fBA27852&quot;,&quot;priceWei&quot;:&quot;300000000000000&quot;,&quot;services&quot;:[&quot;object-obituary&quot;,&quot;animal-performance-review&quot;,&quot;vegetable-defense&quot;,&quot;appliance-apology&quot;,&quot;useless-award&quot;]}</code></div><div class="ln"><span class="tag">order</span><code>RAE1:{&quot;v&quot;:1,&quot;t&quot;:&quot;order&quot;,&quot;service&quot;:&quot;object-obituary&quot;,&quot;prompt&quot;:&quot;Write an eulogy for a toaster that never quite toasted anything right.&quot;}</code></div></div>
+<figcaption>ENS text record and order payload as published. Source: KenAshe.ai build log.</figcaption></figure><ul class="facts"><li>Order and payment in one transaction: 0.0003 ETH, block 26385257</li><li>Delivery as a separate zero-value transaction, block 26385260</li><li>No centralized agent marketplace in the middle</li><li>The founder did not step in during the transaction workflow</li></ul></section>
+    <section class="limits reveal"><p class="eyebrow">LIMITS</p><h2>What this does not prove</h2><ul><li>The founder operated both agents, and both ran on the same Mac mini.</li><li>The buyer already knew which ENS name to query. There was no global search for agent services.</li><li>There was no escrow contract and no verified reputation system.</li><li>It is not fully decentralized, and it is not production-ready.</li></ul><p class="next"><span>NEXT</span>The follow-up exists: ZeroHuman was rebuilt from scratch as an always-on service.</p></section>
+    <section class="xl reveal"><p>This page is a summary. The full write-up, with transactions and failures, lives on the founder's public build record.</p><a class="btn btn-p ext" href="https://kenashe.ai/building/ai-agent-economy/">Read the complete build log on KenAshe.ai</a><a class="rel" href="../../ventures/zerohuman/"><span>RELATED FILE</span>ZeroHuman</a></section>
+  </div>
+</div>
+</main>
+<footer class="ft">
+  <div class="ft-top">
+    <div class="ft-brand">
+      <img src="../../../shared/assets/logo-wordmark-reversed.png" alt="Lucky Domains" width="201" height="50" loading="lazy">
+      <p>Lucky Domains is a founder-led digital venture studio building AI applications, digital identity systems, and internet-native products, while continuing its original domain acquisition and brokerage practice.</p>
+    </div>
+    <div><h2>Ventures</h2><ul><li><a href="../../ventures/zerohuman/">ZeroHuman</a></li><li><a href="../../ventures/ai-agent-economy/">AI Agent Economy</a></li><li><a href="../../ventures/autonomous-seo-agent/">Autonomous SEO Agent</a></li><li><a href="../../services/#domains">Domain Acquisition &amp; Brokerage</a></li><li><a href="../../ventures/">All ventures</a></li></ul></div>
+    <div><h2>Company</h2><ul><li><a href="../../services/">Services</a></li><li><a href="../../about/">About</a></li><li><a href="../../founder/">Founder</a></li><li><a href="../../news/">Updates</a></li><li><a href="../../contact/">Contact</a></li></ul></div>
+    <div><h2>Build record</h2><ul><li><a href="https://kenashe.ai/">KenAshe.ai</a></li><li><a href="https://kenashe.ai/building/">All builds</a></li><li><a href="https://github.com/kenashe">GitHub</a></li></ul></div>
+  </div>
+  <div class="ft-logos" aria-label="Logo treatments in this concept">
+    <figure><span class="chip chip-light"><img src="../../../shared/assets/logo-wordmark.png" alt="Original Lucky Domains logo on a light background" width="129" height="32" loading="lazy"></span><figcaption>ORIGINAL</figcaption></figure>
+    <figure><span class="chip"><img src="../../../shared/assets/logo-wordmark-reversed.png" alt="Reversed Lucky Domains logo on a dark background" width="129" height="32" loading="lazy"></span><figcaption>REVERSED, CONCEPT TREATMENT</figcaption></figure>
+    <figure><span class="chip"><img src="../../../shared/assets/logo-icon-reversed-128.png" alt="Lucky Domains icon" width="32" height="32" loading="lazy"></span><figcaption>ICON</figcaption></figure>
+  </div>
+  <p class="ft-note">Design concept only. Not the live Lucky Domains website. Concept A: Venture Lab. Facts as of November 23, 2026. <a href="../../../">Back to all concepts</a></p>
+</footer>
+<script src="../../js/main.js" defer></script>
+</body></html>

@@ -1,0 +1,819 @@
+{
+  "_readme": "Single factual content layer shared by all three concepts. Every claim here is traceable to luckydomains.io, the kenashe/luckydomains repository, or a public build page on kenashe.ai, as read on 2026-11-23. Items marked concept=true are proposed copy, not published statements.",
+  "asOf": "November 23, 2026",
+  "company": {
+    "name": "Lucky Domains",
+    "url": "https://luckydomains.io/",
+    "email": "info@luckydomains.io",
+    "location": "New Jersey",
+    "description": "Lucky Domains is a founder-led digital venture studio building AI applications, digital identity systems, and internet-native products, while continuing its original domain acquisition and brokerage practice.",
+    "heroSupport": "Lucky Domains is a founder-led digital venture studio building AI applications, digital identity systems, and internet-native businesses.",
+    "aboutLong": "Lucky Domains began with literal domains: helping businesses acquire the right name, build on it, and become discoverable. Today, the company works across a broader set of digital domains, including AI applications, autonomous services, digital identity, and internet-native ventures. Domain acquisition and brokerage remain an active part of the business, while websites, SEO, and entity work are taken on selectively where they support a larger launch, identity, or venture.",
+    "model": [
+      [
+        "Ken Ashe",
+        "builds in public. Experiments, build logs, and videos live on KenAshe.ai."
+      ],
+      [
+        "Lucky Domains",
+        "builds and operates the ventures, and runs the commercial services."
+      ],
+      [
+        "Standalone brands",
+        "face their own customers, under their own names."
+      ],
+      [
+        "Domain brokerage",
+        "remains an active Lucky Domains service."
+      ]
+    ]
+  },
+  "kenashe": {
+    "url": "https://kenashe.ai/",
+    "building": "https://kenashe.ai/building/",
+    "about": "https://kenashe.ai/about/",
+    "line": "Read the complete build log on KenAshe.ai"
+  },
+  "pillars": [
+    {
+      "id": "domains",
+      "label": "Domains",
+      "line": "Names, ownership, and the deals that move them."
+    },
+    {
+      "id": "identity",
+      "label": "Identity",
+      "line": "ENS names, entity data, and the records that say who something is."
+    },
+    {
+      "id": "agents",
+      "label": "Agents",
+      "line": "Software that researches, signs up, sells, pays, and delivers without a human in the loop."
+    },
+    {
+      "id": "presence",
+      "label": "Presence",
+      "line": "Sites and search visibility, built when a launch needs them."
+    }
+  ],
+  "story": [
+    {
+      "n": "01",
+      "title": "Names",
+      "pillar": "domains",
+      "line": "Domains were the starting point because identity and ownership matter.",
+      "body": "The company began by getting businesses the exact name they wanted, including names someone else already owned: valuation, discreet outreach, negotiation, and an escrow-backed transfer."
+    },
+    {
+      "n": "02",
+      "title": "Presence",
+      "pillar": "presence",
+      "line": "Websites and search followed because a name needs a functioning, discoverable presence.",
+      "body": "A good domain with nothing useful on it stays invisible. Site builds, technical search work, and entity data followed, so the name could be found and understood."
+    },
+    {
+      "n": "03",
+      "title": "Agents",
+      "pillar": "agents",
+      "line": "AI applications and agent systems followed because software itself is becoming an online participant and economic actor.",
+      "body": "An agent that can hold a name, publish a menu, take a payment, and deliver work is a new kind of participant. Lucky Domains now builds and operates systems like that, and documents what actually happens."
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2024",
+      "label": "NFT.NYC talk",
+      "text": "Ken Ashe presents an overview of NFT domain providers and their capabilities.",
+      "pillar": "identity"
+    },
+    {
+      "date": "2025",
+      "label": "NFT.NYC panel",
+      "text": "Ken Ashe joins a panel on the future of digital identity.",
+      "pillar": "identity"
+    },
+    {
+      "date": "Jun 2026",
+      "label": "LuckyDomains.io relaunch",
+      "text": "The company site moves off Wix to a hand-built static site, designed and deployed with an AI agent.",
+      "pillar": "presence"
+    },
+    {
+      "date": "Oct 2026",
+      "label": "Autonomous SEO agent",
+      "text": "A daily agent begins researching listings and creating verified profiles on its own.",
+      "pillar": "agents"
+    },
+    {
+      "date": "Nov 10, 2026",
+      "label": "Agent economy experiment",
+      "text": "Two AI agents complete a purchase on Ethereum mainnet, with ENS as the storefront.",
+      "pillar": "agents"
+    },
+    {
+      "date": "Nov 16, 2026",
+      "label": "ZeroHuman goes live",
+      "text": "An always-on seller opens to any agent through the ENS name zerohuman.eth.",
+      "pillar": "agents"
+    }
+  ],
+  "ventures": [
+    {
+      "id": "zerohuman",
+      "name": "ZeroHuman",
+      "status": "LIVE",
+      "kind": "Autonomous service",
+      "since": "Nov 2026",
+      "pillars": [
+        "agents",
+        "identity"
+      ],
+      "tagline": "A business only AI agents can use.",
+      "summary": "An always-on service that sells two small jobs to other AI agents for 0.0001 ETH each. Agents find it through the ENS name zerohuman.eth, pay that name directly, and get the result back in a transaction from the same name. No account, no API key, no marketplace, and no human handling orders.",
+      "meta": [
+        [
+          "Status",
+          "LIVE"
+        ],
+        [
+          "Network",
+          "Ethereum mainnet"
+        ],
+        [
+          "Identity",
+          "zerohuman.eth"
+        ],
+        [
+          "Price",
+          "0.0001 ETH per job"
+        ],
+        [
+          "Built",
+          "Nov 11 to 16, 2026"
+        ],
+        [
+          "Registry",
+          "ERC-8004 agent #56626"
+        ]
+      ],
+      "body": [
+        "ZeroHuman sells two jobs. Decision picks one of two to five options at random, using the hash of a future block mixed with the order's own transaction hash, so anyone can recompute the choice. Encouragement returns a short supportive message and one practical next step, written by DeepSeek.",
+        "The name is the business. The ENS name is the storefront, the payment address, and the sender of every result. A text record on the name publishes the menu, and the worker refuses to sign anything unless the name, the menu, and its own wallet all agree. The name itself is owned by a separate cold wallet.",
+        "Ken Ashe wrote the specification and made the decisions involving money and identity. An AI agent wrote, tested, and shipped the code over about five days."
+      ],
+      "flowTitle": "How an order works",
+      "flow": [
+        [
+          "Discover",
+          "The buying agent looks up zerohuman.eth and reads its menu."
+        ],
+        [
+          "Pay and order",
+          "It sends exactly 0.0001 ETH to the name, with the request as a small JSON message in the transaction data."
+        ],
+        [
+          "Work",
+          "A worker watches the chain, waits for the payment to settle, and does the job."
+        ],
+        [
+          "Deliver",
+          "It sends a zero-value transaction back from zerohuman.eth with the result."
+        ],
+        [
+          "Verify",
+          "The buyer checks everything on its own connection to Ethereum."
+        ]
+      ],
+      "artifact": {
+        "title": "First mainnet Decision order, November 16, 2026",
+        "caption": "Request and reply as recorded in transaction data. Source: KenAshe.ai build log.",
+        "lines": [
+          [
+            "req",
+            "{\"zh\":1,\"svc\":\"decision\",\"opts\":[\"launch publicly this week\",\"run the allowlist trial longer\",\"add a third service first\"],\"ctx\":\"zerohuman first mainnet order\"}"
+          ],
+          [
+            "res",
+            "{\"zh\":1,\"ok\":true,\"svc\":\"decision\",\"out\":{\"index\":1,\"option\":\"run the allowlist trial longer\",\"method\":\"zh-blockhash-v1\",\"proof\":{\"orderBlock\":26427993,\"offset\":5,\"targetBlock\":26427998,\"n\":3}}}"
+          ]
+        ]
+      },
+      "facts": [
+        "154 automated tests, including one that kills the worker at random and checks every order is still delivered exactly once",
+        "Two independent AI code reviews before public launch: 15 stall risks found and fixed, then 9 smaller issues, also fixed",
+        "No smart contract and no token: a TypeScript worker, SQLite, viem, Railway, and DeepSeek",
+        "Listed in the ERC-8004 agent registry and linked back from the name with an ENSIP-25 record"
+      ],
+      "limits": [
+        "As of November 20, 2026, no outside agent has bought from it. Both paid orders so far came from the founder's own test buyer.",
+        "There is no escrow. A buyer pays first, and refunds are manual and best effort.",
+        "The service wallet's key lives on the hosting provider and holds only a small working balance.",
+        "Orders are handled one at a time, roughly one every 50 seconds at most."
+      ],
+      "next": "The real test is the first wallet the founder has never seen paying zerohuman.eth.",
+      "buildRecord": "https://kenashe.ai/building/zerohuman/",
+      "links": [
+        [
+          "Code on GitHub",
+          "https://github.com/kenashe/zerohuman"
+        ],
+        [
+          "zerohuman.eth on ENS",
+          "https://app.ens.domains/zerohuman.eth"
+        ]
+      ],
+      "related": [
+        "ai-agent-economy"
+      ],
+      "detail": true
+    },
+    {
+      "id": "ai-agent-economy",
+      "name": "AI Agent Economy",
+      "status": "SHIPPED",
+      "kind": "Experiment",
+      "since": "Nov 2026",
+      "pillars": [
+        "agents",
+        "identity"
+      ],
+      "tagline": "Two agents, two wallets, one purchase.",
+      "summary": "Two autonomous AI agents, each with its own Ethereum wallet. The seller advertised services through ENS. The buyer found the catalog, picked one, paid in ETH, and received the finished work in a second mainnet transaction.",
+      "meta": [
+        [
+          "Status",
+          "SHIPPED"
+        ],
+        [
+          "Type",
+          "Experiment"
+        ],
+        [
+          "Network",
+          "Ethereum mainnet"
+        ],
+        [
+          "Storefront",
+          "ENS text record"
+        ],
+        [
+          "Model",
+          "llama3.2:3b, local"
+        ],
+        [
+          "Run",
+          "Nov 10, 2026"
+        ]
+      ],
+      "body": [
+        "Both agents ran locally on one Mac mini M4, using Ollama for inference. ENS was the storefront: a custom text record published the seller's payment address, the service catalog, and the price. Ethereum mainnet recorded the order, the payment, and the delivery.",
+        "The catalog held five deliberately ridiculous services at 0.0003 ETH each. The buyer chose Object Obituary by itself and asked for a eulogy for a toaster. The work came back three blocks and 36 seconds after the payment.",
+        "The conclusion is narrow: decentralized service advertising and onchain settlement are possible without a centralized marketplace, even though running the agents still requires infrastructure. That is the entire commercial history of this marketplace: one purchase, one toaster."
+      ],
+      "flowTitle": "What happened, in order",
+      "flow": [
+        [
+          "ENS discovery",
+          "The buyer read the catalog, price, and payment address from a text record on zerohuman.eth."
+        ],
+        [
+          "Selection",
+          "The buyer picked Object Obituary and wrote its own request."
+        ],
+        [
+          "Payment",
+          "0.0003 ETH with the order attached. Block 26385257, 14:58:11 UTC."
+        ],
+        [
+          "Delivery",
+          "The result came back onchain. Block 26385260, 14:58:47 UTC."
+        ],
+        [
+          "Verification",
+          "The buyer read the delivery and matched it to its order."
+        ]
+      ],
+      "artifact": {
+        "title": "The storefront record and the order",
+        "caption": "ENS text record and order payload as published. Source: KenAshe.ai build log.",
+        "lines": [
+          [
+            "ens",
+            "{\"v\":1,\"seller\":\"0xc651c31A5D08b2f6e536D39343ae6415fBA27852\",\"priceWei\":\"300000000000000\",\"services\":[\"object-obituary\",\"animal-performance-review\",\"vegetable-defense\",\"appliance-apology\",\"useless-award\"]}"
+          ],
+          [
+            "order",
+            "RAE1:{\"v\":1,\"t\":\"order\",\"service\":\"object-obituary\",\"prompt\":\"Write an eulogy for a toaster that never quite toasted anything right.\"}"
+          ]
+        ]
+      },
+      "facts": [
+        "Order and payment in one transaction: 0.0003 ETH, block 26385257",
+        "Delivery as a separate zero-value transaction, block 26385260",
+        "No centralized agent marketplace in the middle",
+        "The founder did not step in during the transaction workflow"
+      ],
+      "limits": [
+        "The founder operated both agents, and both ran on the same Mac mini.",
+        "The buyer already knew which ENS name to query. There was no global search for agent services.",
+        "There was no escrow contract and no verified reputation system.",
+        "It is not fully decentralized, and it is not production-ready."
+      ],
+      "next": "The follow-up exists: ZeroHuman was rebuilt from scratch as an always-on service.",
+      "buildRecord": "https://kenashe.ai/building/ai-agent-economy/",
+      "links": [],
+      "related": [
+        "zerohuman"
+      ],
+      "detail": true
+    },
+    {
+      "id": "autonomous-seo-agent",
+      "name": "Autonomous SEO Agent",
+      "status": "LIVE",
+      "kind": "Agent system",
+      "since": "Oct 2026",
+      "pillars": [
+        "agents",
+        "presence"
+      ],
+      "tagline": "A daily agent that builds web presence unattended.",
+      "summary": "An AI agent that researches five new website opportunities each day, creates professional profiles, verifies accounts through its own inbox, and logs every outcome without manual review.",
+      "meta": [
+        [
+          "Status",
+          "LIVE"
+        ],
+        [
+          "Since",
+          "October 2026"
+        ],
+        [
+          "Cadence",
+          "5 candidates per day"
+        ],
+        [
+          "Researched",
+          "63 sites"
+        ],
+        [
+          "Confirmed live",
+          "8 profiles"
+        ],
+        [
+          "Review",
+          "None per signup"
+        ]
+      ],
+      "body": [
+        "Building a presence across the web is slow, repetitive work: find a legitimate directory or profile site, check that it is free and relevant, sign up, confirm the email, fill in the same bio and links again, and write down what happened.",
+        "The agent does that job every day. It decides whether each candidate qualifies, attempts the signup, opens its dedicated inbox to confirm the verification email, and completes the profile. If a site needs something it cannot do alone, it skips that site and records why.",
+        "Researching a site is not the same as registering on it. Of the sites researched so far, eight new profiles are confirmed live, created and verified end to end by the agent. The rest were rejected, skipped, or are still queued."
+      ],
+      "flowTitle": "The daily loop",
+      "flow": [
+        [
+          "Research",
+          "Five new candidate sites per day."
+        ],
+        [
+          "Qualify",
+          "Legitimate, relevant, and free. Link farms, paid placements, and spam are out."
+        ],
+        [
+          "Sign up",
+          "The agent creates the account on its own."
+        ],
+        [
+          "Verify",
+          "It confirms the email through a dedicated inbox."
+        ],
+        [
+          "Log",
+          "Each site is recorded as researched, attempted, completed, or skipped."
+        ]
+      ],
+      "artifact": {
+        "title": "Tracker states, as documented",
+        "caption": "Counts as published on the build page. Source: KenAshe.ai build log.",
+        "lines": [
+          [
+            "researched",
+            "63 sites"
+          ],
+          [
+            "completed",
+            "8 profiles confirmed live, including Peerlist, Wellfound, Devpost, Contra, Codeberg, Speaker Deck"
+          ],
+          [
+            "skipped",
+            "Google-only sign-in, business email, phone or ID checks, paid plans, CAPTCHA"
+          ]
+        ]
+      },
+      "facts": [
+        "Runs on a daily schedule with a browser for research and signups",
+        "A dedicated inbox handles verification, separate from personal email",
+        "A reusable profile kit keeps every listing consistent",
+        "A tracker table means the next run never repeats work"
+      ],
+      "limits": [
+        "No SEO impact has been established. Most of these profiles carry nofollow links.",
+        "Some sites cannot be completed automatically, so the agent skips them and records why.",
+        "Whether these profiles help search visibility over time is an open question this build does not answer."
+      ],
+      "next": "",
+      "buildRecord": "https://kenashe.ai/building/autonomous-seo-agent/",
+      "links": [],
+      "related": [
+        "luckydomains-site"
+      ],
+      "detail": true
+    },
+    {
+      "id": "domain-brokerage",
+      "name": "Domain Acquisition & Brokerage",
+      "status": "ACTIVE SERVICE",
+      "kind": "Commercial practice",
+      "since": "The original practice",
+      "pillars": [
+        "domains"
+      ],
+      "tagline": "The original business, still open.",
+      "summary": "Valuation, anonymous owner outreach, negotiation, and escrow-backed transfer for buyers who want a name someone else owns, plus quiet, managed sales for owners who want out.",
+      "meta": [
+        [
+          "Status",
+          "ACTIVE SERVICE"
+        ],
+        [
+          "Fee",
+          "Success-based"
+        ],
+        [
+          "Transfer",
+          "Third-party escrow"
+        ],
+        [
+          "Outreach",
+          "Anonymous"
+        ],
+        [
+          "Scope",
+          "Buyers and sellers"
+        ],
+        [
+          "Run by",
+          "Ken Ashe"
+        ]
+      ],
+      "body": [],
+      "flowTitle": "How a private domain buy works",
+      "flow": [
+        [
+          "Set the range",
+          "A fair-market range from comparable sales, traffic and keyword data, and strategic value, before anyone is contacted."
+        ],
+        [
+          "Reach the owner",
+          "The conversation opens without revealing who the buyer is."
+        ],
+        [
+          "Negotiate",
+          "Against the agreed range, not the seller's opening ask."
+        ],
+        [
+          "Close through escrow",
+          "Funds release only when the domain is verifiably in the buyer's control."
+        ]
+      ],
+      "artifact": null,
+      "facts": [],
+      "limits": [],
+      "next": "",
+      "buildRecord": "",
+      "internal": "services",
+      "links": [],
+      "related": [],
+      "detail": false
+    },
+    {
+      "id": "luckydomains-site",
+      "name": "LuckyDomains.io, agent-built",
+      "status": "LIVE",
+      "kind": "Studio build",
+      "since": "Jun 2026",
+      "pillars": [
+        "presence",
+        "agents"
+      ],
+      "tagline": "The company site, designed and deployed by an agent.",
+      "summary": "An AI agent built the live company site and deployed it to GitHub Pages on a custom domain, end to end. The site is hand-written static HTML with no framework and no build step, and its repository documents every decision.",
+      "meta": [
+        [
+          "Status",
+          "LIVE"
+        ],
+        [
+          "Shipped",
+          "June 2026"
+        ],
+        [
+          "Stack",
+          "Static HTML, GitHub Pages"
+        ]
+      ],
+      "body": [],
+      "flow": [],
+      "flowTitle": "",
+      "artifact": null,
+      "facts": [],
+      "limits": [],
+      "next": "",
+      "buildRecord": "https://kenashe.ai/building/",
+      "links": [
+        [
+          "Repository",
+          "https://github.com/kenashe/luckydomains"
+        ]
+      ],
+      "related": [
+        "autonomous-seo-agent"
+      ],
+      "detail": false,
+      "image": {
+        "file": "artifact-luckydomains-io.jpg",
+        "alt": "Screenshot of the current LuckyDomains.io home page",
+        "caption": "The live site as it stands today, captured November 23, 2026. This is the site these concepts propose to replace."
+      }
+    },
+    {
+      "id": "sir-pitches-a-lot",
+      "name": "Sir Pitches-a-Lot",
+      "status": "SHIPPED",
+      "kind": "Competition agent",
+      "since": "2026",
+      "pillars": [
+        "agents"
+      ],
+      "tagline": "An outreach agent with one job.",
+      "summary": "A competition agent that researched an anonymized founder target, pitched Lucky Domains, and generated a personalized landing page campaign around one question: would they reply? It was explicitly told not to invent research or present assumptions as facts.",
+      "meta": [
+        [
+          "Status",
+          "SHIPPED"
+        ],
+        [
+          "Type",
+          "Competition agent"
+        ],
+        [
+          "Pitched",
+          "Lucky Domains"
+        ]
+      ],
+      "body": [],
+      "flow": [],
+      "flowTitle": "",
+      "artifact": null,
+      "facts": [],
+      "limits": [],
+      "next": "",
+      "buildRecord": "https://kenashe.ai/building/sir-pitches-a-lot/",
+      "links": [],
+      "related": [],
+      "detail": false
+    }
+  ],
+  "services": [
+    {
+      "id": "domains",
+      "n": "01",
+      "name": "Domain Acquisition & Brokerage",
+      "status": "ACTIVE",
+      "lead": "Get the name that is already taken. Or sell one quietly.",
+      "body": "The domain you want is rarely listed for sale. Ken values it, approaches the owner without revealing the buyer, negotiates against a range you agreed, and moves it through third-party escrow. He also represents sellers who want a confidential, managed exit from a name they no longer need.",
+      "includes": [
+        "Target identification and fair-market valuation",
+        "Confidential, anonymous owner outreach",
+        "Price negotiation on your behalf",
+        "Escrow-backed, secure transfer",
+        "Expiring, auction, and backorder hunting",
+        "Portfolio strategy and domain consulting",
+        "Brokerage for sellers seeking a quiet sale"
+      ],
+      "terms": "The brokerage fee is success-based and agreed in writing before outreach. If there is no purchase, there is no success fee.",
+      "not": [
+        "Not a public auction or a bidding war in your name",
+        "Not a guaranteed close. Some owners will not sell",
+        "Not a quoted success rate. None is published",
+        "Not a retainer"
+      ]
+    },
+    {
+      "id": "identity",
+      "n": "02",
+      "name": "Digital Identity & Presence",
+      "status": "SELECTIVE",
+      "lead": "Make it unambiguous who, or what, is behind a name.",
+      "body": "Search engines and AI systems organize the web around entities, not just keywords. This work gives a person, company, or product one canonical home and consistent, machine-readable facts: structured data with stable identifiers, profiles that agree with each other, and clear relationships between founder, company, and product. Lucky Domains also operates an onchain identity first-hand: zerohuman.eth is the storefront, payment address, and sender for a live service.",
+      "includes": [
+        "Canonical entity-home audit",
+        "Person and Organization structured data with stable identifiers",
+        "Profile mapping and consistency across the web",
+        "Founder, company, author, and product relationships",
+        "Naming across DNS and ENS (proposed scope)"
+      ],
+      "terms": "Google creates Knowledge Panels automatically. No one can guarantee one. This work improves the evidence Google and other systems have to work with.",
+      "not": []
+    },
+    {
+      "id": "engagements",
+      "n": "03",
+      "name": "Selected Website & Entity Engagements",
+      "status": "BY FIT",
+      "lead": "Taken on when a launch, an identity, or a venture needs it.",
+      "body": "A site build or search engagement is in scope when it supports something larger: a name just acquired, a venture going live, an identity that needs a proper home. The work covers site structure, core pages, and the technical foundation, launched on a real host and your own domain. LuckyDomains.io and KenAshe.ai were shipped this way.",
+      "includes": [
+        "Consult on an existing site: what blocks search and conversion",
+        "Build or rebuild on a real host and domain",
+        "Technical foundation: canonicals, structured data, performance",
+        "A handoff you can edit without us"
+      ],
+      "terms": "Lucky Domains is not a full-service marketing agency. No ads, no social, no open-ended retainers, and no visual-only redesigns.",
+      "not": []
+    }
+  ],
+  "founder": {
+    "name": "Ken Ashe",
+    "role": "Founder, Lucky Domains",
+    "image": "ken-ashe-2026-square.jpg",
+    "lead": "Ken Ashe is the founder of Lucky Domains: an entrepreneur and AI application builder who works across finance, data, product, technology, AI, and internet-native systems.",
+    "bio": [
+      "Ken started his career in accounting and financial reporting before moving into project, product, and program leadership. Over roughly two decades, that career ran through S&P Global, EY, Noom, and Prudential Financial, where he served as Director of Project and Product Management.",
+      "He built Lucky Domains alongside that work and still runs it himself. He later left corporate work to focus on entrepreneurship and building practical AI applications: agents, automations, and internet-native services, with the evidence published, failures included.",
+      "The credentials are operating evidence, not the headline. A CPA's instinct for controls and a project manager's delivery discipline show up in how the ventures are built: written specifications, spending limits, independent reviews, and limits stated plainly."
+    ],
+    "roles": [
+      "Founder of Lucky Domains",
+      "Entrepreneur",
+      "AI application builder",
+      "Experienced operator"
+    ],
+    "credentials": [
+      [
+        "CPA",
+        "Certified Public Accountant, State of New Jersey"
+      ],
+      [
+        "CGMA",
+        "Chartered Global Management Accountant, AICPA"
+      ],
+      [
+        "PMP",
+        "Project Management Professional, PMI"
+      ],
+      [
+        "PMI-ACP",
+        "Agile Certified Practitioner, PMI"
+      ]
+    ],
+    "career": [
+      "S&P Global",
+      "EY",
+      "Noom",
+      "Prudential Financial"
+    ],
+    "speaking": [
+      [
+        "2026",
+        "TechRound100",
+        "Judge, evaluating startups and emerging businesses."
+      ],
+      [
+        "2025",
+        "NFT.NYC",
+        "Panelist on the future of digital identity."
+      ],
+      [
+        "2024",
+        "NFT.NYC",
+        "Speaker, an overview of NFT domain providers."
+      ]
+    ],
+    "membership": "Member of Forbes Business Council, 2026 to present.",
+    "quote": "A CPA would call that a control. A project manager would call it a repeatable process. I call it the only sensible way to run this practice.",
+    "quoteSource": "Ken Ashe, LuckyDomains.io founder page",
+    "links": [
+      [
+        "KenAshe.ai",
+        "https://kenashe.ai/"
+      ],
+      [
+        "LinkedIn",
+        "https://www.linkedin.com/in/kenashe"
+      ],
+      [
+        "X",
+        "https://x.com/kenashe"
+      ],
+      [
+        "GitHub",
+        "https://github.com/kenashe"
+      ],
+      [
+        "YouTube",
+        "https://www.youtube.com/@KenAshe"
+      ]
+    ]
+  },
+  "news": [
+    {
+      "date": "Nov 16, 2026",
+      "type": "PROJECT UPDATE",
+      "title": "ZeroHuman opens to any agent on Ethereum mainnet",
+      "text": "After two paid test orders from a single allowed wallet, the service opened to any agent the same day. As of November 20, 2026, no outside agent has bought from it.",
+      "url": "https://kenashe.ai/building/zerohuman/",
+      "source": "KenAshe.ai build log",
+      "concept": false
+    },
+    {
+      "date": "Nov 10, 2026",
+      "type": "PROJECT UPDATE",
+      "title": "Two AI agents complete a purchase on Ethereum mainnet",
+      "text": "A buyer agent found a seller's catalog through ENS, paid 0.0003 ETH, and received the work 36 seconds later in a second transaction.",
+      "url": "https://kenashe.ai/building/ai-agent-economy/",
+      "source": "KenAshe.ai build log",
+      "concept": false
+    },
+    {
+      "date": "Oct 2026",
+      "type": "PROJECT UPDATE",
+      "title": "Autonomous SEO agent goes live",
+      "text": "A daily agent begins researching listings, creating profiles, and verifying accounts through its own inbox.",
+      "url": "https://kenashe.ai/building/autonomous-seo-agent/",
+      "source": "KenAshe.ai build log",
+      "concept": false
+    },
+    {
+      "date": "Jun 24, 2026",
+      "type": "COMPANY NEWS",
+      "title": "Lucky Domains Launches Redesigned Website for Premium Domain Acquisition and SEO",
+      "text": "The original release, preserved as published. It describes the company as it stood in June 2026: a focused practice for domain acquisition and search visibility.",
+      "url": "https://luckydomains.io/news/website-relaunch/",
+      "source": "LuckyDomains.io newsroom",
+      "concept": false
+    },
+    {
+      "date": "Undated",
+      "type": "SAMPLE CONCEPT COPY · NOT PUBLISHED",
+      "title": "Lucky Domains broadens into a digital venture studio",
+      "text": "Placeholder showing how a repositioning announcement could sit in this layout. No such announcement has been made.",
+      "url": "",
+      "source": "Concept placeholder",
+      "concept": true
+    }
+  ],
+  "contact": {
+    "intro": "Four ways in. Pick the one that fits.",
+    "paths": [
+      {
+        "id": "domains",
+        "label": "Domain acquisition or brokerage",
+        "blurb": "A name you want to buy, or one you want to sell quietly.",
+        "fields": [
+          "The domain name",
+          "Buying or selling",
+          "Timeline"
+        ]
+      },
+      {
+        "id": "ventures",
+        "label": "Venture or product partnerships",
+        "blurb": "Something you are building that touches agents, identity, or names.",
+        "fields": [
+          "What you are building",
+          "Where it stands today"
+        ]
+      },
+      {
+        "id": "media",
+        "label": "Media or speaking inquiries",
+        "blurb": "Interviews, panels, and questions about the builds.",
+        "fields": [
+          "Outlet or event",
+          "Topic and date"
+        ]
+      },
+      {
+        "id": "general",
+        "label": "General inquiries",
+        "blurb": "Anything that does not fit above.",
+        "fields": [
+          "Your message"
+        ]
+      }
+    ],
+    "notice": "Concept form. Nothing is collected, stored, or sent."
+  }
+}
