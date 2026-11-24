@@ -1,0 +1,89 @@
+/* Version 3, Concept A: Original, Evolved. Builds on original.css and v3.css: the production
+   design with larger type, more whitespace, the recognition map, the layer bar, and the stack. */
+:root{--maxw:1200px}
+.section{padding:104px 0}
+h2{font-size:clamp(2rem,3.8vw,2.9rem)}
+.section-lead{font-size:1.15rem}
+.hero-a .hero-split{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:48px;align-items:center}
+.hero-a .hero-inner{padding:96px 0 104px;max-width:none}
+.hero-a h1{font-size:clamp(2.5rem,5.2vw,4.1rem)}
+.hero-a h1 .hl{white-space:normal}
+.hero--page .hero-inner{padding:72px 0 76px}
+.ltag{display:inline-flex;align-items:center;gap:8px;font:700 .82rem "Plus Jakarta Sans";letter-spacing:.06em;text-transform:uppercase;color:#086b42;margin:0 0 14px}
+.ltag svg{width:16px;height:16px}
+.ltag-dark{color:#7ef0c0;margin:20px 0 0}
+
+/* recognition map */
+.rmap{margin:0;position:relative}
+.rm-box{position:relative;aspect-ratio:520/440;border-radius:28px;background:radial-gradient(70% 60% at 50% 50%,rgba(22,199,132,.14),transparent 70%),rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12)}
+.rm-box svg{position:absolute;inset:0;width:100%;height:100%}
+.rm-l{fill:none;stroke:rgba(255,255,255,.22);stroke-width:2}
+.rm-p{fill:none;stroke:#16C784;stroke-width:3;stroke-linecap:round;stroke-dasharray:14 260;stroke-dashoffset:274;animation:rmflow 3.6s linear infinite}
+.rm-p-search{animation-delay:-1.2s}.rm-p-ai{animation-delay:-2.4s}
+@keyframes rmflow{to{stroke-dashoffset:0}}
+.rm-halo{fill:none;stroke:rgba(22,199,132,.45);stroke-width:2;transform-origin:260px 220px;animation:rmhalo 3.6s ease-out infinite}
+@keyframes rmhalo{0%{transform:scale(.8);opacity:.9}100%{transform:scale(1.25);opacity:0}}
+.rm-paused .rm-p,.rm-paused .rm-halo{animation-play-state:paused}
+.rm-core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:grid;justify-items:center;gap:6px;background:#fff;border-radius:22px;padding:14px 16px 10px;box-shadow:0 20px 40px -20px rgba(0,0,0,.6)}
+.rm-core span{font:700 .82rem "Plus Jakarta Sans";color:var(--navy)}
+.rm-n{position:absolute;transform:translate(calc(-50% + var(--dx,0px)),calc(-50% + var(--dy,0px)));display:grid;justify-items:center;gap:8px;transition:transform .5s var(--ease)}
+.rm-ic{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:var(--navy-700);border:2px solid rgba(22,199,132,.6);color:#7ef0c0;box-shadow:0 0 0 6px rgba(22,199,132,.08)}
+.rm-ic svg{width:26px;height:26px}
+.rm-n b{font:700 .95rem "Plus Jakarta Sans";color:#fff;background:rgba(10,29,54,.8);padding:4px 10px;border-radius:999px;white-space:nowrap}
+.rm-n.near .rm-ic{border-color:#16C784;box-shadow:0 0 0 8px rgba(22,199,132,.18)}
+.rmap figcaption{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;justify-content:space-between;margin-top:12px;font-size:.88rem;color:#b8c6d6}
+.rm-pause{min-height:36px;padding:0 14px;border-radius:999px;border:1px solid rgba(255,255,255,.35);background:transparent;color:#fff;font:600 .85rem "Plus Jakarta Sans";cursor:pointer}
+
+/* layer bar: section-aware on the homepage, static on inner pages */
+.lbar{position:sticky;top:74px;z-index:90;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.lbar-in{display:flex;align-items:center;gap:18px;min-height:52px}
+.lbar-t{font:700 .78rem "Plus Jakarta Sans";letter-spacing:.12em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.lbar ol{list-style:none;margin:0;padding:0;display:flex;gap:4px;flex:1;position:relative}
+.lbar li{flex:1;position:relative}
+.lbar li+li::before{content:"";position:absolute;left:-4px;top:50%;width:4px;border-top:2px solid var(--line)}
+.lbar a{display:flex;align-items:center;justify-content:center;gap:8px;min-height:40px;padding:6px 10px;border-radius:999px;font:700 .9rem "Plus Jakarta Sans";color:var(--slate);border:1.5px solid transparent;transition:background .3s,color .3s,border-color .3s}
+.lb-n{font-size:.8rem;color:var(--muted)}
+.lbar a.done{color:var(--navy)}
+.lbar a.done .lb-n{color:#086b42}
+.lbar a[aria-current]{background:var(--navy);color:#fff;border-color:var(--navy)}
+.lbar a[aria-current] .lb-n{color:#7ef0c0}
+
+/* stack overview */
+.sks{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(5,1fr);gap:18px;position:relative}
+.sks::before{content:"";position:absolute;left:10%;right:10%;top:62px;border-top:2px dashed #cfe3da}
+.sks::after{content:"";position:absolute;left:10%;top:62px;width:80%;border-top:2px solid #16C784;transform-origin:left;transform:scaleX(var(--p,0));transition:transform .2s linear}
+.sk{position:relative;z-index:1;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px 20px;text-align:center;box-shadow:var(--shadow-sm);transition:border-color .4s,box-shadow .4s,transform .4s var(--ease)}
+.sk .icon-badge{margin:8px auto 14px;background:var(--bg-soft);color:var(--muted);transition:background .4s,color .4s}
+.sk-n{font:800 .8rem "Plus Jakarta Sans";color:var(--muted)}
+.sk h3{font-size:1.15rem;margin-bottom:4px}.sk p{font-size:.94rem;margin:0}
+.sk.on{border-color:#9fe3c4;box-shadow:var(--shadow);transform:translateY(-4px)}
+.sk.on .icon-badge{background:var(--mint);color:#086b42}
+.sk.on .sk-n{color:#086b42}
+html:not(.js) .sk .icon-badge{background:var(--mint);color:#086b42}
+
+.steps-2{grid-template-columns:1fr 1fr;margin:8px 0 26px}
+.pnote{margin:18px 0 0;font-size:.92rem;color:#a9bacd}
+.idg2 .card{padding:22px}
+.evid1 p{font-size:1.02rem}
+.story-a{max-width:860px;margin:0 auto;text-align:center}
+.story-a h2{font-size:clamp(2.4rem,5vw,3.8rem)}
+.uses-a{grid-template-columns:1fr 1fr;gap:18px 24px}
+
+@media (max-width:980px){
+  .hero-a .hero-split{grid-template-columns:1fr;gap:8px}
+  .hero-a .hero-inner{padding:64px 0 24px}
+  .rmap{max-width:560px;margin:0 auto 56px}
+  .sks{grid-template-columns:repeat(2,1fr)}.sks::before,.sks::after{display:none}
+  .lbar-t{display:none}
+}
+@media (max-width:760px){
+  .section{padding:72px 0}
+  .lbar{top:74px}.lbar-in{overflow-x:auto;gap:0;padding:0 12px}
+  .lbar ol{gap:2px}.lbar li+li::before{display:none}
+  .lbar a{padding:6px 10px;font-size:.84rem;white-space:nowrap}
+  .lb-n{display:none}
+  .sks{grid-template-columns:1fr}
+  .steps-2,.uses-a{grid-template-columns:1fr}
+  .rm-n b{font-size:.82rem}.rm-ic{width:46px;height:46px}
+}
+@media (prefers-reduced-motion:reduce){.rm-p{stroke-dasharray:none;stroke:rgba(22,199,132,.55)}}

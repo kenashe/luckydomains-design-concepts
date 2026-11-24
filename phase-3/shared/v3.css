@@ -1,0 +1,148 @@
+/* Version 3 shared layer. Loaded after original.css (a verbatim copy of the production stylesheet).
+   Adds self-hosted fonts, the review notice, the Services menu, accessibility fixes, and the
+   components the fuller site needs. Each concept adds its own css/style.css after this file. */
+@font-face{font-family:"Plus Jakarta Sans";src:url("../../shared/fonts/jakarta-normal-400-800.woff2") format("woff2");font-weight:400 800;font-display:swap}
+@font-face{font-family:"Inter";src:url("../../shared/fonts/inter-normal-400-600.woff2") format("woff2");font-weight:400 600;font-display:swap}
+:root{--link:#0A7A4B;--warm:#FAF8F3;--muted:#566578;--green-700:#086b42}
+/* the original muted grey and green-700 fall just under WCAG AA on white and soft grey */
+.nav a[aria-current="page"]{color:#086b42}
+main p a:not(.btn):not(.link-arrow),main li a:not(.btn):not(.link-arrow),.v3-more a{text-decoration:underline;text-underline-offset:3px}
+.lbar a,.rail a,.hb-idx a,.hx a,main .crumbs a{text-decoration:none !important}
+main .crumbs a{text-decoration:underline !important;text-underline-offset:3px}
+/* the original hero puts container and hero-inner on one element, so the hero padding removed the side padding */
+.hero .container.hero-inner{padding-left:24px;padding-right:24px}
+.menu a,.has-menu>a{text-decoration:none !important}
+a{color:var(--link)}a:hover{color:#075c38}
+.eyebrow{color:#086b42}
+.eb-dark{background:rgba(22,199,132,.16);color:#7ef0c0}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.review{margin:0;padding:3px 24px;background:#0a1d36;color:#d9e3ee;font-size:13px;display:flex;flex-wrap:wrap;gap:4px 16px;justify-content:center;align-items:center;text-align:center;line-height:1.5}
+.review a{color:#7ef0c0;font-weight:600;display:inline-block;padding:6px 0}
+.fh{color:#fff;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:16px}
+.footer-col a,.footer-bottom{color:#b8c6d6}
+.hero .lead,.hero-trust{color:#d1dce8}
+.card .tag,.svc .tag{display:block;margin-bottom:6px;color:#086b42}
+.btn-accent{--btn-bg:#0A7A4B;--btn-bd:#0A7A4B}
+.btn-accent:hover{--btn-bg:#075c38;--btn-bd:#075c38}
+.cta-band p{color:#04301f}
+.cta-ghost{--btn-bg:rgba(255,255,255,.75);--btn-fg:var(--navy);--btn-bd:rgba(12,35,64,.35)}
+
+/* Services menu (desktop disclosure, mobile inline) */
+.has-menu{position:relative;display:flex;align-items:center}
+.menu-btn{width:30px;height:40px;margin-left:-10px;border:0;background:none;cursor:pointer;position:relative;border-radius:8px}
+.menu-btn::after{content:"";position:absolute;left:10px;top:14px;width:7px;height:7px;border-right:2px solid var(--navy);border-bottom:2px solid var(--navy);transform:rotate(45deg);transition:transform .2s}
+.menu-btn[aria-expanded="true"]::after{transform:rotate(-135deg) translate(-2px,-2px)}
+.menu{list-style:none;margin:0;padding:10px;position:absolute;top:calc(100% + 10px);left:-10px;width:340px;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow-lg);display:none;z-index:120}
+.menu a{display:flex;align-items:center;gap:12px;padding:11px 12px !important;border-radius:12px}
+.menu a svg{width:20px;height:20px;color:#086b42;flex:none}
+.menu-x{display:flex;flex-wrap:wrap;gap:0 4px;border-top:1px solid var(--line);margin-top:6px;padding-top:6px}
+.menu-x a{font-size:.9rem !important;color:var(--slate) !important}
+.menu.open,html:not(.js) .has-menu:hover .menu,html:not(.js) .has-menu:focus-within .menu{display:block}
+
+/* breadcrumbs on the navy page hero */
+.crumbs ol{list-style:none;padding:0;margin:0 0 18px;display:flex;flex-wrap:wrap;gap:6px;font-size:.9rem;color:#a9bacd}
+.crumbs li+li::before{content:"/";margin-right:6px;color:#56708d}
+.crumbs a{color:#d1dce8;display:inline-block;padding:3px 0}
+.crumbs [aria-current]{color:#fff}
+
+/* shared new components, drawn in the original card language */
+.card-sm{padding:24px}.card-sm h3{font-size:1.05rem}.card-sm p{font-size:.95rem}
+.steps-5{grid-template-columns:repeat(5,1fr)}.steps-6{grid-template-columns:repeat(3,1fr);row-gap:36px}
+.v3-note{max-width:860px;margin:30px auto 0;padding:16px 20px;border-radius:14px;background:var(--mint);color:var(--slate);font-size:.98rem}
+.v3-note strong{color:var(--navy)}
+.v3-warn{background:#FFF6E3;color:#4a3300}
+.v3-more{margin-top:28px}
+.lim{font-size:.92rem;color:#7a4e00 !important}
+.wk-m{font-size:.9rem;color:var(--muted);margin-top:auto}
+.wk-demo{border-style:dashed;border-color:#E2C88E;background:#FFFCF5}
+.wks .card{display:flex;flex-direction:column}
+.price .tag{font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#086b42}
+.eng{grid-template-columns:repeat(3,1fr)}
+.lv{grid-template-columns:1fr 1fr;max-width:none}
+.price .desc{color:var(--slate)}
+.card-emerging{border-style:dashed;background:#FBFCFE}
+.nope li{color:var(--slate)}
+.ev{padding-left:20px}.ev li{margin-bottom:6px}
+.cs-stats .num{font-size:1.5rem}
+.cs-done ul.check{grid-template-columns:1fr 1fr;column-gap:40px;max-width:980px;margin:0 auto}
+.creds .num{font-size:1.6rem}
+.creds .lbl{color:var(--slate)}
+.v3-quote{margin:26px 0 0;padding:4px 0 4px 20px;border-left:4px solid var(--green)}
+.v3-quote p{font-family:"Plus Jakarta Sans",sans-serif;font-weight:700;color:var(--navy);font-size:1.15rem;margin:0 0 6px}
+.v3-quote cite{font-style:normal;color:var(--muted);font-size:.92rem}
+.sp{list-style:none;padding:0;display:grid;gap:12px}.sp li{color:#cdd9e6}.sp strong{color:#fff}
+.ab-stack{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.ab-stack li{display:grid;grid-template-columns:44px 110px 1fr;gap:12px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 18px;box-shadow:var(--shadow-sm)}
+.ab-stack .ly-n{width:36px;height:36px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font:800 .85rem "Plus Jakarta Sans"}
+.ab-stack b{font-family:"Plus Jakarta Sans";color:var(--navy);font-size:1.1rem}
+
+/* diagnostic */
+.dg-in{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.dg-opts{border:0;margin:22px 0 0;padding:0;display:grid;gap:10px}
+.dg-o{display:flex;align-items:center;gap:14px;min-height:56px;padding:12px 18px;border:1.5px solid var(--line);border-radius:14px;background:#fff;font-family:"Plus Jakarta Sans";font-weight:600;color:var(--navy);cursor:pointer;transition:border-color .2s,background .2s}
+.dg-o input{width:20px;height:20px;accent-color:#0A7A4B;margin:0;flex:none}
+.dg-o:hover{border-color:var(--navy)}
+.dg-o:has(input:checked){border-color:var(--green);background:var(--mint)}
+.dg-o:focus-within{outline:3px solid var(--green);outline-offset:2px}
+.dg-out{background:var(--navy);color:#cdd9e6;border-radius:24px;padding:36px;box-shadow:var(--shadow-lg);min-height:360px}
+.dg-out h3{color:#fff;font-size:1.6rem}
+.dg-steps{padding-left:20px;margin:0 0 22px}.dg-steps li{margin-bottom:6px}
+.dg-empty{font-family:"Plus Jakarta Sans";font-weight:600;font-size:1.15rem;color:#c3d2e2}
+.js .dg-a{display:none}.js .dg-a.on{display:block;animation:v3fade .4s var(--ease)}
+html:not(.js) .dg-empty{display:none}
+html:not(.js) .dg-a{padding:16px 0;border-top:1px solid rgba(255,255,255,.15)}
+@keyframes v3fade{from{opacity:0;transform:translateY(8px)}}
+
+/* before and after page map */
+.arch{max-width:900px;margin:0 auto}
+.ba-bar{display:inline-flex;background:var(--bg-soft);border:1px solid var(--line);border-radius:999px;padding:4px;margin-bottom:18px}
+.ba-b{min-height:42px;padding:0 20px;border:0;border-radius:999px;background:none;font:700 .95rem "Plus Jakarta Sans";color:var(--slate);cursor:pointer}
+.ba-b[aria-pressed="true"]{background:var(--navy);color:#fff}
+.arch-g{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.arch-c{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow-sm)}
+.arch-c[data-state="after"]{border-color:#9fe3c4;background:var(--mint)}
+.arch-c h3{font-size:1rem}
+.arch-c ul{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:8px}
+.arch-c li{background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 12px;font:600 .92rem "Plus Jakarta Sans";color:var(--navy)}
+.js .arch-g{grid-template-columns:1fr}
+.js .arch-c{display:none}.js .arch-c.on{display:block}
+.js .arch-c.on li{animation:v3fade .45s var(--ease) both}
+
+/* article */
+.art-wrap{max-width:760px}
+.art-dek{font-family:"Plus Jakarta Sans";font-weight:600;font-size:1.3rem;line-height:1.45;color:var(--navy)}
+.art-s{padding-top:12px}
+.art-s h2{font-size:1.6rem;margin-top:24px}
+.art-s p{font-size:1.08rem}
+
+/* inert form note */
+.cf-note{color:#7a4e00 !important;font-weight:600}
+.form-card .btn{width:auto}
+
+@media (max-width:980px){
+  .dg-in{grid-template-columns:1fr}.dg-out{min-height:0}
+  .eng,.steps-5,.steps-6{grid-template-columns:repeat(2,1fr)}
+  .lv{grid-template-columns:1fr}
+}
+@media (max-width:760px){
+  .menu{position:static;width:auto;box-shadow:none;border:0;padding:0 0 8px 8px;display:none}
+  .has-menu{flex-wrap:wrap}.has-menu>a{flex:1}
+  .menu-btn{width:48px;height:48px;margin:0}
+  .nav{max-height:calc(100vh - 110px);overflow:auto}
+  html:not(.js) .nav{position:static;transform:none;box-shadow:none}
+  html:not(.js) .header-inner{flex-wrap:wrap;height:auto;padding-block:10px}
+  html:not(.js) .nav-toggle{display:none}
+  .review{font-size:12px}.review .rv-x{display:none}
+  .eng,.steps-5,.steps-6,.arch-g,.cs-done ul.check{grid-template-columns:1fr}
+  .ab-stack li{grid-template-columns:40px 1fr}.ab-stack li span:last-child{grid-column:2}
+  .hero h1{font-size:clamp(2.1rem,9vw,2.8rem)}
+  .btn{white-space:normal;text-align:center;line-height:1.25}
+}
+@media (max-width:560px){.grid-4{grid-template-columns:1fr}}
+@media (max-width:460px){.hero .container.hero-inner{padding-left:18px;padding-right:18px}}
+@media (prefers-reduced-motion:reduce){
+  .js .arch-c.on li,.js .dg-a.on{animation:none}
+}
+/* complete without JavaScript: the original stylesheet hides reveals and FAQ answers until its script runs */
+html:not(.js) .reveal{opacity:1;transform:none}
+html:not(.js) .faq-a{max-height:none}

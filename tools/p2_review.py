@@ -91,8 +91,9 @@ def landing(r):
     stack = "".join(f"<li><b>{E(l['name'])}</b> {E(l['line'])}</li>" for l in C["stack"])
     svcs = "".join(f"<li>{E(s['name'])}</li>" for s in C["services"])
     return f"""
+<section class="refine p2-banner" aria-labelledby="v3-h"><p class="k">Superseded</p><h2 id="v3-h">Version 3 is the current round</h2><p class="lead">Phase 2 is kept as an archive. Version 3 starts from the original site's design and builds sixteen pages per concept.</p><p class="go"><a class="btn" href="{r}phase-3/">Open version 3</a></p></section>
 <section class="intro">
-  <p class="k">Phase 2 · {E(C['asOf'])}</p>
+  <p class="k">Phase 2 archive · {E(C['asOf'])}</p>
   <h1>Phase 2 redesign concepts</h1>
   <p class="lead">Three new, light directions for LuckyDomains.io. They correct the business direction of Phase 1 and share one positioning, one set of services, and one content file, so the comparison is about design.</p>
   <p class="state">{STATEMENT}</p>

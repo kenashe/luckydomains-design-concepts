@@ -18,3 +18,5 @@
 @media (max-width:900px){.p2-cols,.p2-ref-g{grid-template-columns:1fr}.p2-gal{grid-template-columns:1fr 1fr}}
 .top nav{flex-wrap:wrap}
 @media (max-width:420px){.top nav a{padding:10px 11px;font-size:14px}}
+.more-16{display:flex;flex-wrap:wrap;gap:2px 12px;font-size:14px;margin:12px 0 0}.more-16 a{padding:4px 0}
+.t4 thead th{width:20%}.t4 thead th:first-child{width:16%}

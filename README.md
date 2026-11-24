@@ -1,6 +1,6 @@
 # Lucky Domains: proposed redesign concepts
 
-**Current round: [Phase 2](#phase-2-current-round).** Phase 1 (Venture Lab, The Register, Namespace, Venture Lab v2, and the production candidate staging copy) is archived below.
+**Current round: [Version 3](#version-3-current-round).** Phase 2 and Phase 1 (Venture Lab, The Register, Namespace, Venture Lab v2, and the production candidate staging copy) are archived below.
 
 Three complete design directions for a possible future LuckyDomains.io, for review and comparison.
 
@@ -23,7 +23,28 @@ Comparison page (including "Venture Lab: original vs v2"): https://kenashe.githu
 
 Design reasoning, motion systems, asset origins, and open content questions are in [CONCEPTS.md](CONCEPTS.md).
 
-## Phase 2 (current round)
+## Version 3 (current round)
+
+Three concepts built from the original production site. Each page loads the production
+stylesheet unchanged (`phase-3/shared/original.css`), then `phase-3/shared/v3.css`, then the
+concept's own layer. All three share one message, five services, and sixteen pages.
+
+- Version 3 review landing: https://kenashe.github.io/luckydomains-design-concepts/phase-3/
+- Version 3 comparison (includes the current site): https://kenashe.github.io/luckydomains-design-concepts/phase-3/comparison/
+- Concept A, Original Evolved: `phase-3/original-evolved/`
+- Concept B, Original Editorial: `phase-3/editorial/`
+- Concept C, Original Interactive: `phase-3/interactive/`
+
+Pages in each concept: home, services, five service pages (`services/website-design/`,
+`services/seo/`, `services/ai-visibility/`, `services/entity-seo/`, `services/domains/`),
+`how-we-buy-domains/`, `work/`, `work/luckydomains-io/`, `about/`, `founder/`, `insights/`,
+`insights/domains-identity-for-ai-agents/`, `news/`, `contact/`.
+
+Notes: [PHASE_3_CONCEPTS.md](PHASE_3_CONCEPTS.md). Build: `python3 tools/p3_build.py` (or
+`tools/build.py` for everything). Screenshots: `python3 tools/p3_shots.py <base>` writes
+`phase-3/screenshots/`. Audit: `python3 tools/p3_audit.py <base> /path/to/axe.min.js`.
+
+## Phase 2 (archived)
 
 Phase 2 corrects the business direction. Lucky Domains is presented as a digital
 presence studio for the AI era: websites, SEO, entity and digital identity, AI
@@ -67,7 +88,7 @@ python3 tools/p2_shots.py http://localhost:8765/luckydomains-design-concepts/
 python3 tools/p2_audit.py http://localhost:8765/luckydomains-design-concepts /path/to/axe.min.js
 ```
 
-Phase 1 below is kept unchanged as an archive. It is not part of the Phase 2 comparison.
+Phase 2 and Phase 1 are kept as archives. They are not part of the version 3 comparison.
 
 ## Production candidate staging
 
