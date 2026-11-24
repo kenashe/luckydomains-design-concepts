@@ -20,6 +20,10 @@ PAGES2 = P2["pages"]
 C = {
   "_readme": "Version 3 shared content. One copy and fact source for all three version 3 concepts. Built by tools/p3_content.py from the original production site (kenashe/luckydomains, main at efed1de), the Phase 2 content file, and public sources read November 24, 2026. Items marked concept are layout or planning copy, not published facts.",
   "asOf": "November 24, 2026",
+  "preferredConcept": "C",
+  "conceptC": {"location": "Berkeley Heights, New Jersey",
+               "workLead": "We use our own projects to show how we work. We do not name clients or disclose identifying details. Any illustrative example is labeled, and we do not claim traffic, ranking, or lead figures.",
+               "engagements": {"websites": "Website Build", "ai": "Entity and AI Visibility Audit", "entity": "Entity and AI Visibility Audit"}},
   "company": dict(P2["company"], description="Lucky Domains helps businesses build a digital presence that people, search engines, and AI systems can find, understand, and trust.",
                   descriptionLong="Lucky Domains helps businesses build a digital presence that people, search engines, and AI systems can find, understand, and trust. We design and build websites, improve search and AI visibility, strengthen entity and brand signals, and secure the domains that anchor your identity.",
                   footer="A digital presence studio for the AI era. Websites, search, digital identity, AI visibility, and domains.",

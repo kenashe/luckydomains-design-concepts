@@ -5,7 +5,7 @@ import json
 from p3lib import (C, E, S, L, PG, icon, eyebrow, check, sec_head, section, cards, steps, panel, split, note,
                    svc_cards, lab_cards, work_cards, build_concept, LAYER_OF, LAYER_ICON, cta_band)
 
-CFG = {"k": "C", "name": "Original, Interactive", "dir": "phase-3/interactive"}
+CFG = {"k": "C", "name": "Original, Interactive", "dir": "phase-3/interactive", "js_version": "?v=20261124-center"}
 CHECK_KEY = {"websites": "websites", "seo": "seo", "ai": "ai", "entity": "entity", "domains": "domains", "buy": "domains"}
 
 
@@ -90,12 +90,25 @@ def hero_extra(ctx, key):
     return f'<ol class="hx" aria-label="Where this service sits in the Digital Presence Stack">{chips}</ol>'
 
 
+def named_engagement(ctx, key):
+    name = C["conceptC"]["engagements"].get(key)
+    if not name:
+        return ""
+    e = next(e for e in PG["services"]["engagements"] if e["name"] == name)
+    cta = f'<p class="v3-more"><a class="btn btn-accent" href="{ctx.to("contact/")}">Ask about this engagement</a></p>'
+    return section("engagement", split(sec_head("Named engagement", name, "", False)
+                    + f'<p class="section-lead">{E(e["line"])} The scope is agreed in writing before work starts.</p>' + cta,
+                    panel("What is included", e["check"])), True)
+
+
 def inner(ctx, key, hero, secs):
     out = hero
     for n, (i, lab, html) in enumerate(secs):
         out += html
-        if n == 0 and key in CHECK_KEY:
-            out += section("checks", '<div class="xwrap">' + checks_panel(key) + "</div>", True)
+        if n == 0:
+            out += named_engagement(ctx, key)
+            if key in CHECK_KEY:
+                out += section("checks", '<div class="xwrap">' + checks_panel(key) + "</div>", not C["conceptC"]["engagements"].get(key))
     return out
 
 

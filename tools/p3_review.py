@@ -77,9 +77,10 @@ def landing(r):
     for c in CONCEPTS:
         base = f"{r}phase-3/{c['dir']}/"; k = c["k"].lower()
         more = "".join(f'<a href="{base}{p}">{NAMES[key]}</a>' for p, key in PAGES[1:])
+        choice = " · Preferred for refinement" if c["k"] == C["preferredConcept"] else ""
         cards += f"""<article class="card">
   <a class="shot" href="{base}" tabindex="-1" aria-hidden="true"><img src="{r}phase-3/screenshots/{k}-home-desktop.jpg" alt="" width="1440" height="900" loading="lazy"><img class="shot-m" src="{r}phase-3/screenshots/{k}-home-mobile.jpg" alt="" width="375" height="760" loading="lazy"></a>
-  <div class="card-b"><p class="k">Concept {c['k']}</p><h2>{E(c['name'])}</h2><p class="thesis">{E(c['thesis'])}</p>
+  <div class="card-b"><p class="k">Concept {c['k']}{choice}</p><h2>{E(c['name'])}</h2><p class="thesis">{E(c['thesis'])}</p>
     <ul class="attrs">{"".join(f"<li>{E(a)}</li>" for a in c['attrs'])}</ul>
     <dl><div><dt>Motion and interaction</dt><dd>{E(c['motion'])}</dd></div><div><dt>Best suited for</dt><dd>{E(c['best'])}</dd></div><div><dt>Tradeoff</dt><dd>{E(c['risk'])}</dd></div></dl>
     <p class="go"><a class="btn" href="{base}">Explore concept {c['k']}<span class="sr">: {E(c['name'])}</span></a></p>
@@ -101,7 +102,7 @@ def landing(r):
 <section class="cards" aria-label="Concepts">{cards}</section>
 <section class="p2-ref" aria-labelledby="ref-h"><h2 id="ref-h">The current site, for reference</h2><p>The live LuckyDomains.io homepage, captured read-only.</p>
 <div class="p2-ref-g"><figure><img src="{r}phase-3/screenshots/current-home-desktop.jpg" alt="The current live LuckyDomains.io homepage at desktop width" width="1440" height="900" loading="lazy"><figcaption>Desktop</figcaption></figure><figure><img src="{r}phase-3/screenshots/current-home-mobile.jpg" alt="The current live LuckyDomains.io homepage at mobile width" width="375" height="760" loading="lazy"><figcaption>Mobile</figcaption></figure></div></section>
-<section class="next"><h2>How to review</h2><ol><li>Open the current site and concept A side by side. A should feel like the same company.</li><li>Follow one service from the homepage to its page and on to Contact in each concept.</li><li>Try each concept's interactions: the recognition map, stack, and diagnostic (A), the reading rail and before-and-after (B), and the presence map and self-check (C).</li><li>Read the <a href="{r}phase-3/comparison/">comparison</a>.</li></ol>
+<section class="next"><h2>How to review</h2><ol><li>Start with concept C, the preferred review direction, then compare it with the current site.</li><li>Follow one service from the homepage to its page and on to Contact in each concept.</li><li>Try each concept's interactions: the recognition map, stack, and diagnostic (A), the reading rail and before-and-after (B), and the presence map and self-check (C).</li><li>Read the <a href="{r}phase-3/comparison/">comparison</a>.</li></ol>
 <p>Earlier rounds stay available as archives: <a href="{r}phase-2/">Phase 2</a> and <a href="{r}">Phase 1</a> (including Venture Lab). They are not finalists here.</p></section>"""
 
 
@@ -116,7 +117,7 @@ def comparison(r):
         gal += f'<h3>Concept {c["k"]}: {E(c["name"])}</h3><div class="p2-gal">{figs}</div>'
     return f"""
 <section class="intro"><p class="k">Version 3 · Side by side</p><h1>Comparison</h1>
-<p class="lead">The current site against the three version 3 concepts. All three concepts share one message, five services, and sixteen pages; the notes are about design. They are observations to argue with, not a decision.</p><p class="state">{STATEMENT}</p></section>
+<p class="lead">The current site against the three version 3 concepts. All three concepts share one message, five services, and sixteen pages. Concept C is the preferred direction for further refinement; no production launch is approved.</p><p class="state">{STATEMENT}</p></section>
 <section class="tbl" aria-label="Comparison table"><table class="t4"><thead><tr><th scope="col"><span class="sr">Criterion</span></th>{head}</tr></thead><tbody>{rows}</tbody></table></section>
 <section class="gal p2-gals" aria-labelledby="g-h"><h2 id="g-h">Screenshots</h2>{gal}</section>
 <section class="next"><h2>Shared by all three</h2><ul><li>The production stylesheet, loaded unchanged, under each concept's own layer.</li><li>One message: {E(C['company']['description'])}</li><li>Domain, Website, Search, Entity, AI, presented as one system.</li><li>Five services, each with its own page, plus How we buy domains.</li><li>No guarantees of rankings, AI citations, or Knowledge Panels, with Google's and Bing's own documentation cited.</li><li>ZeroHuman and other experiments only in a small From the lab section and a labeled research note.</li><li>Noindex, forms that send nothing, keyboard access, and complete content without JavaScript or motion.</li></ul>

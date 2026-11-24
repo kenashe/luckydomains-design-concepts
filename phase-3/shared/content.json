@@ -1,6 +1,16 @@
 {
   "_readme": "Version 3 shared content. One copy and fact source for all three version 3 concepts. Built by tools/p3_content.py from the original production site (kenashe/luckydomains, main at efed1de), the Phase 2 content file, and public sources read November 24, 2026. Items marked concept are layout or planning copy, not published facts.",
   "asOf": "November 24, 2026",
+  "preferredConcept": "C",
+  "conceptC": {
+    "location": "Berkeley Heights, New Jersey",
+    "workLead": "We use our own projects to show how we work. We do not name clients or disclose identifying details. Any illustrative example is labeled, and we do not claim traffic, ranking, or lead figures.",
+    "engagements": {
+      "websites": "Website Build",
+      "ai": "Entity and AI Visibility Audit",
+      "entity": "Entity and AI Visibility Audit"
+    }
+  },
   "company": {
     "name": "Lucky Domains",
     "email": "info@luckydomains.io",

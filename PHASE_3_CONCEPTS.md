@@ -1,6 +1,6 @@
 # Version 3 concepts and design notes
 
-Created November 24, 2026. Review only. No direction has been selected and nothing has been implemented on LuckyDomains.io. Phase 1 (`CONCEPTS.md`) and Phase 2 (`PHASE_2_CONCEPTS.md`) notes are unchanged.
+Created November 24, 2026. Ken prefers Concept C for further refinement. Review only; nothing in Version 3 has been implemented on LuckyDomains.io. Phase 1 (`CONCEPTS.md`) and Phase 2 (`PHASE_2_CONCEPTS.md`) notes are unchanged.
 
 ## Why version 3
 
@@ -87,7 +87,7 @@ The map engine is the one tested in Phase 2, restyled for the navy hero. It uses
 - The research note is labeled "Draft for review. Not published." and says Lucky Domains does not sell agent identity.
 - The News page links the real June 24, 2026 release and labels a placeholder for a future announcement as sample copy.
 - Insights titles other than the research note are labeled as planned.
-- Location is omitted. The live site names two different New Jersey towns.
+- Concept C uses the confirmed company location: Berkeley Heights, New Jersey. No street address is shown.
 
 ## Accessibility fixes over the original
 
@@ -98,12 +98,11 @@ The map engine is the one tested in Phase 2, restyled for the navy hero. It uses
 
 ## Open questions
 
-1. Should Website Build and the Entity and AI Visibility Audit become named engagements, as shown?
-2. Should Local SEO and Google Business Profile keep their own page eventually?
-3. Which case studies can name a client?
-4. Should the research note be published, on Lucky Domains or on KenAshe.ai?
-5. Which New Jersey town, if any, should appear?
+- Should Local SEO and Google Business Profile keep their own page eventually?
+- Should the research note be published on Lucky Domains or KenAshe.ai, or stay a draft? Until Ken decides, it remains review-only.
 
-## Recommendation
+Confirmed: Website Build and Entity and AI Visibility Audit are named, scoped engagements. Case studies do not identify clients. The LuckyDomains.io case study covers the company's own site.
 
-Concept A, Original, Evolved, is the strongest. It is the current site, recognizably, with the new message, the fuller architecture, and the three interactions that explain the business. It is also the cheapest to build, because it is mostly the existing stylesheet. If A is chosen, the two ideas worth borrowing are B's annotated case study and C's example-check lists on service pages. A production build should stay coherent rather than combine every idea.
+## Preferred concept
+
+Ken chose Concept C, Original, Interactive, as the preferred design direction for review. The hero presence map now centers the visible logo artwork within the circle at both map sizes. The review does not authorize a production rollout.

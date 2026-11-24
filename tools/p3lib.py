@@ -101,13 +101,14 @@ def header(ctx):
 def footer(ctx):
     sv = "".join(f'<li><a href="{ctx.svc(s["id"])}">{E(s["name"])}</a></li>' for s in C["services"]) + f'<li><a href="{ctx.to("how-we-buy-domains/")}">How we buy domains</a></li>'
     co = "".join(f'<li><a href="{ctx.to(p)}">{t}</a></li>' for t, p in [("Work", "work/"), ("About", "about/"), ("Founder", "founder/"), ("Insights", "insights/"), ("News & media", "news/"), ("Contact", "contact/")])
+    location = f'<li>{E(C["conceptC"]["location"])}</li>' if ctx.cfg["k"] == "C" else ""
     return f"""<footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand"><a href="{ctx.to()}" class="footer-logo"><img src="{ctx.asset('logo-icon.png')}" alt="" width="42" height="42" loading="lazy"><span>Lucky Domains</span></a><p>{E(C['company']['footer'])}</p></div>
       <div class="footer-col"><h2 class="fh">Services</h2><ul>{sv}</ul></div>
       <div class="footer-col"><h2 class="fh">Company</h2><ul>{co}</ul></div>
-      <div class="footer-col"><h2 class="fh">Get in touch</h2><ul><li><a href="mailto:{C['company']['email']}">{C['company']['email']}</a></li><li><a href="{ctx.to('contact/')}">{C['navCta']}</a></li><li><a href="{C['founder']['kenashe']}">KenAshe.ai</a></li></ul></div>
+      <div class="footer-col"><h2 class="fh">Get in touch</h2><ul><li><a href="mailto:{C['company']['email']}">{C['company']['email']}</a></li>{location}<li><a href="{ctx.to('contact/')}">{C['navCta']}</a></li><li><a href="{C['founder']['kenashe']}">KenAshe.ai</a></li></ul></div>
     </div>
     <div class="footer-bottom"><span>{E(C['company']['founderLine'])}</span><span>{NOTICE} Version 3, concept {ctx.cfg['k']}.</span></div>
   </div>
@@ -124,7 +125,7 @@ def page(ctx, title, desc, body, cls=""):
 </main>
 {footer(ctx)}
 <script src="{ctx.r}phase-3/shared/v3.js" defer></script>
-<script src="{ctx.c}js/main.js" defer></script>
+<script src="{ctx.c}js/main.js{ctx.cfg.get('js_version', '')}" defer></script>
 </body></html>"""
 
 
@@ -197,8 +198,9 @@ def evidence(ctx):
 def page_hero(ctx, key, extra="", cta=True):
     p = PG[key]
     btn = f'<div class="btn-row"><a class="btn btn-accent btn-lg" href="{ctx.to("contact/")}">{C["navCta"]}</a><a class="btn btn-on-dark btn-lg" href="{ctx.to("services/")}">All services</a></div>' if cta else ""
+    lead = C["conceptC"]["workLead"] if key == "work" and ctx.cfg["k"] == "C" else p["lead"]
     crumbs = '<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="%s">Home</a></li>%s<li aria-current="page">%s</li></ol></nav>' % (ctx.to(), ('<li><a href="%s">Services</a></li>' % ctx.to("services/")) if ctx.path.startswith("services/") and ctx.path != "services/" else ("<li><a href=\"%s\">Work</a></li>" % ctx.to("work/") if ctx.path.startswith("work/") and ctx.path != "work/" else ("<li><a href=\"%s\">Insights</a></li>" % ctx.to("insights/") if ctx.path.startswith("insights/") and ctx.path != "insights/" else "")), E(p["eyebrow"]))
-    return f'<section class="hero hero--page"><div class="container hero-inner">{crumbs}{eyebrow(p["eyebrow"], True)}<h1>{E(p["h1"])}</h1><p class="lead">{E(p["lead"])}</p>{btn}{extra}</div></section>'
+    return f'<section class="hero hero--page"><div class="container hero-inner">{crumbs}{eyebrow(p["eyebrow"], True)}<h1>{E(p["h1"])}</h1><p class="lead">{E(lead)}</p>{btn}{extra}</div></section>'
 
 
 def svc_cards(ctx, ids=None):
@@ -312,7 +314,8 @@ def p_work(ctx):
 
 def p_case(ctx):
     w = C["work"][0]
-    meta = "".join(f'<div class="stat"><div class="num">{E(v)}</div><div class="lbl">{E(k)}</div></div>' for k, v in [("Client", "Our own site"), ("Year", w["year"]), ("Status", "Live"), ("Internal links fixed", "93")])
+    subject = "Project" if ctx.cfg["k"] == "C" else "Client"
+    meta = "".join(f'<div class="stat"><div class="num">{E(v)}</div><div class="lbl">{E(k)}</div></div>' for k, v in [(subject, "Our own site"), ("Year", w["year"]), ("Status", "Live"), ("Internal links fixed", "93")])
     ev = "".join(f'<li><a href="{u}">{E(t)}</a></li>' for t, u in w["evidence"])
     return [("glance", "At a glance", section("glance", f'<div class="stats cs-stats reveal">{meta}</div>' + note(w["noMetrics"], "note"), layer="website")),
             ("problem", "Problem", section("problem", split(sec_head("Problem", "A site the business did not own.", "", False) + f'<p class="section-lead">{E(w["problem"])}</p>', panel("Approach", [w["approach"], w["built"]])), True)),
@@ -323,8 +326,9 @@ def p_case(ctx):
 def p_about(ctx):
     a = PG["about"]
     vals = "".join(f'<div class="value reveal"><div class="ic">{icon(["shield", "trend", "chart", "doc"][i])}</div><div><h3>{E(t)}</h3><p>{E(x)}</p></div></div>' for i, (t, x) in enumerate(a["values"]))
+    location = f'<p>Based in {E(C["conceptC"]["location"])}.</p>' if ctx.cfg["k"] == "C" else ""
     layers = "".join(f'<li data-layer="{l["id"]}"><span class="ly-n">{l["n"]}</span><b>{E(l["name"])}</b><span>{E(l["short"])}</span></li>' for l in C["stack"])
-    return [("story", "Our story", section("story", split(sec_head("Our story", "It started with the name.", "", False) + f'<p class="section-lead">{E(C["company"]["story"])}</p><p>{E(C["company"]["originalModel"])}</p>', f'<ol class="ab-stack reveal" aria-label="The five layers">{layers}</ol>'), layer="domain")),
+    return [("story", "Our story", section("story", split(sec_head("Our story", "It started with the name.", "", False) + f'<p class="section-lead">{E(C["company"]["story"])}</p><p>{E(C["company"]["originalModel"])}</p>{location}', f'<ol class="ab-stack reveal" aria-label="The five layers">{layers}</ol>'), layer="domain")),
             ("believe", "What we believe", section("believe", split(sec_head("What we believe", "Fortune favors the prepared.", "", False) + f'<p class="section-lead">{E(a["philosophy"])}</p>' + check(a["believe"]), f'<div class="grid" style="gap:22px">{vals}</div>'), True)),
             ("rhythm", "How we work", section("rhythm", sec_head("How we work", "Discipline you can see in the deliverables.") + steps(a["rhythm"]) + note(C["aiWork"]["intro"], "note", C["aiWork"]["principle"]))),
             ("founder", "The founder", section("founder", split(sec_head("The founder", C["company"]["founderLine"], "", False) + f'<p class="section-lead">{E(C["founder"]["bio"])}</p><a class="btn btn-ghost" href="{ctx.to("founder/")}">About Ken</a>', f'<figure class="founder-card reveal"><img src="{ctx.asset("ken-ashe-2026-square.jpg")}" alt="Ken Ashe, founder of Lucky Domains" width="460" height="460" loading="lazy"></figure>', True), True))]
@@ -367,7 +371,8 @@ def p_news(ctx):
 
 
 def p_contact(ctx):
-    side = (f'<div class="contact-side"><div class="info"><div class="ic">{icon("mail")}</div><div><h3>Email</h3><p><a href="mailto:{C["company"]["email"]}">{C["company"]["email"]}</a></p></div></div>'
+    location = f'<div class="info"><div class="ic">{icon("globe")}</div><div><h3>Based in</h3><p>{E(C["conceptC"]["location"])}</p></div></div>' if ctx.cfg["k"] == "C" else ""
+    side = (f'<div class="contact-side"><div class="info"><div class="ic">{icon("mail")}</div><div><h3>Email</h3><p><a href="mailto:{C["company"]["email"]}">{C["company"]["email"]}</a></p></div></div>{location}'
             f'<div class="info"><div class="ic">{icon("chart")}</div><div><h3>Response time</h3><p>Within one business day.</p></div></div>'
             f'<div class="info"><div class="ic">{icon("shield")}</div><div><h3>First consultation</h3><p>Free, with no obligation.</p></div></div>'
             f'<div class="info"><div class="ic">{icon("target")}</div><div><h3>Buying a domain?</h3><p><a href="{ctx.to("how-we-buy-domains/")}">How we buy domains</a></p></div></div></div>')
@@ -389,12 +394,13 @@ def hero_for(ctx, key, extra=""):
     return page_hero(ctx, key, extra, cta=key not in ("contact", "news", "insights", "founder"))
 
 
-def title_desc(key):
+def title_desc(ctx, key):
     if key == "case":
         return C["work"][0]["title"], C["work"][0]["summary"]
     if key == "article":
         return C["article"]["title"], C["article"]["dek"]
-    return PG[key]["title"], PG[key]["lead"]
+    lead = C["conceptC"]["workLead"] if key == "work" and ctx.cfg["k"] == "C" else PG[key]["lead"]
+    return PG[key]["title"], lead
 
 
 def build_concept(cfg):
@@ -410,5 +416,5 @@ def build_concept(cfg):
             body = cfg["inner"](ctx, key, hero, secs) if cfg.get("inner") else hero + "".join(s[2] for s in secs)
             if key not in ("contact",):
                 body += cta_band(ctx)
-            t, d = title_desc(key)
+            t, d = title_desc(ctx, key)
         write(f"{cfg['dir']}/{path}index.html", page(ctx, t, d, body, "home" if key == "home" else f"pg-{key}"))

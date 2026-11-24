@@ -5,12 +5,16 @@
 
 Writes phase-3/screenshots/{a,b,c}-*.jpg and copies the read-only production references.
 """
-import sys, shutil
+import argparse, shutil
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 
 ROOT = Path(__file__).resolve().parent.parent
-BASE = (sys.argv[1] if len(sys.argv) > 1 else "http://localhost:8765/luckydomains-design-concepts/").rstrip("/") + "/phase-3/"
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument("base", nargs="?", default="http://localhost:8765/luckydomains-design-concepts/")
+parser.add_argument("--only", choices=("a", "b", "c"), help="refresh only one concept's screenshots")
+args = parser.parse_args()
+BASE = args.base.rstrip("/") + "/phase-3/"
 OUT = ROOT / "phase-3" / "screenshots"; OUT.mkdir(parents=True, exist_ok=True)
 DIRS = {"a": "original-evolved/", "b": "editorial/", "c": "interactive/"}
 PAGES = [("services", "services/"), ("ai", "services/ai-visibility/"), ("websites", "services/website-design/"), ("work", "work/luckydomains-io/")]
@@ -24,6 +28,8 @@ def snap(pg, name):
 with sync_playwright() as p:
     b = p.chromium.launch()
     for k, d in DIRS.items():
+        if args.only and k != args.only:
+            continue
         pg = b.new_page(viewport={"width": 1440, "height": 900})
         pg.goto(BASE + d, wait_until="networkidle"); pg.mouse.move(1000, 400); pg.wait_for_timeout(2600); snap(pg, f"{k}-home-desktop")
         for name, path in PAGES:
@@ -40,5 +46,6 @@ with sync_playwright() as p:
         m.goto(BASE + d, wait_until="networkidle"); snap(m, f"{k}-home-mobile")
         m.goto(BASE + d + "services/ai-visibility/", wait_until="networkidle"); snap(m, f"{k}-service-mobile"); m.close()
     b.close()
-for f in ("current-home-desktop.jpg", "current-home-mobile.jpg"):
-    shutil.copyfile(ROOT / "phase-2" / "screenshots" / f, OUT / f); print("copied", f)
+if not args.only:
+    for f in ("current-home-desktop.jpg", "current-home-mobile.jpg"):
+        shutil.copyfile(ROOT / "phase-2" / "screenshots" / f, OUT / f); print("copied", f)

@@ -30,7 +30,7 @@
     function seed(i) { var x = Math.sin(i * 12.9898 + 4.1) * 43758.5453; return x - Math.floor(x); }
     function layout() {
       var p = view.clientWidth < 520;
-      W = p ? 340 : 640; H = 440; var cx = W / 2, cy = p ? 214 : 220, rx = p ? 118 : 238, ry = p ? 168 : 156;
+      W = p ? 340 : 640; H = 440; var cx = W / 2, cy = H / 2, rx = p ? 118 : 238, ry = p ? 168 : 156;
       nodes.forEach(function (n, i) {
         var a = -Math.PI / 2 + i * 2 * Math.PI / nodes.length;
         n.w = Math.max(76, n.label.length * 8.8 + 32);
@@ -46,7 +46,7 @@
       var mids = ['domain', 'search'], q = 0;
       PERM.forEach(function (k) {
         var n = nodes[k], xy;
-        if (mids.indexOf(n.id) > -1) xy = [mids.indexOf(n.id) ? W - n.w / 2 - (p ? 4 : 40) : n.w / 2 + (p ? 4 : 40), p ? 214 : 222];
+        if (mids.indexOf(n.id) > -1) xy = [mids.indexOf(n.id) ? W - n.w / 2 - (p ? 4 : 40) : n.w / 2 + (p ? 4 : 40), cy];
         else { xy = slots[q++].slice(); xy[0] += (seed(k + 1) - 0.5) * (p ? 14 : 20); xy[1] += (seed(k + 11) - 0.5) * (p ? 14 : 16); }
         n.fx = Math.min(Math.max(xy[0], n.w / 2 + 4), W - n.w / 2 - 4); n.fy = xy[1];
       });
@@ -64,7 +64,9 @@
       var core = el('g', { 'class': 'core', transform: 'translate(' + g.cx + ',' + g.cy + ')' });
       core.appendChild(el('circle', { r: 52, 'class': 'core-ring' }));
       core.appendChild(el('circle', { r: 40, fill: '#fff', stroke: '#0C2340', 'stroke-width': 2 }));
-      core.appendChild(el('image', { href: data.icon, x: -24, y: -24, width: 48, height: 48 }));
+      /* The 128px PNG's visible pixels center at (58.4, 63.9), not (64, 64).
+         Center the artwork, rather than its image box, in the 80-unit disc. */
+      core.appendChild(el('image', { href: data.icon, x: -21.9, y: -24, width: 48, height: 48 }));
       nodes.forEach(function (n) {
         var gnode = el('g', { 'class': 'nd l-' + n.layer, tabindex: 0, role: 'button', 'aria-label': n.label + '. ' + n.line, 'aria-pressed': 'false' });
         gnode.appendChild(el('rect', { 'class': 'nd-b', x: -n.w / 2, y: -18, width: n.w, height: 36, rx: 18 }));

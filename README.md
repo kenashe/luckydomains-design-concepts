@@ -92,22 +92,10 @@ Phase 2 and Phase 1 are kept as archives. They are not part of the version 3 com
 
 ## Production candidate staging
 
-`production-candidate/` is a noindex staging copy of the Venture Lab production
-candidate. The real source is the `venture-lab-production-candidate` branch of
-`kenashe/luckydomains`. This folder is generated from that branch and is never
-edited by hand.
+`production-candidate/` is an archived, noindex staging copy of the superseded Venture Lab candidate. Both superseded draft pull requests were closed without merging and their source branches were deleted. The staging copy is preserved as a historical snapshot and should not be regenerated.
 
 - Staged site: https://kenashe.github.io/luckydomains-design-concepts/production-candidate/
 - Review notes: https://kenashe.github.io/luckydomains-design-concepts/production-candidate/review/
-
-```bash
-git clone -b venture-lab-production-candidate https://github.com/kenashe/luckydomains.git ../luckydomains
-python3 tools/export_staging.py ../luckydomains     # regenerate production-candidate/
-python3 tools/staging_review.py                     # rewrite the review page
-python3 tools/staging_shots.py http://localhost:8765/luckydomains-design-concepts/production-candidate
-python3 tools/verify.py --links
-python3 tools/pc_audit.py http://localhost:8765/luckydomains-design-concepts/production-candidate /path/to/axe.min.js
-```
 
 Staging pages use absolute paths that start with `/luckydomains-design-concepts/`,
 so preview them with the repository served under that name
