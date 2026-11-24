@@ -21,6 +21,36 @@ Comparison page (including "Venture Lab: original vs v2"): https://kenashe.githu
 
 Design reasoning, motion systems, asset origins, and open content questions are in [CONCEPTS.md](CONCEPTS.md).
 
+## Production candidate staging
+
+`production-candidate/` is a noindex staging copy of the Venture Lab production
+candidate. The real source is the `venture-lab-production-candidate` branch of
+`kenashe/luckydomains`. This folder is generated from that branch and is never
+edited by hand.
+
+- Staged site: https://kenashe.github.io/luckydomains-design-concepts/production-candidate/
+- Review notes: https://kenashe.github.io/luckydomains-design-concepts/production-candidate/review/
+
+```bash
+git clone -b venture-lab-production-candidate https://github.com/kenashe/luckydomains.git ../luckydomains
+python3 tools/export_staging.py ../luckydomains     # regenerate production-candidate/
+python3 tools/staging_review.py                     # rewrite the review page
+python3 tools/staging_shots.py http://localhost:8765/luckydomains-design-concepts/production-candidate
+python3 tools/verify.py --links
+python3 tools/pc_audit.py http://localhost:8765/luckydomains-design-concepts/production-candidate /path/to/axe.min.js
+```
+
+Staging pages use absolute paths that start with `/luckydomains-design-concepts/`,
+so preview them with the repository served under that name
+(`python3 -m http.server 8765 --directory ..` from a folder named
+`luckydomains-design-concepts`).
+
+What the export changes, and nothing else: a path prefix, noindex on every page,
+staging canonical and social URLs, a notice bar, a disabled contact form (access
+key removed, endpoint replaced, submit blocked), and no `CNAME`, `robots.txt`,
+`sitemap.xml`, docs, tests, or scripts. `production-candidate/STAGING.json`
+records the source commit. The concept folders above are not touched by it.
+
 ## What this repository is, and is not
 
 - It is a review site. Nothing here is production.
@@ -44,6 +74,7 @@ concept-b-the-register/       10 pages, css/style.css, js/main.js
 concept-c-namespace/          10 pages, css/style.css, js/main.js
 concept-a-venture-lab-v2/     10 pages, css/style.css, js/main.js (refinement of Concept A)
 screenshots/                  generated review screenshots
+production-candidate/         generated noindex staging copy of the production candidate, plus review/
 tools/                        generator and checks (not needed to view the site)
 robots.txt, .nojekyll
 ```

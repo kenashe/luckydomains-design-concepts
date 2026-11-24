@@ -96,6 +96,17 @@ ACTIVE is the only status not taken from KenAshe.ai: it marks a service open to 
 
 The comparison page shows these side by side, replacing the gallery that sat in the original Concept A footer.
 
+### After v2: the production candidate
+
+Venture Lab v2 was approved as the production direction on November 23, 2026. It was then
+ported to the production repository on a branch (`venture-lab-production-candidate` in
+`kenashe/luckydomains`) with the final copy: the standardized company description, "Built by
+Ken Ashe. Operated by Lucky Domains.", authorized project classifications, no concept
+language, and no "Naming across DNS and ENS" service. That branch is hand-written static
+HTML and is the source of truth. `production-candidate/` here is its generated, noindex
+staging copy. The v2 concept at `concept-a-venture-lab-v2/` is unchanged and remains the
+design reference. No v3 was created.
+
 ## Concept B: The Register
 
 **Thesis.** A founder-owned company's journal of record. A "register" is both a publication and a list of holdings, which is what a venture studio that started in domain names keeps.
