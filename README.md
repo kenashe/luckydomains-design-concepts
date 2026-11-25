@@ -1,12 +1,12 @@
 # Lucky Domains: proposed redesign concepts
 
-**Current: [the production candidate staging review](#production-candidate-staging-current).** Ken approved the version 3 design Original Interactive, refined. Version 3, Phase 2 and Phase 1 (Venture Lab, The Register, Namespace, Venture Lab v2, and the earlier Venture Lab staging copy) are archived below.
+**Launched on LuckyDomains.io on November 25, 2026.** Ken approved the version 3 design Original Interactive, refined, and authorized its launch (`kenashe/luckydomains` pull request 5, merge commit `b1235d2`). [The staging copy and its review notes](#production-candidate-staging-current) are kept as the record. Version 3, Phase 2 and Phase 1 (Venture Lab, The Register, Namespace, Venture Lab v2, and the earlier Venture Lab staging copy) are archived below.
 
 ## Production candidate staging (current)
 
 `digital-presence-production-candidate/` is a noindex staging copy of the real production candidate. Its source is the
 branch `digital-presence-production-candidate` of `kenashe/luckydomains`
-([draft pull request #5](https://github.com/kenashe/luckydomains/pull/5)). Nothing is live on LuckyDomains.io.
+([pull request #5](https://github.com/kenashe/luckydomains/pull/5), merged). It matches what was launched. The production repository is now the source of truth; `tools/dp_site.py` is history and should not be rerun against it.
 
 - Staged site: https://kenashe.github.io/luckydomains-design-concepts/digital-presence-production-candidate/
 - Review notes: https://kenashe.github.io/luckydomains-design-concepts/digital-presence-production-candidate/review/

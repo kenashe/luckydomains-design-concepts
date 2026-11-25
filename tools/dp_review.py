@@ -178,6 +178,29 @@ COPY = [
    "The domain question on the form is marked optional. The form integration, contact paths and five service categories are unchanged.",
    "The first heading on Insights is \"Check your digital presence\". Article text is unchanged. The documentation states that Insights is an evergreen library with no publishing schedule or automation."]),
 ]
+LAUNCH = [
+ "Time-sensitive article sources were reopened on launch day. ICANN's revised Transfer Policy was still in the implementation queue, Google's generative AI controls page was unchanged since November 24, and the crawler pages still said what the articles quote.",
+ "All five articles were published together, dated November 25, 2026, byline Ken Ashe. The launch test suite passed (3,293 checks) and CI was green.",
+ "A pre-merge check caught one problem: with all five articles dated the same day, the library sorted them alphabetically and moved the agent identity article to the top. Same-day articles now keep their approved order.",
+ "Rollback points were recorded: Lucky Domains main efed1de, KenAshe.ai master 014ecc1.",
+ "Lucky Domains pull request 5 was merged with a merge commit, b1235d2. GitHub Pages redeployed within minutes.",
+ "Live verification: all 49 served files are byte-identical to the merged commit; 20 pages return 200 with unique titles and descriptions, self-referencing canonicals and no noindex; the sitemap lists exactly those 20 URLs; robots.txt is unchanged; structured data parses on every page, with one Organization description and five Article records dated November 25, 2026.",
+ "Existing URLs: every previous address still works, the five legacy .html stubs redirect, services.html#seo still lands on SEO, www and http redirect to https://luckydomains.io, and a missing path shows the new 404 page. DNS and the Google Workspace mail records are unchanged.",
+ "Interactions on the live site, in Chromium: 29 checks pass, covering all 20 pages at desktop and phone widths, the presence map, the diagnostic, the five layers, the Digital Presence Check, the Insights library, an article, the menus, reduced motion, and no JavaScript. No console errors and no third-party requests.",
+ "Contact form: one labeled launch test was sent through the live form in a real browser. The form showed its success message and Web3Forms returned success. Arrival in the info@luckydomains.io inbox is for Ken to confirm.",
+ "KenAshe.ai pull request 153 was then merged as f20acf5. Its Vercel production build succeeded, the new descriptions are live, and both new links resolve. The Digest prompt on master is unchanged.",
+]
+AFTER = [
+ "Confirm the launch test email reached info@luckydomains.io, then delete it.",
+ "Google Search Console: resubmit https://luckydomains.io/sitemap.xml, then use URL Inspection to request indexing for the home page, /services/, /insights/ and the five articles.",
+ "Google Search Console: over the next two weeks, watch the Page indexing report for the new URLs and for the legacy .html addresses dropping out.",
+ "Google Search Console: look at the Search generative AI setting and leave the site included unless you want it excluded.",
+ "Bing Webmaster Tools: submit the sitemap there too, so the AI Performance report covers the new pages.",
+ "Paste the home page and one article into Google's Rich Results Test to see the structured data as Google reads it.",
+ "Decide whether the form's success message should also say typically. It still reads: Ken will reply within one business day.",
+ "Run a shadow test of the Digest branch before merging pull request 154, or leave it open.",
+ "Known gap, unchanged by this launch: there is still no DMARC record for the domain.",
+]
 EDITORIAL = [
  "Approve the refreshed staging site.",
  "Complete the Safari check on the MacBook and the iPhone.",
@@ -260,14 +283,15 @@ page = f"""<!DOCTYPE html>
   <nav aria-label="Review"><a href="{B}/">Staged site</a><a href="{B}/review/" aria-current="page">Review notes</a><a href="/luckydomains-design-concepts/phase-3/interactive-refined/">Approved design</a><a href="/luckydomains-design-concepts/phase-3/">Version 3</a></nav>
 </header>
 <main id="main">
-<section class="intro"><p class="k">Production candidate · Final copy refinements · November 25, 2026</p><h1>The new Lucky Domains site, staged for approval</h1>
-<p class="lead">This is the actual production candidate, exported from the branch <a href="{BRANCH}">digital-presence-production-candidate</a> at commit <code>{S['source_commit'][:10]}</code>. It is not another design concept. Nothing here is live on LuckyDomains.io, and nothing will be until Ken approves it.</p>
-<p class="go-row"><a class="btn" href="{B}/">Open the staged site</a><a class="btn btn-l" href="{B}/insights/">Read the five articles</a><a class="btn btn-l" href="{B}/tools/digital-presence-check/">Digital Presence Check</a></p>
+<section class="intro"><p class="k">Launch record · November 25, 2026</p><h1>The new Lucky Domains site, launched November 25, 2026</h1>
+<p class="lead">Ken approved the staged site and authorized its launch. It went live on <a href="https://luckydomains.io/">LuckyDomains.io</a> on November 25, 2026, from the branch <a href="{BRANCH}">digital-presence-production-candidate</a> at commit <code>{S['source_commit'][:10]}</code>. This staging copy matches what was launched and is kept as the record.</p>
+<p class="go-row"><a class="btn" href="https://luckydomains.io/">Open the live site</a><a class="btn btn-l" href="{B}/">Staged copy</a><a class="btn btn-l" href="{B}/insights/">Read the five articles</a><a class="btn btn-l" href="{B}/tools/digital-presence-check/">Digital Presence Check</a></p>
 <p class="go-row"><a class="btn btn-l" href="{PR}">Lucky Domains draft pull request</a><a class="btn btn-l" href="{PR_KA}">KenAshe.ai draft pull request</a><a class="btn btn-l" href="{PR_DIGEST}">Digest prompt draft pull request</a></p>
-<p class="state">The live LuckyDomains.io and KenAshe.ai sites were not changed. All three pull requests are drafts and unmerged. Staging pages are noindex, the contact form is disabled here, and nothing is collected.</p></section>
+<p class="state">Launched. Lucky Domains pull request 5 was merged as <code>b1235d2</code> and verified live. KenAshe.ai pull request 153 was merged afterwards as <code>f20acf5</code>. The Digest prompt pull request 154 stays open until it has been shadow-tested. Staging pages remain noindex, with the contact form disabled.</p></section>
 
-<section class="refine" aria-labelledby="wt-h"><h2 id="wt-h">Waiting on Ken</h2>{ol(EDITORIAL)}
-<p class="state-s">Nothing else is outstanding. The design, structure, positioning, functionality and article content are approved, and no further design work is planned.</p></section>
+<section class="refine" aria-labelledby="wt-h"><h2 id="wt-h">Launch record</h2>{ul(LAUNCH)}
+<h3>For Ken to do after launch</h3>{ol(AFTER)}
+<h3>Rollback, if ever needed</h3><p>Lucky Domains: <code>git revert -m 1 b1235d26a443abda37799e3be03f7e4ab40f3220</code> on main restores the site as it was at <code>efed1de</code>. KenAshe.ai: <code>git revert f20acf58913ea3e15e96fe39b73b4bfc85698f92</code> on master restores <code>014ecc1</code>. Revert KenAshe.ai first, because its links point at the new Lucky Domains pages.</p></section>
 
 <section class="refine" aria-labelledby="cp-h"><h2 id="cp-h">Final copy refinements</h2>
 <p class="lead">Wording only. No design, structure, URL, structured-data or behaviour changes. The five articles are unchanged.</p>

@@ -108,7 +108,7 @@ with sync_playwright() as p:
         ok(f"{eng}: library lists five articles", pg.locator(".ins-card").count() == 5 and pg.locator(".ins-card a").count() == 5)
         pg.locator(".ins-card a").first.click(); pg.wait_for_load_state("networkidle")
         ok(f"{eng}: library card opens the article", pg.url.endswith(ART) and pg.locator("h1").count() == 1)
-        ok(f"{eng}: article has byline, draft label, reading time, sources", "Ken Ashe" in pg.inner_text(".art-by") and "Editorial draft" in pg.inner_text(".art-by")
+        ok(f"{eng}: article has byline, status, reading time, sources", "Ken Ashe" in pg.inner_text(".art-by") and ("Editorial draft" in pg.inner_text(".art-by") or "Published" in pg.inner_text(".art-by"))
            and "min read" in pg.inner_text(".art-by") and pg.locator("#sources li").count() >= 8)
         n_toc = pg.locator(".art-toc a").count(); n_h2 = pg.locator(".art-body h2").count()
         ok(f"{eng}: contents list matches the headings", n_toc == n_h2 and n_toc >= 6)
@@ -157,8 +157,11 @@ with sync_playwright() as p:
         for path in ("", "services/website-design/", ART, "tools/digital-presence-check/", "founder/ken-ashe/", "news/website-relaunch/"):
             q.goto(P + path, wait_until="networkidle")
         ok(f"{eng}: candidate pages make no third-party request", not third)
-        ok(f"{eng}: candidate pages are indexable, drafts excepted", q.goto(P).ok and q.locator("meta[name=robots]").count() == 0
-           and (q.goto(P + ART).ok and q.get_attribute("meta[name=robots]", "content") == "noindex"))
+        home_ok = q.goto(P).ok and q.locator("meta[name=robots]").count() == 0
+        q.goto(P + ART)
+        draft = "Editorial draft" in q.inner_text(".art-by")
+        robots = q.get_attribute("meta[name=robots]", "content") if q.locator("meta[name=robots]").count() else None
+        ok(f"{eng}: candidate pages are indexable; an article is noindex only while it is a draft", home_ok and ((draft and robots == "noindex") or (not draft and robots is None and "Published" in q.inner_text(".art-by"))))
         c.close()
         # ---- phone
         m = b.new_context(viewport={"width": 375, "height": 760}, has_touch=True, is_mobile=(eng != "firefox")).new_page()
