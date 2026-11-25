@@ -23,24 +23,24 @@
   {"title": "Discovery of Agents With Names (dawn) working group", "publisher": "IETF", "url": "https://datatracker.ietf.org/wg/dawn/about/"},
   {"title": "Agent Name Service v2 (ANS): A Domain-Anchored Identity Layer for Autonomous AI Agents (Internet-Draft)", "publisher": "IETF Datatracker", "url": "https://datatracker.ietf.org/doc/draft-narajala-courtney-ansv2/"},
   {"title": "DNS for AI Discovery (Internet-Draft)", "publisher": "IETF Datatracker", "url": "https://datatracker.ietf.org/doc/draft-mozleywilliams-dawn-dnsaid/"},
-  {"title": "Text Records", "publisher": "ENS documentation", "url": "https://docs.ens.domains/web/records"},
-  {"title": "ENSIP-25: AI Agent Registry ENS Name Verification (draft)", "publisher": "ENS documentation", "url": "https://docs.ens.domains/ensip/25"},
+  {"title": "Text Records", "publisher": "ENS documentation", "url": "https://docs.ens.domains/web/records/"},
+  {"title": "ENSIP-25: AI Agent Registry ENS Name Verification (draft)", "publisher": "ENS documentation", "url": "https://docs.ens.domains/ensip/25/"},
   {"title": "ERC-8004: Trustless Agents (draft)", "publisher": "Ethereum Improvement Proposals", "url": "https://eips.ethereum.org/EIPS/eip-8004"},
-  {"title": "Welcome to x402", "publisher": "x402 Foundation", "url": "https://docs.x402.org/"},
+  {"title": "Welcome to x402", "publisher": "x402 Foundation", "url": "https://docs.x402.org/introduction"},
   {"title": "Verifiable Credentials Data Model v2.0", "publisher": "W3C", "url": "https://www.w3.org/TR/vc-data-model-2.0/"},
   {"title": "Summary of Comments on the Concept Paper", "publisher": "NIST National Cybersecurity Center of Excellence", "url": "https://pages.nist.gov/nccoe-ai-identity/summary-of-comments.html"},
   {"title": "New whitepaper tackles AI agent identity challenges", "publisher": "OpenID Foundation", "url": "https://openid.net/new-whitepaper-tackles-ai-agent-identity-challenges/"}
  ],
- "sources_checked": "2026-11-24"
+ "sources_checked": "2026-11-25"
 }
 meta-->
-<p>A domain is the one identifier most businesses fully control. If software agents are going to act on their own, finding services, paying for them, and delivering results, they will need identifiers too. This article asks whether naming systems could do that job.</p>
+<p>A domain is one of the few identifiers a business can fully control. If software agents are going to act on their own, finding services, paying for them, and delivering results, they will probably need identifiers too. This article asks whether naming systems could do that job.</p>
 <div class="callout" role="note"><p><strong>Read this as research.</strong> It describes proposals that are still drafts and two small experiments run by our founder. Lucky Domains does not sell agent identity, and nothing here is a prediction.</p></div>
 
 <h2 id="what-a-domain-does">What a domain already does for a business</h2>
 <p>A domain does more than point to a website. Email, profiles, structured data, and press mentions all refer back to it, which is why a search engine or an AI system can use it to decide which company a mention belongs to.</p>
-<p>It also carries the web's working machinery for trust. When a certificate authority issues a certificate, it ties a cryptographic key to a domain name, so a browser can check that it is talking to the real site. Let's Encrypt describes issuing "a certificate for example.com" once control of the domain has been shown. Email works the same way: the DKIM standard "permits a person, role, or organization that owns the signing domain to claim some responsibility for a message."</p>
-<p>In both cases the question "who is this, really?" is answered by a name that someone demonstrably controls. That is the model people are now trying to extend to agents.</p>
+<p>It also carries the web's working machinery for trust. When a certificate authority issues a certificate, it ties a cryptographic key to a domain name, so a browser can check that it is talking to a server that controls that domain. Let's Encrypt describes issuing "a certificate for example.com" once control of the domain has been shown. Email works the same way: the DKIM standard "permits a person, role, or organization that owns the signing domain to claim some responsibility for a message."</p>
+<p>In both cases the question being answered is narrower than "who is this, really?" It is "does this come from whoever controls this name?" The real-world identity of that party, and whether it is competent or trustworthy, has to be established some other way: registration records, contracts, reputation, or regulation. Control of a name is the model people are now trying to extend to agents, and it carries the same limit.</p>
 
 <h2 id="what-an-agent-needs">What an identity for an agent would need to carry</h2>
 <p>Set aside the technology and the list is familiar. An agent that offers a service, or pays for one, needs most of what a business needs.</p>
@@ -85,18 +85,19 @@ meta-->
 <li>In the earlier experiment, Ken operated both agents, on one machine.</li>
 <li>ZeroHuman has no escrow. A buyer pays first, and refunds are manual.</li>
 <li>The registry link rests on two specifications that are still drafts.</li>
+<li>The name and its records show that orders and results come from the key behind zerohuman.eth. They do not, by themselves, show who operates the service or whether it deserves trust. A reader learns that from the build record, not from the name.</li>
 </ul>
 <p>The honest reading is narrow. The pieces can be assembled into something that works end to end. That is not evidence that agents will buy from each other, or that this is the design the market will choose.</p>
 
 <h2 id="open-questions">What is unresolved</h2>
-<p><strong>Which kind of name.</strong> Domains are where businesses already are, with registrars, renewal rules, and dispute procedures built over decades. Blockchain names carry payment natively and can be updated by software. Nobody knows which matters more to an agent, or whether both will be used.</p>
-<p><strong>What a name proves.</strong> Control of a name shows who controls the name. It does not show that the agent behind it is competent or honest. Certificates have the same limit for websites.</p>
+<p><strong>Which kind of name.</strong> Domains are where businesses already are, with registrars, renewal rules, and dispute procedures built over decades. Blockchain names carry payment natively and can be updated by software. It is not yet clear which matters more to an agent, or whether both will be used.</p>
+<p><strong>What a name proves.</strong> Proof of control is narrow. Showing control of a domain, or of the cryptographic key behind a name, shows that whoever is acting holds that domain or key. It does not show which person or company that is in the real world, that the operator is competent, or that it can be trusted. Certificates have the same limit for websites: a certificate issued after a domain-control check confirms control of the domain, not the conduct of whoever runs the site.</p>
 <p><strong>Who is accountable.</strong> A summary of public comments published in September 2026 by the U.S. National Institute of Standards and Technology reported near unanimity that agents need verifiable identities, and that "there was no consensus on the exact means for doing this." The OpenID Foundation has said autonomous agents require "a fundamental rethinking of identity and authorization."</p>
 <p><strong>Whether the drafts survive.</strong> Several of the documents cited here expire or change within months. Any of them could be replaced.</p>
 <p><strong>Whether there is a market.</strong> All of this assumes agents will transact with each other at meaningful scale. That has not been shown.</p>
 
 <h2 id="for-a-business-today">What this means for a business today</h2>
-<p>There is nothing to buy and no deadline. Two things are worth doing anyway, because they pay off whether or not any of this arrives.</p>
-<p>First, hold your domain properly: registered to the business, in an account the business controls. Every domain-anchored proposal assumes the owner of the name is the one in charge.</p>
+<p>There is nothing to buy and no deadline. Two things are worth doing anyway, because they are useful whether or not any of this arrives.</p>
+<p>First, hold your domain properly: registered to the business, in an account the business controls. The domain-anchored proposals described above assume that whoever controls the name is the one in charge.</p>
 <p>Second, keep your identity consistent and verifiable. The signals that help search engines and AI systems recognize a business now, a clear website, accurate structured data, and profiles that agree, are the same ones any future lookup by software would lean on.</p>
 <p>That is the connection to our commercial work, and it is the only one. <a href="/services/domain-acquisition/">Domain Acquisition &amp; Brokerage</a> and <a href="/services/entity-seo/">Entity SEO &amp; Digital Identity</a> are services for businesses today. Agent identity is a question we are watching, and one our <a href="/founder/ken-ashe/">founder</a> tests in public on <a href="https://kenashe.ai/building/" rel="noopener">KenAshe.ai</a>.</p>

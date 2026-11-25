@@ -27,7 +27,15 @@ SITE = HERE.parent
 OUT = Path(sys.argv[1]).resolve()
 DOMAIN = "https://luckydomains.io"
 ARROW = icon("arrow", "2.4")
-LASTMOD = "2026-11-24"
+LASTMOD = "2026-11-24"          # the date the redesigned pages were written
+REVISED = "2026-11-25"          # the date of the final editorial and structured-data pass
+BASELINE = "8bfedd71cd361757a3ba97f3680dc7f011dad3bb"   # the candidate as it stood on 2026-11-24; pages that differ from it carry REVISED
+PROFILE_OLD = "Profile of Ken Ashe, founder and operator of Lucky Domains, a domain acquisition, brokerage, and SEO practice run with CPA and PMP discipline."
+PROFILE_NEW = "Profile of Ken Ashe, CPA, PMP, founder and operator of Lucky Domains, a digital presence studio for the AI era."
+KNOWS_OLD = '"knowsAbout": ["Premium domain acquisition", "Domain brokerage", "Domain negotiation", "SEO strategy", "Technical SEO", "Local SEO", "Content strategy"]'
+ADDR_AT = '      "email": "info@luckydomains.io",\n      "description"'
+ADDR_NEW = ('      "email": "info@luckydomains.io",\n      "address": {\n        "@type": "PostalAddress",\n        "addressLocality": "Berkeley Heights",\n'
+            '        "addressRegion": "NJ",\n        "addressCountry": "US"\n      },\n      "description"')
 LOCATION = "Berkeley Heights, New Jersey"
 ORG_OLD = "Domain acquisition, brokerage, and SEO services company helping businesses secure stronger digital assets and build search visibility over time."
 ORG_NEW = "Lucky Domains is a digital presence studio for the AI era, offering website design and development, SEO, AI visibility, digital identity, and domain acquisition and brokerage."
@@ -58,8 +66,8 @@ DATA["contact"]["accessKey"] = re.search(r'data-access-key="([^"]+)"', git_show(
 
 eng = PG["services"]["engagements"]
 i = next(n for n, e in enumerate(eng) if e["name"] == "Growth SEO")
-eng[i] = {"name": "SEO Audit or Project", "kind": "Scoped",
-          "line": "A one-time audit, a technical review, or a scoped implementation project.",
+eng[i] = {"name": "SEO Audits & Optimization", "kind": "Scoped",
+          "line": "One-time audits, scoped implementation projects, and ongoing optimization and monitoring by agreement.",
           "check": ["One-time SEO audits and technical SEO reviews", "Scoped implementation, with search and content strategy", "Ongoing optimization and monitoring by agreement"]}
 PG["services"]["notList"][2] = "Not a monthly retainer agency"
 PG["seo"]["faq"][1][1] = ("Technical fixes can show up within weeks. Content and authority take months. We scope an audit or a project first. "
@@ -281,10 +289,25 @@ def service_ld(url, name, stype, desc, levels=None):
     return base[:-len("\n  ]\n}")] + ",\n" + svc + "\n  ]\n}"
 
 
-def old_ld(rel):
-    """Structured data blocks exactly as they are on the live page, with the company description brought up to date."""
+def org_current(text, full=True):
+    """Bring the one shared Organization record up to date, identically on every page that carries it.
+
+    The live site mirrors the full Organization node on the home page, the founder page and the June 2026 press
+    release, the same way it mirrors the Person node. Only that node changes: its description, its knowsAbout list,
+    and a city-level address. Its @id, name, logo, founder, sameAs and contact point are untouched.
+    """
+    assert text.count(ORG_OLD) == 1, "expected one Organization description"
+    text = text.replace(ORG_OLD, ORG_NEW)
+    if full:
+        assert text.count(KNOWS_OLD) == 1 and text.count(ADDR_AT) == 1, "expected the full Organization node"
+        text = text.replace(KNOWS_OLD, KNOWS_NEW).replace(ADDR_AT, ADDR_NEW)
+    return text
+
+
+def old_ld(rel, full=False):
+    """Structured data blocks as they are on the live page, with the shared Organization record brought up to date."""
     blocks = re.findall(r'<script type="application/ld\+json">\n?(.*?)\n?</script>', git_show(rel), re.S)
-    return [b.replace(ORG_OLD, ORG_NEW) for b in blocks]
+    return [org_current(b, full) if ORG_OLD in b else b for b in blocks]
 
 
 # ------------------------------------------------------------------ page parts that differ from the approved concept
@@ -396,11 +419,7 @@ def build_pages():
         write(rel, page(ctx, m["title"], m["desc"], og or m.get("og") or m["title"].split(" | ")[0], body, ld, cls, robots, canonical))
 
     ctx = PCtx("/")
-    home_ld = old_ld("index.html")
-    home_ld[0] = re.sub(r'"knowsAbout": \[[^\]]*\]', KNOWS_NEW, home_ld[0], count=1)
-    home_ld[0] = home_ld[0].replace('      "email": "info@luckydomains.io",\n      "description"',
-                                    '      "email": "info@luckydomains.io",\n      "address": {\n        "@type": "PostalAddress",\n        "addressLocality": "Berkeley Heights",\n'
-                                    '        "addressRegion": "NJ",\n        "addressCountry": "US"\n      },\n      "description"', 1)
+    home_ld = old_ld("index.html", full=True)
     assert "Berkeley Heights" in home_ld[0] and "AI visibility" in home_ld[0] and ORG_NEW in home_ld[0]
     emit("index.html", "/", "home", RF.home(ctx), home_ld, "home", band=False)
 
@@ -415,7 +434,7 @@ def build_pages():
     for key, fn in SVC_FN.items():
         url = SVC_URL[key]; ctx = PCtx(url); s = S[key]
         levels = {"entity": ["Entity foundation", "Entity authority", "Entity and AI Visibility Audit"], "ai": ["Entity and AI Visibility Audit"], "websites": ["Website review", "Website Build"],
-                  "seo": ["SEO audit", "Technical SEO review", "Scoped SEO implementation", "Search and content strategy"], "domains": ["Domain acquisition", "Domain brokerage for sellers"]}[key]
+                  "seo": ["SEO audits", "Technical SEO reviews", "Scoped SEO implementation projects", "Search and content strategy", "Ongoing optimization and monitoring by agreement"], "domains": ["Domain acquisition", "Domain brokerage for sellers"]}[key]
         emit(f"{url.strip('/')}/index.html", url, key, fn(ctx) + reading([x for x in SVC_READING[key] if x in BY_SLUG]), [service_ld(url, s["name"], M[key]["type"], M[key]["desc"], levels)], f"pg-{key}")
 
     ctx = PCtx("/how-we-buy-domains/")
@@ -428,7 +447,10 @@ def build_pages():
     ctx = PCtx("/about/")
     emit("about/index.html", "/about/", "about", RF.pg_about(ctx), old_ld("about/index.html"), "pg-about")
     ctx = PCtx("/founder/ken-ashe/")
-    emit("founder/ken-ashe/index.html", "/founder/ken-ashe/", "founder", pg_founder(ctx), old_ld("founder/ken-ashe/index.html"), "pg-founder")
+    founder_ld = old_ld("founder/ken-ashe/index.html", full=True)
+    assert founder_ld[0].count(PROFILE_OLD) == 1 and founder_ld[0].count('"dateModified": "2026-09-14T17:00:00-04:00"') == 1
+    founder_ld[0] = founder_ld[0].replace(PROFILE_OLD, PROFILE_NEW).replace('"dateModified": "2026-09-14T17:00:00-04:00"', f'"dateModified": "{REVISED}T08:00:00-05:00"')
+    emit("founder/ken-ashe/index.html", "/founder/ken-ashe/", "founder", pg_founder(ctx), founder_ld, "pg-founder")
     ctx = PCtx("/insights/")
     emit("insights/index.html", "/insights/", "insights", pg_insights(ctx), [page_ld("/insights/", "Insights", "CollectionPage", [("Home", "/"), ("Insights", "/insights/")])], "pg-insights")
     ctx = PCtx("/news/")
@@ -438,8 +460,9 @@ def build_pages():
     ctx = PCtx("/404.html")
     emit("404.html", "/404.html", "404", pg_404(ctx), [], "pg-404", band=False, robots="noindex", canonical=False)
 
-    # The June 2026 press release is history. Its head and body stay exactly as published; only the
-    # shared header, footer, font and script lines are brought in line with the rest of the site.
+    # The June 2026 press release is history. Its headline, text, dates and NewsArticle data stay exactly as
+    # published. The shared header, footer, font and script lines follow the rest of the site, and the shared
+    # Organization record in its structured data is kept current, as the shared Person record already is.
     old = git_show("news/website-relaunch/index.html")
     ctx = PCtx("/news/website-relaunch/")
     new = re.sub(r'<header class="site-header" id="site-header">.*?</header>', lambda m: pretty_keep(header(ctx)), old, count=1, flags=re.S)
@@ -449,6 +472,9 @@ def build_pages():
     new = new.replace('<a class="skip-link" href="#main">', '<a class="skip-link" href="#main">', 1).replace("<body>", '<body class="rf pg-release">', 1)
     main_old = re.search(r"<main id=\"main\">.*?</main>", old, re.S).group(0)
     assert main_old in new, "the press release body changed"
+    new = org_current(new, full=True)
+    art = lambda t: re.search(r'\{\s*"@type": "NewsArticle".*?\n    \}', t, re.S).group(0)
+    assert art(old) == art(new), "the NewsArticle record changed"
     write("news/website-relaunch/index.html", new)
 
 
@@ -514,20 +540,32 @@ def build_assets():
         "Plus Jakarta Sans: https://github.com/tokotype/PlusJakartaSans\nInter: https://github.com/rsms/inter\nLicense text: https://openfontlicense.org/\n")
     shutil.copyfile(SITE / "shared/assets/logo-icon-128.png", OUT / "assets/logo-icon-128.png")
 
-    urls = [("/", "1.0", "monthly", LASTMOD), ("/services/", "0.9", "monthly", LASTMOD), ("/services/website-design/", "0.8", "monthly", LASTMOD), ("/services/seo/", "0.8", "monthly", LASTMOD),
-            ("/services/ai-visibility/", "0.8", "monthly", LASTMOD), ("/services/entity-seo/", "0.8", "monthly", LASTMOD), ("/services/domain-acquisition/", "0.8", "monthly", LASTMOD),
-            ("/how-we-buy-domains/", "0.7", "yearly", LASTMOD), ("/tools/digital-presence-check/", "0.7", "yearly", LASTMOD), ("/about/", "0.6", "yearly", LASTMOD),
-            ("/founder/ken-ashe/", "0.7", "yearly", LASTMOD), ("/contact/", "0.7", "yearly", LASTMOD), ("/insights/", "0.7", "monthly", LASTMOD), ("/news/", "0.5", "monthly", LASTMOD),
-            ("/news/website-relaunch/", "0.5", "yearly", "2026-09-14")]
-    rows = "\n".join(f"  <url><loc>{DOMAIN}{u}</loc><lastmod>{lm}</lastmod><changefreq>{cf}</changefreq><priority>{pr}</priority></url>" for u, pr, cf, lm in urls)
-    write("sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + rows
-          + "\n  <!-- Published Insights articles. This block is maintained by scripts/articles.py. Drafts are left out. -->\n  <!-- insights:start -->\n  <!-- insights:end -->\n</urlset>\n")
     man = json.loads(git_show("site.webmanifest"))
     man["description"] = "Websites, SEO, AI visibility, digital identity, and domains for growing businesses."
     write("site.webmanifest", json.dumps(man, indent=2) + "\n")
 
 
+def build_sitemap():
+    def lastmod(url):
+        rel = (url.strip("/") + "/index.html").lstrip("/") if url != "/" else "index.html"
+        was = subprocess.run(["git", "-C", str(OUT), "show", f"{BASELINE}:{rel}"], capture_output=True, text=True).stdout
+        return LASTMOD if was == (OUT / rel).read_text() else REVISED
+    pages = [("/", "1.0", "monthly"), ("/services/", "0.9", "monthly"), ("/services/website-design/", "0.8", "monthly"), ("/services/seo/", "0.8", "monthly"),
+             ("/services/ai-visibility/", "0.8", "monthly"), ("/services/entity-seo/", "0.8", "monthly"), ("/services/domain-acquisition/", "0.8", "monthly"),
+             ("/how-we-buy-domains/", "0.7", "yearly"), ("/tools/digital-presence-check/", "0.7", "yearly"), ("/about/", "0.6", "yearly"),
+             ("/founder/ken-ashe/", "0.7", "yearly"), ("/contact/", "0.7", "yearly"), ("/insights/", "0.7", "monthly"), ("/news/", "0.5", "monthly"),
+             ("/news/website-relaunch/", "0.5", "yearly")]
+    rows = "\n".join(f"  <url><loc>{DOMAIN}{u}</loc><lastmod>{lastmod(u)}</lastmod><changefreq>{cf}</changefreq><priority>{pr}</priority></url>" for u, pr, cf in pages)
+    write("sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + rows
+          + "\n  <!-- Published Insights articles. This block is maintained by scripts/articles.py. Drafts are left out. -->\n  <!-- insights:start -->\n  <!-- insights:end -->\n</urlset>\n")
+    print("lastmod:", {u: lastmod(u) for u, _, _ in pages if lastmod(u) == REVISED})
+
+
 build_assets()
 build_pages()
 build_articles()
+build_sitemap()                 # after the articles, so /insights/ is compared with its final cards
+r = subprocess.run([sys.executable, str(OUT / "scripts" / "articles.py"), "sync"], capture_output=True, text=True)   # refill the sitemap's article block
+if r.returncode:
+    sys.exit("articles.py sync failed: " + r.stderr)
 print("production candidate written to", OUT)

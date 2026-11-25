@@ -112,8 +112,12 @@ with sync_playwright() as p:
            and "min read" in pg.inner_text(".art-by") and pg.locator("#sources li").count() >= 8)
         n_toc = pg.locator(".art-toc a").count(); n_h2 = pg.locator(".art-body h2").count()
         ok(f"{eng}: contents list matches the headings", n_toc == n_h2 and n_toc >= 6)
-        pg.locator(".art-toc a").nth(2).click(); pg.wait_for_timeout(700)
         target = pg.locator(".art-toc a").nth(2).get_attribute("href")[1:]
+        pg.locator(".art-toc a").nth(2).click()
+        try:        # the page scrolls smoothly, so wait for it to arrive instead of guessing a delay
+            pg.wait_for_function(f"Math.abs(document.getElementById('{target}').getBoundingClientRect().top) < 140", timeout=4000); pg.wait_for_timeout(300)
+        except Exception:
+            pass
         ok(f"{eng}: contents link scrolls to its section", pg.evaluate(f"Math.abs(document.getElementById('{target}').getBoundingClientRect().top) < 140"))
         ok(f"{eng}: contents list marks the section being read", pg.evaluate("(document.querySelector('.art-toc a[aria-current]')||{getAttribute:()=>''}).getAttribute('href')") == "#" + target)
         ok(f"{eng}: article links to services and related articles", pg.locator(".art-svc").count() >= 3 and pg.locator(".art-related .ins-card").count() == 2)

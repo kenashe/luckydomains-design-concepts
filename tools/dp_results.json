@@ -1,32 +1,34 @@
 {
  "words": {
-  "domains-identity-for-ai-agents": 1451,
-  "fix-or-rebuild-your-website": 1458,
-  "entity-seo-for-founders": 1543,
-  "what-ai-search-reads-on-your-website": 1458,
-  "how-a-private-domain-purchase-works": 1636
+  "domains-identity-for-ai-agents": 1598,
+  "fix-or-rebuild-your-website": 1550,
+  "entity-seo-for-founders": 1542,
+  "what-ai-search-reads-on-your-website": 1543,
+  "how-a-private-domain-purchase-works": 1823
  },
  "tests": [
-  "Production test suite (tests/test_site.py): all 3,158 checks pass. It covers URL forms, links, canonicals, the sitemap, metadata, structured data, the shared header and footer, the articles, the Digital Presence Check, the contact form, and the owner decisions.",
-  "The launch mode (tests/test_site.py --launch) fails on purpose, on one check: five articles are still drafts. A rehearsal on a scratch copy, with a made-up date, published all five and passed.",
-  "Accessibility: axe-core (WCAG 2.1 A and AA, plus best practices) reports no issues on any of the 21 pages at 375 and 1440 pixels. Two findings from the first run were fixed: article callouts were announced as nested landmarks, and three links in the June press release were below AA contrast.",
-  "Browsers and widths: Chromium and Firefox at 320, 375, 390, 768, 1024 and 1440 pixels on all 21 pages. No horizontal overflow, console errors, broken images, missing alt text, text under 12 pixels, or touch targets under 24 pixels.",
+  "All results below were produced on November 25, 2026, after the final editorial and structured-data pass, on the candidate at commit 1871591.",
+  "Production test suite (tests/test_site.py): all 3,268 checks pass, and CI is green on the pull request. New checks cover one Organization description, topic list and address across pages, a single URL for the shared founder record, the ProfilePage description, article author and publisher references, and the engagement name.",
+  "The launch mode (tests/test_site.py --launch) fails on purpose, on one check: five articles are still drafts. A rehearsal on a scratch copy ran the final publication command, including a corrected date, and passed all 3,273 checks.",
+  "Editorial: every quotation in the five articles was checked against the text of its source page. Three could not be matched by script because the page is built in the browser or splits the sentence across links; each was confirmed by reading the page.",
+  "Accessibility: axe-core (WCAG 2.1 A and AA, plus best practices) reports no issues on any of the 21 pages at 375 and 1440 pixels.",
+  "Responsive: Chromium and Firefox at 320, 375, 390, 768, 1024 and 1440 pixels on all 21 pages. No horizontal overflow, console errors, broken images, missing alt text, text under 12 pixels, or touch targets under 24 pixels.",
   "Layout shift on a fresh load: 0 on every page, desktop and phone.",
-  "Interactions: 134 scripted checks pass in Chromium and Firefox. They cover keyboard order and focus, the menus and Escape, the presence map by click, touch and keyboard, the Pause control, the diagnostic, the five layers, the Digital Presence Check (including that it stores and sends nothing), the Insights library, the article contents list, reduced motion, and no JavaScript.",
-  "Contact form: on staging it is disabled and sends nothing. On the candidate source, the form's own validation, the ?need= prefill, the honeypot, the mailto fallback and the Web3Forms request were verified with the request intercepted, so nothing was sent.",
-  "Legacy URLs: all five .html stubs redirect to their directory URLs on the candidate source, and services.html#seo lands on the SEO card.",
+  "Interactions: 134 scripted checks pass in Chromium and Firefox: keyboard order and focus, menus and Escape, the presence map by click, touch and keyboard, the Pause control, the diagnostic, the five layers, the Digital Presence Check (including that it stores and sends nothing), the Insights library, the article contents list, reduced motion, and no JavaScript.",
+  "Contact form: on staging it is disabled and sends nothing. On the candidate source, validation, the ?need= prefill, the honeypot, the mailto fallback and the Web3Forms request were verified with the request intercepted, so nothing was sent.",
+  "URLs: all five legacy .html stubs redirect to their directory URLs, services.html#seo lands on the SEO card, canonicals match the sitemap, and no existing URL changed.",
+  "Structured data: every block parses, the shared Person record is byte-identical to the live copy on all three pages, and the Organization record is identical wherever it is described.",
   "Third parties: a page view on the candidate makes no third-party request.",
-  "Links: every internal link resolves. External links were checked from the review repository's verifier.",
-  "Published staging copy: all 81 files match the export byte for byte, every page is noindex, and the 72 Chromium interaction checks pass against the published URL. Firefox cannot reach the published URL from the build environment, so its checks ran on the identical local export.",
-  "Continuous integration on the Lucky Domains draft pull request is green. The Vercel preview build on the KenAshe.ai draft pull request succeeded."
+  "Links: every internal link resolves. All 134 external links across the review site answer, apart from two sites that refuse automated requests (LinkedIn, and ProjectManagement.com, which loads normally in a browser). Four source links that had started redirecting now point at their destinations.",
+  "KenAshe.ai pull request: the Vercel preview build is the build check. The Digest pipeline's own tests give the same result before and after the prompt change."
  ],
  "limits": [
-  "Safari is not verified. WebKit could not start in the build environment (missing system libraries).",
-  "Lighthouse was not run. Its package cannot be installed in the build environment, and the PageSpeed API returned rate-limit errors. The load measurements above were taken directly in Chromium and are not Lighthouse scores.",
-  "The real contact form delivery, the www redirect, and the 404 page for missing paths exist only on the live domain and are checked after launch.",
-  "The KenAshe.ai pull request could not be built locally. Its Vercel preview build is the check."
+  "Safari is not verified. WebKit could not start in the build environment. The Safari checklist above is for Ken to run on a MacBook and an iPhone.",
+  "There are no Lighthouse scores, and that is not a launch blocker. Lighthouse cannot be installed in the build environment and the PageSpeed API was rate-limited. The load figures above are laboratory measurements taken directly in Chromium. They are not Lighthouse scores and not field data.",
+  "Real contact form delivery, the www redirect, and the 404 page for missing paths exist only on the live domain and are checked after launch.",
+  "The Digest prompt change could not be shadow-tested from the build environment."
  ],
- "perfNote": "Measured on the published staging copy on November 24, 2026, in Chromium through the DevTools Protocol. Each figure is the median of three cold loads. Phone figures use a 412 by 823 viewport with 150 ms latency, 1.6 Mbps down and the processor slowed four times, close to Lighthouse's mobile preset. Transfer and requests are for a first visit on desktop, with nothing cached, and include one staging-only script. No page made a third-party request. These are lab measurements, not Lighthouse scores and not field data.",
+ "perfNote": "Laboratory measurements, not Lighthouse scores and not field data. Measured on the published staging copy on November 24, 2026, in Chromium through the DevTools Protocol; the November 25 changes were to text and metadata only. Each figure is the median of three cold loads. Phone figures use a 412 by 823 viewport with 150 ms latency, 1.6 Mbps down and the processor slowed four times, close to Lighthouse's mobile preset. Transfer and requests are for a first visit on desktop, with nothing cached, and include one staging-only script. No page made a third-party request.",
  "perf": {
   "base": "https://kenashe.github.io/luckydomains-design-concepts/digital-presence-production-candidate/",
   "pages": {

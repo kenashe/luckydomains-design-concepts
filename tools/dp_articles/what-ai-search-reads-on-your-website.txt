@@ -27,29 +27,29 @@
   {"title": "Overview of OpenAI Crawlers", "publisher": "OpenAI", "url": "https://developers.openai.com/api/docs/bots"},
   {"title": "Does Anthropic crawl data from the web, and how can site owners block the crawler?", "publisher": "Anthropic", "url": "https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler"},
   {"title": "Web fetch tool", "publisher": "Anthropic developer documentation", "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-fetch-tool"},
-  {"title": "Perplexity Crawlers", "publisher": "Perplexity", "url": "https://docs.perplexity.ai/guides/bots"},
+  {"title": "Perplexity Crawlers", "publisher": "Perplexity", "url": "https://docs.perplexity.ai/docs/resources/perplexity-crawlers"},
   {"title": "The rise of the AI crawler", "publisher": "Vercel and MERJ (secondary source, 2024)", "url": "https://vercel.com/blog/the-rise-of-the-ai-crawler"}
  ],
- "sources_checked": "2026-11-24"
+ "sources_checked": "2026-11-25"
 }
 meta-->
 <p>When an AI system answers a question about your business, the answer came from somewhere. Often it came from pages that a search engine or an AI company's own crawler had already read, including yours.</p>
 <p>It is tempting to treat "AI" as one reader with one set of rules. It is not. This guide sets out what the companies themselves have published about how they read websites, what that means for your pages, and where your control ends.</p>
 
 <h2 id="three-jobs">Three different jobs: indexing, retrieval, and training</h2>
-<p>Most confusion about AI and websites comes from mixing up three separate activities.</p>
+<p>Much of the confusion about AI and websites comes from mixing up three separate activities.</p>
 <figure class="art-fig">
 <div class="lanes">
 <div class="lane"><p class="lane-t">Search indexing</p><p class="lane-s">Storing pages so they can be found</p><ul><li>A crawler downloads your pages</li><li>The search engine analyzes and stores them</li><li>It returns them for relevant searches</li></ul></div>
 <div class="lane g"><p class="lane-t">Retrieval</p><p class="lane-s">Looking things up to answer a question</p><ul><li>Happens when someone asks</li><li>The system fetches current pages or queries an index</li><li>The answer may link to its sources</li></ul></div>
-<div class="lane m"><p class="lane-t">Training</p><p class="lane-s">Teaching a model in advance</p><ul><li>Happens before a model is released</li><li>Content shapes general knowledge</li><li>No link back to any page</li></ul></div>
+<div class="lane m"><p class="lane-t">Training</p><p class="lane-s">Teaching a model in advance</p><ul><li>Happens before a model is released</li><li>Content shapes general knowledge</li><li>Does not by itself produce a link to a page</li></ul></div>
 </div>
 <figcaption>Three activities, often run by different crawlers and governed by different controls.</figcaption>
 </figure>
 <p>Google describes retrieval, which it calls grounding, as "looking up relevant, fresh information from the Google Search index when answering a prompt," and says it "is completely independent of the training step." That independence matters. Being left out of training does not remove you from answers, and being in a model's training data does not mean it will cite you.</p>
 
 <h2 id="separate-crawlers">Each company runs separate crawlers</h2>
-<p>Because the jobs are different, most AI companies publish a different crawler name for each. These are their own descriptions.</p>
+<p>Because the jobs are different, the companies below publish a separate crawler name, or a separate control, for each. These are their own descriptions, as they stood on November 25, 2026.</p>
 <div class="art-table" tabindex="0" role="region" aria-label="Crawlers published by each company, by purpose">
 <table>
 <caption>Published crawlers, by purpose</caption>
@@ -63,29 +63,29 @@ meta-->
 </tbody>
 </table>
 </div>
-<p>The settings are independent. OpenAI's documentation gives the example that a site "can allow OAI-SearchBot in order to appear in search results while disallowing GPTBot." It also states the consequence of blocking the wrong one: sites opted out of OAI-SearchBot "will not be shown in ChatGPT search answers." If a developer or a security plugin has blocked "AI bots" as a group, it is worth checking which ones.</p>
+<p>The settings are independent. OpenAI's documentation gives the example that a site "can allow OAI-SearchBot in order to appear in search results while disallowing GPTBot." It also states the consequence of blocking the wrong one: sites opted out of OAI-SearchBot "will not be shown in ChatGPT search answers, though can still appear as navigational links." If a developer or a security plugin has blocked "AI bots" as a group, it is worth checking which ones.</p>
 
 <h2 id="what-google-says">What Google says its AI features need</h2>
-<p>Google has been unusually direct. Its guidance says its generative AI features "are rooted in our core Search ranking and quality systems," and that to be eligible a page "must be indexed and eligible to be shown in Google Search with a snippet." It also describes a Search Console setting, the Search generative AI control, that lets an owner exclude a site from these features. A site that has been excluded there is not eligible.</p>
+<p>Google has been direct about this. Its guidance says its generative AI features "are rooted in our core Search ranking and quality systems," and that to be eligible a page "must be indexed and eligible to be shown in Google Search with a snippet." Google also offers a Search Console setting, the Search generative AI control, that lets an owner exclude a site's links and content from these features. Its documentation says that "without any controls applied" crawled content may be used for grounding in them, so the practical default is inclusion. It adds that the control "doesn't affect generative AI model training" and "isn't used as a ranking or inclusion signal for other parts of Google Search." A site that has been excluded there is not eligible for these features.</p>
 <p>Google is equally direct about what you do not need:</p>
 <ul>
 <li><strong>No special files.</strong> "You don't need to create new machine readable files, AI text files, markup, or Markdown." On files such as llms.txt, it says "Google Search ignores them," while noting it is fine to keep them for other services that use them.</li>
 <li><strong>No special schema.</strong> "Structured data isn't required for generative AI search, and there's no special schema.org markup you need to add." Google still recommends structured data as part of normal SEO.</li>
 <li><strong>No chopping pages into fragments.</strong> "There's no requirement to break your content into tiny pieces for AI to better understand it."</li>
 </ul>
-<p>One detail is useful. Google says these features may issue "multiple related searches across subtopics and data sources" for a single question. A page that answers one specific question well can be found by a search the visitor never typed.</p>
+<p>One detail is useful. Google says these features may issue "multiple related searches across subtopics and data sources" for a single question. A page that answers one specific question well may be found by a search the visitor never typed.</p>
 
 <h2 id="readable-page">What makes a page easy to read</h2>
-<p>None of this is exotic. It is the same work that makes a site good for people.</p>
+<p>Little of this is exotic. It is largely the same work that makes a site good for people.</p>
 <p><strong>It can be reached and stored.</strong> The page is not blocked, is not marked noindex, and is linked from other pages on your site. Even then, Google says it "doesn't guarantee that it will crawl, index, or serve your page."</p>
-<p><strong>The words are in the page.</strong> Google runs JavaScript when it processes a page, and still calls delivering content from the server "a great idea" because "not all bots can run JavaScript." OpenAI and Perplexity publish nothing on whether their crawlers run it. Anthropic's developer documentation says its web fetch tool "currently does not support websites dynamically rendered with JavaScript," which describes that tool, not its crawlers. A 2024 study by Vercel and MERJ found that none of the major AI crawlers it observed rendered JavaScript. That study is a secondary source and two years old. The safe conclusion is simple: anything that matters should be present in the page as it is first delivered.</p>
+<p><strong>The words are in the page.</strong> Google runs JavaScript when it processes a page, and still calls delivering content from the server "a great idea" because "not all bots can run JavaScript." OpenAI and Perplexity publish nothing on whether their crawlers run it. Anthropic's developer documentation says its web fetch tool "currently does not support websites dynamically rendered with JavaScript," which describes that tool, not its crawlers. A 2024 study by Vercel and MERJ found that none of the major AI crawlers it observed rendered JavaScript. That study is a secondary source and two years old. The cautious conclusion is that content that matters should be present in the page as it is first delivered.</p>
 <p><strong>The structure is clear.</strong> One subject per page, a descriptive title, headings that say what each section covers, and links between related pages. Google says semantic HTML is not required but is "generally a good idea," partly because it helps people using screen readers.</p>
-<p><strong>The page says who you are.</strong> Your own site should state plainly what the business is, what it does, where, and for whom, and answer the questions customers ask. If your site does not say it, a system has to rely on someone else's version.</p>
+<p><strong>The page says who you are.</strong> Your own site should state plainly what the business is, what it does, where, and for whom, and answer the questions customers ask. If your site does not say it, a system may have to rely on someone else's version.</p>
 <p><strong>Structured data matches the text.</strong> Google's rule is "don't add structured data about information that is not visible to the user," and it adds that structured data "does not guarantee" any feature.</p>
 <p><strong>The identity is consistent.</strong> The same name and description on your site and your official profiles give a system less to reconcile. We cover that in <a href="/insights/entity-seo-for-founders/">Entity SEO for Founders</a>.</p>
 
 <h2 id="citations">How sources get chosen and cited</h2>
-<p>No company publishes the rules by which a particular page is selected or cited, and anyone who claims to know them precisely is guessing. What is public is some measurement.</p>
+<p>None of the companies cited here publishes the rules by which a particular page is selected or cited, so any claim to know them precisely deserves caution. What is public is some measurement.</p>
 <p>Bing Webmaster Tools has an AI Performance report that shows "how often your content is cited in generative answers, with clear visibility into which URLs are referenced," along with grounding queries, which it defines as "the key phrases the AI used when retrieving content that was referenced in AI-generated answers." Google points site owners to a Generative AI performance report in Search Console.</p>
 <p>These reports show what happened on your own site. They do not explain why another source was chosen. Google's guidance also carries a warning worth repeating: "No third-party tool has access to our internal ranking or AI systems."</p>
 
