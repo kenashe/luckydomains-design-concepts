@@ -18,6 +18,7 @@ B = "/luckydomains-design-concepts/digital-presence-production-candidate"
 E = html.escape
 PR = "https://github.com/kenashe/luckydomains/pull/5"
 PR_KA = "https://github.com/kenashe/kenashe/pull/153"
+PR_DIGEST = "https://github.com/kenashe/kenashe/pull/154"
 BRANCH = "https://github.com/kenashe/luckydomains/tree/digital-presence-production-candidate"
 BLOB = "https://github.com/kenashe/luckydomains/blob/digital-presence-production-candidate/"
 
@@ -62,6 +63,7 @@ CHANGED = [
  "Full metadata on every page: unique title and description, canonical, Open Graph, and structured data.",
 ]
 DECISIONS = [
+ "Website design is presented as a first-class service, with design leading the page and the technical depth kept.",
  "SEO engagements: Growth SEO as a monthly package is removed everywhere. The engagement is named SEO Audits & Optimization: one-time audits, scoped implementation projects, and ongoing optimization and monitoring by agreement.",
  "AI Visibility: the approved explanation is kept. No first-party AI experiment is claimed. Founder commentary appears only on the Founder page, labeled as opinion.",
  "No portfolio: no Work navigation, case studies, logos, testimonials, or results. The test suite fails if any return.",
@@ -120,10 +122,10 @@ STRUCTURED = [
  "KenAshe.ai: every current description on the pull request branch was checked. Its only structured reference to Lucky Domains uses the same Organization identifier and no description, so nothing conflicts. Dated posts and the site-launch release were left alone.",
  "New tests fail the build if the Organization description, topics or address ever differ between pages, if a second company identity appears, or if the founder record is given a second URL.",
 ]
-DIGEST = ("In the Digest prompt on KenAshe.ai, one clause changed. From: \"a domain acquisition, brokerage, website-build, and white-hat SEO practice.\" "
+DIGEST = ("The Digest change is now its own draft pull request (154), separate from the description updates (153), so it can be shadow-tested or deferred on its own. In the Digest prompt on KenAshe.ai, one clause changes. From: \"a domain acquisition, brokerage, website-build, and white-hat SEO practice.\" "
           "To: \"a digital presence studio for the AI era that offers website design and development, SEO, AI visibility, digital identity, and domain acquisition and brokerage.\" "
           "The subjects that trigger a mention, the example sentence, the five existing links, the link guardrail, the schedule and the models are unchanged. "
-          "It is a separate commit in the KenAshe.ai pull request, so it can be dropped on its own. It could not be shadow-tested from the build environment; the pipeline's own tests give the same result before and after (73 pass, three files cannot load there).")
+          "A shadow run is started by hand from the Actions tab on that branch and was not possible from the build environment. The pipeline's own tests give the same result before and after (73 pass, three files cannot load there).")
 SAFARI_MAC = [
  "Home: fonts look right, the navy hero fills the width, and the map settles from scattered to connected.",
  "Click a signal, click it again, switch Fragmented and Recognized, press Pause.",
@@ -144,30 +146,62 @@ SAFARI_PHONE = [
  "Contact: fields do not zoom the page. Send shows a notice and sends nothing here.",
  "Turn on Reduce Motion and reload the home page: the map appears connected and nothing moves.",
 ]
+COPY = [
+ ("Founder page", [
+   "New introduction in three short paragraphs, in the wording Ken supplied.",
+   "Headings are now \"Business, technology, and digital identity.\" and \"Professional credentials.\"",
+   "Removed: the phrase about this site and KenAshe.ai, the unconfirmed quotation, and the Autonomous SEO Agent mention. The point of the quotation stays as ordinary copy.",
+   "The experience cards no longer repeat the introduction. Credentials, published work, speaking, Forbes Business Council, profile links and the two-sites distinction are unchanged."]),
+ ("Website Design & Development", [
+   "The heading is \"Great design. Strong foundations.\" with Ken's supporting paragraph.",
+   "Design leads the page: visual design, typography and layout, consistent visual identity, responsive pages, user experience, calls to action, interactive elements and purposeful animation, then search, accessibility and performance.",
+   "Removed the claim that most problems seen in websites are structural.",
+   "Technical depth, the six-step process, the first-party example, the fix-or-rebuild advice and related reading are kept. No graphic-design or brand-design service is introduced."]),
+ ("Autonomous SEO Agent", [
+   "Removed from the homepage and the Founder page. The labeled first-party example on the SEO page is unchanged, with its limits.",
+   "The homepage and About page now describe what AI improves (research, design, development, audits, monitoring, testing) and state that Ken leads and reviews every engagement."]),
+ ("Positive, confident language", [
+   "\"What Lucky Domains is not\" on the Services page is replaced by \"Focused on what we do well.\" One sentence still says paid advertising and social media management are outside the offer.",
+   "\"What we will not promise\" becomes \"Realistic expectations\", stated once per page. The AI Visibility page had three overlapping disclaimers and now has one.",
+   "Removed criticism of other providers from the SEO page. Link building is described as sustainable, ethical search practice.",
+   "The lists of \"Not ...\" lines on the domain pages are replaced by what to expect. Every real limit is still stated: no guaranteed rankings, citations, AI mentions, Knowledge Panels or closes."]),
+ ("Reader-friendly wording", [
+   "The diagnostic and the service summaries use plain words: \"review your primary online identity\", \"test what AI says about your business\", \"a plan to strengthen your online credibility\", \"help distinguishing your brand from similar names\".",
+   "Detailed service pages keep the technical term beside a plain one, for example \"Your primary online identity (entity home)\".",
+   "The presence map and the five layers now say search and AI systems may draw on these signals. They no longer say AI systems read all six before answering."]),
+ ("Domains", [
+   "\"Anonymous\" is replaced throughout the commercial pages. The buyer's identity is kept confidential during initial outreach and negotiation wherever possible, and the FAQ says anonymity cannot be promised in every circumstance.",
+   "Buyer-side and seller-side fees are stated separately, using the terms already on the live site. No fee, term or guarantee was added.",
+   "\"Sellers open high\" and \"Most good .coms\" are softened."]),
+ ("Contact and Insights", [
+   "Response time reads \"Typically within one business day.\"",
+   "The domain question on the form is marked optional. The form integration, contact paths and five service categories are unchanged.",
+   "The first heading on Insights is \"Check your digital presence\". Article text is unchanged. The documentation states that Insights is an evergreen library with no publishing schedule or automation."]),
+]
 EDITORIAL = [
- "Approve the final text of each of the five articles.",
- "Approve the byline, By Ken Ashe.",
- "Choose the launch day. All five articles take that date.",
+ "Approve the refreshed staging site.",
  "Complete the Safari check on the MacBook and the iPhone.",
+ "Confirm the launch day. All five articles take that date, with the byline By Ken Ashe.",
+ "Authorize the production deployment.",
 ]
 BLOCKERS = [
- "Ken's approval of the final article text and the byline.",
- "Ken's choice of launch day.",
+ "Ken's approval of the refreshed staging site.",
  "The Safari check on a MacBook and an iPhone. WebKit could not run in the build environment.",
+ "Ken's confirmation of the launch day, and his explicit authorization to deploy.",
  "After launch only: one real contact form submission from a browser, the www redirect, the legacy stubs, and the 404 page on the live domain.",
 ]
 DEPLOY = [
- "Ken approves the articles, the byline and the launch day, and completes the Safari check.",
+ "Ken approves the refreshed staging site, confirms the Safari check and the launch day, and explicitly authorizes deployment.",
  "Bring the branch up to date with main and re-export staging if anything changed.",
- "On launch day, reopen the time-sensitive sources (ICANN transfer policy status, Google's AI controls, the crawler pages) and correct the articles if anything moved.",
- "Run the final publication command (below). It dates all five articles with the launch day and runs the launch tests.",
- "Commit and push. CI must be green on the pull request.",
- "Record the commit that is live (the rollback point). When the candidate was prepared it was efed1de.",
- "Ken marks the pull request ready and merges it with a merge commit, the same day. GitHub Pages redeploys within minutes.",
- "Run python3 scripts/verify_live.py, then check the live site in Safari and Chrome: navigation, the map, the check, one article, the legacy stubs, the 404 page.",
- "Send one real contact form message from a browser and confirm it arrives.",
+ "Reopen the time-sensitive article sources (ICANN transfer policy status, Google's AI controls, the crawler pages) and correct the articles if anything moved.",
+ "Run the final publication command (below). It dates all five articles with the launch day and runs the complete launch test suite.",
+ "Commit and push. Confirm CI is green on the pull request.",
+ "Record the rollback commits: Lucky Domains main (efed1de when this was prepared) and KenAshe.ai master.",
+ "Merge Lucky Domains pull request 5 first, with a merge commit. GitHub Pages redeploys within minutes.",
+ "Verify the live site: every existing and new URL, article indexability, canonical tags, the sitemap, robots.txt, structured data, the legacy redirects, mobile behaviour, the interactive elements, and one real contact form message.",
  "Resubmit the sitemap in Search Console.",
- "Only then merge the KenAshe.ai pull request.",
+ "Only after Lucky Domains is live and verified, merge KenAshe.ai pull request 153 (descriptions and two links).",
+ "Run a shadow test of the Digest branch before merging pull request 154. If that cannot be done safely, leave it open.",
 ]
 SHOTS = [("home-desktop", "Home, desktop", 1440, 900), ("presence-map", "Presence map", 592, 600), ("diagnostic", "Problem diagnostic", 1440, 520), ("five-layers", "Five layers", 1440, 620),
          ("services", "Services overview", 1440, 900), ("website-design", "Website Design", 1440, 900), ("seo", "SEO", 1440, 900), ("ai-visibility", "AI Visibility", 1440, 900),
@@ -175,6 +209,7 @@ SHOTS = [("home-desktop", "Home, desktop", 1440, 900), ("presence-map", "Presenc
          ("insights", "Insights library", 1440, 900), ("article", "Article, desktop", 1440, 900), ("about", "About", 1440, 900), ("founder", "Founder", 1440, 900), ("contact", "Contact", 1440, 900),
          ("home-mobile", "Home, mobile", 375, 760), ("article-mobile", "Article, mobile", 375, 760), ("service-mobile", "Service page, mobile", 375, 760), ("check-mobile", "Check, mobile", 375, 760)]
 
+copy = "".join(f'<div class="ed-a"><h3>{E(t)}</h3>' + '<ul class="chg">' + "".join(f"<li>{E(x)}</li>" for x in items) + "</ul></div>" for t, items in COPY)
 edits = "".join(f'<div class="ed-a"><h3>{E(t)}</h3>' + '<ul class="chg">' + "".join(f"<li>{E(x)}</li>" for x in items) + "</ul></div>" for t, items in EDITS)
 ul = lambda items, cls="chg": f'<ul class="{cls}">' + "".join(f"<li>{E(x)}</li>" for x in items) + "</ul>"
 ol = lambda items: '<ol class="chg">' + "".join(f"<li>{E(x)}</li>" for x in items) + "</ol>"
@@ -225,14 +260,18 @@ page = f"""<!DOCTYPE html>
   <nav aria-label="Review"><a href="{B}/">Staged site</a><a href="{B}/review/" aria-current="page">Review notes</a><a href="/luckydomains-design-concepts/phase-3/interactive-refined/">Approved design</a><a href="/luckydomains-design-concepts/phase-3/">Version 3</a></nav>
 </header>
 <main id="main">
-<section class="intro"><p class="k">Production candidate · Final pre-launch review · November 25, 2026</p><h1>The new Lucky Domains site, staged for approval</h1>
+<section class="intro"><p class="k">Production candidate · Final copy refinements · November 25, 2026</p><h1>The new Lucky Domains site, staged for approval</h1>
 <p class="lead">This is the actual production candidate, exported from the branch <a href="{BRANCH}">digital-presence-production-candidate</a> at commit <code>{S['source_commit'][:10]}</code>. It is not another design concept. Nothing here is live on LuckyDomains.io, and nothing will be until Ken approves it.</p>
 <p class="go-row"><a class="btn" href="{B}/">Open the staged site</a><a class="btn btn-l" href="{B}/insights/">Read the five articles</a><a class="btn btn-l" href="{B}/tools/digital-presence-check/">Digital Presence Check</a></p>
-<p class="go-row"><a class="btn btn-l" href="{PR}">Lucky Domains draft pull request</a><a class="btn btn-l" href="{PR_KA}">KenAshe.ai draft pull request</a></p>
-<p class="state">The live LuckyDomains.io and KenAshe.ai sites were not changed. Both pull requests are drafts and unmerged. Staging pages are noindex, the contact form is disabled here, and nothing is collected.</p></section>
+<p class="go-row"><a class="btn btn-l" href="{PR}">Lucky Domains draft pull request</a><a class="btn btn-l" href="{PR_KA}">KenAshe.ai draft pull request</a><a class="btn btn-l" href="{PR_DIGEST}">Digest prompt draft pull request</a></p>
+<p class="state">The live LuckyDomains.io and KenAshe.ai sites were not changed. All three pull requests are drafts and unmerged. Staging pages are noindex, the contact form is disabled here, and nothing is collected.</p></section>
 
 <section class="refine" aria-labelledby="wt-h"><h2 id="wt-h">Waiting on Ken</h2>{ol(EDITORIAL)}
-<p class="state-s">Nothing else is outstanding. The design, structure, positioning and implementation are approved, and no further design work is planned.</p></section>
+<p class="state-s">Nothing else is outstanding. The design, structure, positioning, functionality and article content are approved, and no further design work is planned.</p></section>
+
+<section class="refine" aria-labelledby="cp-h"><h2 id="cp-h">Final copy refinements</h2>
+<p class="lead">Wording only. No design, structure, URL, structured-data or behaviour changes. The five articles are unchanged.</p>
+{copy}</section>
 
 <section class="refine" aria-labelledby="pg-h"><h2 id="pg-h">Every staged page</h2>
 <div class="rv-cols"><div><h3>Pages</h3><ul>{links}</ul></div><div><h3>Insights articles</h3><ul>{arts}</ul><h3>Legacy redirect stubs</h3><ul>{stubs}</ul></div>
@@ -244,7 +283,7 @@ page = f"""<!DOCTYPE html>
 
 <section class="refine" aria-labelledby="dc-h"><h2 id="dc-h">Final content decisions, as applied</h2>{ul(DECISIONS)}</section>
 
-<section class="refine" aria-labelledby="ed-h"><h2 id="ed-h">Final editorial pass, November 25</h2>
+<section class="refine" aria-labelledby="ed-h"><h2 id="ed-h">Article editorial pass (earlier on November 25)</h2>
 <p class="lead">No article was rewritten. These are the corrections, by article. Every quotation in all five was checked against its source on November 25, 2026.</p>
 {edits}</section>
 

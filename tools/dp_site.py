@@ -107,6 +107,11 @@ def distinction():
 
 RF.distinction = distinction
 
+# Final copy refinements from the owner's review on November 25, 2026 (wording only, see tools/dp_copy.py).
+import dp_copy
+dp_copy.apply(C, R, PG, S, DATA)
+COPY_HELPERS = {"note": note, "check": check, "ai_intro": R["aiWork"]["intro"], "ai_limit": R["aiWork"]["limit"]}
+
 # ------------------------------------------------------------------ URLs
 MAP = {"": "/", "services/": "/services/", "services/website-design/": "/services/website-design/", "services/seo/": "/services/seo/",
        "services/ai-visibility/": "/services/ai-visibility/", "services/entity-seo/": "/services/entity-seo/", "services/domains/": "/services/domain-acquisition/",
@@ -330,7 +335,7 @@ def contact_form():
 <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required placeholder="jane@company.com"></div>
 <div class="field"><label for="need">I need help with</label><select id="need" name="need" required><option value="">Choose one</option>{opts}</select></div>
 <div class="field"><label for="target">Your website, the domain name, or the business this is about</label><input id="target" name="target" type="text" required placeholder="https://yoursite.com or example.com"></div>
-<div class="field"><label for="listed">Is the domain listed for sale? (if buying)</label><select id="listed" name="listed">{sel("listed", ["Not applicable", "Not sure", "Yes", "No"])}</select></div>
+<div class="field"><label for="listed">Buying a domain? Is it listed for sale? (optional)</label><select id="listed" name="listed">{sel("listed", ["Not applicable", "Not sure", "Yes", "No"])}</select></div>
 <div class="field"><label for="timeline">Timeline</label><select id="timeline" name="timeline" required>{sel("timeline", ["As soon as possible", "1 to 3 months", "3 to 6 months", "Exploring, no date yet"], "Choose one")}</select></div>
 <div class="field"><label for="budget">Budget band (optional)</label><select id="budget" name="budget">{sel("budget", ["Not sure", "Under 5k", "5k to 25k", "25k to 100k", "100k+"])}</select></div>
 <div class="field"><label for="message">Anything else Ken should know</label><textarea id="message" name="message" required placeholder="What you are trying to achieve, what you have tried, and what a good outcome looks like"></textarea></div>
@@ -345,7 +350,7 @@ def pg_contact(ctx):
     c = PG["contact"]
     info = lambda ic, h, body: f'<div class="info"><div class="ic">{icon(ic)}</div><div><h3>{h}</h3><p>{body}</p></div></div>'
     side = ('<div class="contact-side">' + info("mail", "Email", '<a href="mailto:info@luckydomains.io">info@luckydomains.io</a>') + info("globe", "Based in", LOCATION)
-            + info("chart", "Response time", "Ken answers every inquiry within one business day.")
+            + info("chart", "Response time", "Typically within one business day.")
             + info("shield", "First consultation", "Free, with no obligation. A short first call, about 20 minutes.")
             + info("target", "Buying a domain?", '<a href="/how-we-buy-domains/">How we buy domains</a>') + "</div>")
     return RF.phero(ctx, "contact", "Contact", c["h1"], c["lead"], cta=False) + section("form", f'<h2 class="sr">Contact form and details</h2><div class="contact-grid">{contact_form()}{side}</div>')
@@ -363,10 +368,10 @@ def pg_founder(ctx):
     pub_sec = section("published", sec_head("Published work and media", d["publishedTitle"], d["publishedLead"]) + f'<ul class="pubs">{pubs}</ul>'
                       + f'<p class="center v3-more">The full list is in the <a href="https://kenashe.ai/newsroom/" rel="noopener">newsroom on KenAshe.ai</a>.</p>') if d["published"] else ""
     return (RF.phero(ctx, "founder", "Founder", "Ken Ashe", d["lead"], cta=False)
-            + section("bio", split(sec_head("Background", "Builder, operator, accountant.", "", False) + "".join(f'<p>{E(x)}</p>' for x in d["bio"]) + f'<blockquote class="v3-quote"><p>{E(f["quote"])}</p><cite>Ken Ashe</cite></blockquote>',
+            + section("bio", split(sec_head("Background", "Business, technology, and digital identity.", "", False) + "".join(f'<p>{E(x)}</p>' for x in d["bio"]),
                                    f'<figure class="founder-card reveal"><img src="/assets/ken-ashe-2026-square.jpg" alt="Ken Ashe, founder and operator of Lucky Domains" width="640" height="640" decoding="async"></figure>'))
             + section("experience", sec_head("Experience", "Finance discipline, applied to digital work.", f["discipline"]) + exp, True)
-            + section("creds", sec_head("Credentials", "Operating evidence, not the headline.") + f'<div class="stats creds reveal">{cred}</div><p class="center v3-more">Ken Ashe is a member of <a href="{f["forbes"]}" rel="noopener">Forbes Business Council</a>.</p>')
+            + section("creds", sec_head("Credentials", "Professional credentials.") + f'<div class="stats creds reveal">{cred}</div><p class="center v3-more">Ken Ashe is a member of <a href="{f["forbes"]}" rel="noopener">Forbes Business Council</a>.</p>')
             + pub_sec.replace('class="section"', 'class="section section-soft"', 1)
             + section("speaking", split(sec_head("Speaking and judging", "On stage and on panels.", "", False) + f'<div class="grid" style="gap:22px">{sp}</div>',
                                         f'<div class="contact-side reveal"><h3 class="sr">Connect</h3>{links}</div>'))
@@ -378,7 +383,7 @@ def pg_insights(ctx):
     d = DATA["insights"]
     return (RF.phero(ctx, "insights", "Insights", d["h1"], d["lead"], cta=False)
             + '<section class="section" id="library" aria-labelledby="lib-h"><div class="container"><h2 class="sr" id="lib-h">Articles</h2><div class="grid grid-2 ins-grid">\n<!-- articles:start -->\n<!-- articles:end -->\n</div></div></section>'
-            + section("tools", f'<div class="grid grid-2 ins-t">{RF.promo(ctx, "h2")}<article class="card reveal"><div class="icon-badge navy">{icon("doc")}</div><span class="tag">Build records</span><h2>KenAshe.ai</h2>'
+            + section("tools", f'<div class="grid grid-2 ins-t">{RF.promo(ctx, "h2").replace("<h2>Not sure where to start?</h2>", "<h2>Check your digital presence</h2>", 1)}<article class="card reveal"><div class="icon-badge navy">{icon("doc")}</div><span class="tag">Build records</span><h2>KenAshe.ai</h2>'
                                f'<p>{E(d["kenashe"])}</p><div class="svc-foot"><a class="link-arrow" href="https://kenashe.ai/" rel="noopener">Visit KenAshe.ai {ARROW}</a></div></article></div>', True))
 
 
@@ -413,6 +418,7 @@ SVC_FN = {"websites": RF.pg_websites, "seo": RF.pg_seo, "ai": RF.pg_ai, "entity"
 def build_pages():
     def emit(rel, url, key, body, ld, cls="", og=None, band=True, robots="", canonical=True):
         ctx = PCtx(url)
+        body = dp_copy.swap(key, body, COPY_HELPERS)
         if band:
             body += cta_band(ctx)
         m = M[key]

@@ -7,28 +7,28 @@
   "how-a-private-domain-purchase-works": 1823
  },
  "tests": [
-  "All results below were produced on November 25, 2026, after the final editorial and structured-data pass, on the candidate at commit 1871591.",
-  "Production test suite (tests/test_site.py): all 3,268 checks pass, and CI is green on the pull request. New checks cover one Organization description, topic list and address across pages, a single URL for the shared founder record, the ProfilePage description, article author and publisher references, and the engagement name.",
-  "The launch mode (tests/test_site.py --launch) fails on purpose, on one check: five articles are still drafts. A rehearsal on a scratch copy ran the final publication command, including a corrected date, and passed all 3,273 checks.",
-  "Editorial: every quotation in the five articles was checked against the text of its source page. Three could not be matched by script because the page is built in the browser or splits the sentence across links; each was confirmed by reading the page.",
+  "All results below were produced on November 25, 2026, after the final copy refinements, on the candidate at commit a210a0b.",
+  "Production test suite (tests/test_site.py): all 3,288 checks pass, and CI is green on the pull request. New checks hold the copy decisions in place: the Autonomous SEO Agent example only on the SEO page, no unconfirmed quotation on the Founder page, the response-time wording, the design-first heading, and no \"anonymous\" on commercial pages.",
+  "The launch mode (tests/test_site.py --launch) fails on purpose, on one check: five articles are still drafts. An earlier rehearsal on a scratch copy ran the final publication command, including a corrected date, and passed.",
   "Accessibility: axe-core (WCAG 2.1 A and AA, plus best practices) reports no issues on any of the 21 pages at 375 and 1440 pixels.",
   "Responsive: Chromium and Firefox at 320, 375, 390, 768, 1024 and 1440 pixels on all 21 pages. No horizontal overflow, console errors, broken images, missing alt text, text under 12 pixels, or touch targets under 24 pixels.",
   "Layout shift on a fresh load: 0 on every page, desktop and phone.",
   "Interactions: 134 scripted checks pass in Chromium and Firefox: keyboard order and focus, menus and Escape, the presence map by click, touch and keyboard, the Pause control, the diagnostic, the five layers, the Digital Presence Check (including that it stores and sends nothing), the Insights library, the article contents list, reduced motion, and no JavaScript.",
   "Contact form: on staging it is disabled and sends nothing. On the candidate source, validation, the ?need= prefill, the honeypot, the mailto fallback and the Web3Forms request were verified with the request intercepted, so nothing was sent.",
   "URLs: all five legacy .html stubs redirect to their directory URLs, services.html#seo lands on the SEO card, canonicals match the sitemap, and no existing URL changed.",
-  "Structured data: every block parses, the shared Person record is byte-identical to the live copy on all three pages, and the Organization record is identical wherever it is described.",
+  "Structured data: every block parses, the shared Person record is byte-identical to the live copy on all three pages, and the Organization record is identical wherever it is described, including on the June press release page.",
+  "Articles: unchanged in this round. Every quotation was checked against its source earlier on November 25, 2026.",
   "Third parties: a page view on the candidate makes no third-party request.",
-  "Links: every internal link resolves. All 134 external links across the review site answer, apart from two sites that refuse automated requests (LinkedIn, and ProjectManagement.com, which loads normally in a browser). Four source links that had started redirecting now point at their destinations.",
-  "KenAshe.ai pull request: the Vercel preview build is the build check. The Digest pipeline's own tests give the same result before and after the prompt change."
+  "Links: every internal link resolves, and external links answer apart from two sites that refuse automated requests (LinkedIn, and ProjectManagement.com, which was confirmed in a real browser).",
+  "KenAshe.ai pull requests: the Vercel preview build is the build check. The Digest pipeline's own tests give the same result before and after the prompt change."
  ],
  "limits": [
   "Safari is not verified. WebKit could not start in the build environment. The Safari checklist above is for Ken to run on a MacBook and an iPhone.",
-  "There are no Lighthouse scores, and that is not a launch blocker. Lighthouse cannot be installed in the build environment and the PageSpeed API was rate-limited. The load figures above are laboratory measurements taken directly in Chromium. They are not Lighthouse scores and not field data.",
+  "There are no Lighthouse scores, and that is not a launch blocker. The load figures above are laboratory measurements taken directly in Chromium. They are not Lighthouse scores and not field data.",
   "Real contact form delivery, the www redirect, and the 404 page for missing paths exist only on the live domain and are checked after launch.",
-  "The Digest prompt change could not be shadow-tested from the build environment."
+  "The Digest prompt change has not been shadow-tested. It is isolated in its own draft pull request until it is."
  ],
- "perfNote": "Laboratory measurements, not Lighthouse scores and not field data. Measured on the published staging copy on November 24, 2026, in Chromium through the DevTools Protocol; the November 25 changes were to text and metadata only. Each figure is the median of three cold loads. Phone figures use a 412 by 823 viewport with 150 ms latency, 1.6 Mbps down and the processor slowed four times, close to Lighthouse's mobile preset. Transfer and requests are for a first visit on desktop, with nothing cached, and include one staging-only script. No page made a third-party request.",
+ "perfNote": "Laboratory measurements, not Lighthouse scores and not field data. Measured on the published staging copy on November 24, 2026, in Chromium through the DevTools Protocol; the changes made on November 25 were to text and metadata only. Each figure is the median of three cold loads. Phone figures use a 412 by 823 viewport with 150 ms latency, 1.6 Mbps down and the processor slowed four times, close to Lighthouse's mobile preset. Transfer and requests are for a first visit on desktop, with nothing cached, and include one staging-only script. No page made a third-party request.",
  "perf": {
   "base": "https://kenashe.github.io/luckydomains-design-concepts/digital-presence-production-candidate/",
   "pages": {
